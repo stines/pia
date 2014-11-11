@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pia Olsen</title>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0"/>
+    <link rel="shortcut icon" type="image/ico" href="/www/images/favicon.ico"/>
+    <link rel="apple-touch-icon" href="/www/images/appicon.png"/>
+    <link rel="stylesheet" type="text/css" href="/www/css/jquery-ui-1.11.2.smoothness/jquery-ui.min.css">
+    <link rel="stylesheet" type="text/css" href="/www/css/style.css" media="screen">
+    <script language="javascript" type="text/javascript" src="/www/js/jquery-1.11.1.min.js"></script>
+    <script language="javascript" type="text/javascript" src="/www/js/jquery-ui-1.11.2.js"></script>
+    <script language="javascript" type="text/javascript" src="/www/js/jquery.cookie.js"></script>
+    <script language="javascript" type="text/javascript" src="/www/js/script.js"></script>
+    <script language="javascript" type="text/javascript" src="/www/js/shop.js"></script>
+</head>
+<body>
+
+<div class="canvas shop">
+    <div id="top">
+        <div class="title">
+            <a href="/opgaver"><img src="/www/images/signature.png" alt="Pia Olsen"/></a>
+        </div>
+        <div class="navigation">
+            <nav>
+                <a href="/opgaver">Opgaver</a>
+                <a href="/kontakt">Kontakt</a>
+                <a href="/kunder">Kunder</a>
+                <a href="/butik" class="active">Butik</a>
+            </nav>
+        </div>
+        <div class="clearer"></div>
+    </div>
+
+    <div id="basket-nav"><a href="javascript: Basket.show(true);">Kurv (<span class="basket-count">0</span>)</a></div>
+    <div id="basket">
+        <form id="form" onsubmit="return false;">
+            <div id="pictures"></div>
+            <div class="field">
+                <label for="from">Din email:</label> <input type="text" id="from"/>
+            </div>
+            <div class="field">
+                <label for="phone">Dit telefonnummer:</label> <input type="text" id="phone"/>
+            </div>
+            <div class="field">
+                <label for="message">Kommentar?</label> <textarea id="message"></textarea>
+            </div>
+            <div class="send"><a href="javascript: Basket.submit();">Bestil &#187;</a></div>
+        </form>
+    </div>
+
+    <div id="explore"></div>
+
+    <div id="middle">
+        <div class="navigation">
+            <nav>
+                <a href="/opgaver">Opgaver</a>
+                <a href="/kontakt">Kontakt</a>
+                <a href="/kunder">Kunder</a>
+                <a href="/butik" class="active">Butik</a>
+            </nav>
+        </div>
+        <div class="clearer"></div>
+    </div>
+
+    <div id="categories" class="float">
+        <div class="item" onclick="Groups.show(true, 'butik', 'portraetter-ramme');">
+            <div class="link"><img src="/www/shop/galleri1.gif" alt=""/></div>
+            <div class="text link">Portrætter i ramme</div>
+        </div>
+        <div class="item" onclick="Groups.show(true, 'butik', 'litografier');">
+            <div class="link"><img src="/www/shop/galleri4.gif" alt=""/></div>
+            <div class="text link">Litografier</div>
+        </div>
+        <div class="item" onclick="Groups.show(true, 'butik', 'tegninger-sorte');">
+            <div class="link"><img src="/www/shop/galleri5.gif" alt=""/></div>
+            <div class="text link">Sorte tegninger</div>
+        </div>
+        <div class="item" onclick="Groups.show(true, 'butik', 'hunde-ramme');">
+            <div class="link"><img src="/www/shop/galleri3.gif" alt=""/></div>
+            <div class="text link">Hunde i ramme</div>
+        </div>
+        <div class="item" onclick="Groups.show(true, 'butik', 'malerier');">
+            <div class="link"><img src="/www/shop/galleri2.gif" alt=""/></div>
+            <div class="text link">Malerier</div>
+        </div>
+        <div class="item" onclick="Groups.show(true, 'butik', 'portraetter-smaa');">
+            <div class="link"><img src="/www/shop/galleri6.gif" alt=""/></div>
+            <div class="text link">Små portrætter</div>
+        </div>
+        <div class="item" onclick="Groups.show(true, 'butik', 'portraetter-smaa-farve');">
+            <div class="link"><img src="/www/shop/galleri7.gif" alt=""/></div>
+            <div class="text link">Små portrætter, farvet baggrund</div>
+        </div>
+    </div>
+
+    <div id="bottom">
+        <div class="navigation">
+            <nav>
+                <a href="/opgaver">Opgaver</a>
+                <a href="/kontakt">Kontakt</a>
+                <a href="/kunder">Kunder</a>
+                <a href="/butik" class="active">Butik</a>
+            </nav>
+        </div>
+        <div class="copyright">&copy; Pia Olsen 2014</div>
+        <div class="clearer"></div>
+    </div>
+</div>
+
+<div id="dialog"></div>
+
+</body>
+</html>

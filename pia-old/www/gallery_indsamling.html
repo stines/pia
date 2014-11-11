@@ -1,0 +1,108 @@
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <!--[if IE]>
+    <meta http-equiv="imagetoolbar" content="no" />
+    <![endif]-->
+    <link rel="shortcut icon" href="http://www.piaolsen.com/www/imgs/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="http://www.piaolsen.com/www/imgs/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="http://www.piaolsen.com/www/css/style.css" />
+    <script type="text/javascript" src="http://www.piaolsen.com/www/js/ajax.js"></script>
+    <script type="text/javascript" src="http://www.piaolsen.com/www/js/utils.js"></script>
+    <script type="text/javascript" src="http://www.piaolsen.com/www/js/send.js"></script>
+    <script type="text/javascript" src="http://www.piaolsen.com/www/js/popup.js"></script>
+    <script type="text/javascript" src="http://www.piaolsen.com/www/js/news.js"></script>
+    <script type="text/javascript">
+    <!--
+    var js_popup_news = new js_Popup("news", "below_left", "news_email");
+    js_popups[p++] = js_popup_news;
+    document.onmouseup = function() { 
+        js_popup_onmouseup();
+    }
+	var js_bodyMethods = {
+        onload : function() {
+		    js_popup_init();
+		},
+        onunload : function() {}
+    };
+    //-->
+    </script>
+    <title>Pia Olsen</title>
+    </head>
+    <body onload="js_bodyMethods.onload();">
+    <div class="main">
+    <div class="top">
+      <div class="signatur">
+        <a href="http://www.piaolsen.com"><img src="http://www.piaolsen.com/www/imgs/signatur.gif" alt="" /></a>
+      </div>
+      <div class="top_menu">
+            <div class="top_menu_item">
+              <div class="top_menu_image"><a href="http://www.piaolsen.com/www/illus.html" title="Se et udsnit af mine bladtegninger"><img src="http://www.piaolsen.com/www/imgs/menu/illus.jpg" alt="" /></a></div>
+              <div class=""><a href="http://www.piaolsen.com/www/illus.html" title="Se et udsnit af mine bladtegninger">Illustrationer</a></div>
+            </div>
+            <div class="top_menu_item">
+              <div class="top_menu_image"><a href="http://www.piaolsen.com/www/gallery.html" title="Besøg mit netgalleri"><img src="http://www.piaolsen.com/www/imgs/menu/gallery.jpg" alt="" /></a></div>
+              <div class="active"><a href="http://www.piaolsen.com/www/gallery.html" title="Besøg mit netgalleri">Køb en original</a></div>
+            </div>
+            <div class="top_menu_item">
+              <div class="top_menu_image"><a href="http://www.piaolsen.com/www/info.html" title="Læs mit CV og mine kontaktoplysninger"><img src="http://www.piaolsen.com/www/imgs/menu/info.jpg" alt="" /></a></div>
+              <div class=""><a href="http://www.piaolsen.com/www/info.html" title="Læs mit CV og mine kontaktoplysninger">Info og kontakt</a></div>
+            </div>
+        <div class="top_menu_item">
+          <div class="top_menu_image">
+            <a href="javascript: js_popup_news.update();" onmousedown="js_popup_news.click();" title="Klik for at afmelde/tilmelde dig mit nyhedsbrev :)"><img src="http://www.piaolsen.com/www/imgs/menu/news.jpg" alt="" /></a>
+          </div>
+          <div><a id="news_link" style="position: relative;" href="javascript: js_popup_news.update();" onmousedown="js_popup_news.click();" title="Klik for at afmelde/tilmelde dig mit nyhedsbrev :)">Nyhedsbrev</a></div>
+        </div>
+        <div class="top_menu_item">
+          <div class="top_menu_image"><a href="http://www.piaolsen.com/www/gallery_indsamling_en.html" title="Switch to the English version og my home page"><img src="http://www.piaolsen.com/www/imgs/menu/english.jpg" alt="" /></a></div>
+          <div><a href="http://www.piaolsen.com/www/gallery_indsamling_en.html" title="Switch to the English version og my home page">English</a></div>
+        </div></div>
+    </div>
+    <div class="content content_gallery">
+    <div class="gallery">
+    <div id="gallery_form">
+        <form onsubmit="return false;">
+        <div class="gallery_form_header">Din email-adresse:</div><div><input type="text" id="from" /></div>
+        <div class="gallery_form_header">Dit telefonnummer:</div><div><input type="text" id="phone" /></div>
+        <div class="gallery_form_header">Originalnumre:</div><div><input type="text" id="numbers" /></div>
+        <div class="gallery_form_header">Yderligere kommentar:</div><div><textarea id="message"></textarea></div>
+        <div class="gallery_form_send"><a href="javascript: js_submitGalleryForm(0);" title="Send formularen afsted">Send &#187;</a></div>
+        </form>
+    </div>
+    <div id="gallery_form_thanks">Tak for din bestilling :) Jeg vender tilbage snarest!</div>
+        
+    <div class="gallery_menu"><div class="tab"><div class="tab_content"><a href="http://www.piaolsen.com/www/gallery_mennesker.html" title="Mennesker">Mennesker</a></div></div><div class="tab"><div class="tab_content"><a href="http://www.piaolsen.com/www/gallery_mennesker_store.html" title="Store mennesker">Store mennesker</a></div></div><div class="tab"><div class="tab_content"><a href="http://www.piaolsen.com/www/gallery_malerier.html" title="Malerier">Malerier</a></div></div><div class="tab"><div class="tab_content"><a href="http://www.piaolsen.com/www/gallery_skitser.html" title="Skitser">Skitser</a></div></div>  
+    </div>
+    <div class="gallery_illus"></div>
+    </div>
+    <div class="footer"><div class="top_link"><a href="#" title="Gå til toppen">Gå til toppen &#187;</a></div>
+        <div class="copyright">&copy; Copyright 2014 by Pia Olsen</div>
+    </div>
+    </div>
+    
+    <div id="news" class="popup" onmousedown="js_popup_news.click();">
+      <form onsubmit="return false;">
+        <div>Emailadresse:</div>
+        <div><input type="text" name="news_input" id="news_email" /></div>
+        <div id="news_submit">
+          <a href="javascript: js_submitNewsForm(0,1);">Tilmeld &#187;</a>&nbsp;
+          <a href="javascript: js_submitNewsForm(0,0);">Afmeld &#187;</a>&nbsp;
+        </div>
+        <div id="news_busy"><img src="http://www.stinesplace.com/www/imgs/busy.gif" alt="" /></div>
+      </form>
+    </div>
+
+    <script type="text/javascript">
+    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script type="text/javascript">
+    var pageTracker = _gat._getTracker("UA-2802134-3");
+    pageTracker._trackPageview();
+    </script>
+
+    </body>
+    </html>

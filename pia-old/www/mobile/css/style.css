@@ -1,0 +1,31 @@
+body {
+	padding: 5px;
+}
+
+.signature {
+	margin-bottom: 20px;
+}
+
+.button {
+	font-family: Helvetica;
+ 	font-weight: bold;
+ 	padding: 10px; 
+ 	border: 1px solid #ccc;
+ 	-moz-border-radius: 8px;
+ 	-webkit-border-radius: 8px; 
+ 	margin-top: 10px;
+ 	margin-bottom: 10px;
+ 	background-color: white;
+	display: block;
+}
+
+a.button {
+	text-decoration: none;
+	color: #000;
+}
+
+a.button:hover {
+	text-decoration: none;
+	color: #000;
+}
+

@@ -1,0 +1,241 @@
+html {
+	height: 101%;	
+}
+
+body, td, a, textarea, input { 
+    font-family: arial, helvetica, sans-serif;
+    font-size: 12px;
+    font-variant: normal;
+    letter-spacing: 0.05em;
+    color: #111;
+    text-decoration: none;
+}
+
+input.text { 
+	/*border: 1px solid #888;*/
+}
+
+img {
+    border: none;
+}
+
+a {
+ 	text-decoration: underline;
+}
+a:hover {
+    color: #f00;
+}
+
+.header {
+	padding: 20px 20px 30px 20px;	
+}
+
+.top-menu {
+	position: absolute;
+	top: 6px;
+	right: 10px;
+	color: #444;	
+}
+.top-menu table td {
+	color: #444;	
+}
+.hotline {
+	background-image: url("../imgs/bullet_red.gif");
+	background-repeat: no-repeat;
+	background-position: 8px 3px;
+	color: #f00;
+	padding: 0px 4px 0px 20px;
+}
+.hotline a {
+	color: #f00;
+}
+.logout {
+	background-image: url("../imgs/bullet_blue.gif");
+	background-repeat: no-repeat;
+	background-position: 4px 3px;
+	color: #3cf;
+	padding: 0px 10px 0px 16px;
+}
+.logout a {
+	color: #3cf;
+}
+.wmdesign {
+	border-bottom: 1px solid #eee;  
+	padding: 0px 4px 8px 4px;
+	margin: 0px 0px 8px 0px;	
+}
+.wmdesign a {
+	text-decoration: none; 
+	color: #93f;
+}
+.user { 
+	border-top: 1px solid #eee;
+	padding: 8px 4px 0px 4px;	
+	margin: 8px 0px 0px 0px;
+}
+
+.content {
+	padding: 10px 10px 10px 10px;	
+}
+
+.body-login {
+	/*background-image: url("../imgs/bullet_blue_bg.gif");*/	
+}
+.login {
+	border: 0px dotted #3cf;
+	padding: 20px;		
+	margin: 0px 0px 0px 10px;
+}
+
+.front-header {
+	margin: 12px 0px 6px 8px;
+}
+.front-sub-header {
+	padding: 0px 0px 2px 26px;	
+}
+.front-space {
+	font-size: 1px;
+	height: 14px;
+}
+
+.front-header-illus {
+	background-image: url("../imgs/bullet_admin_illus.gif");
+	background-repeat: no-repeat;
+	background-position: 4px 3px;
+	color: #e2b;
+	padding: 0px 0px 0px 18px;
+}
+.illu-group-inner {
+	border-right: 1px solid #f9f;
+	border-bottom: 1px solid #f9f;
+	border-left: 1px solid #f9f;
+	margin: 13px;
+}
+.illu-group-inner-header {
+	background-color: #f9f;
+	padding: 6px;
+}
+.illu-group-inner-empty {
+	padding: 6px;	
+}
+.illu-group-leaf-header {
+	background-image: url("../imgs/bullet_admin_illus.gif");
+	background-repeat: no-repeat;
+	background-position: 6px 3px;
+	color: #111;
+	padding-left: 20px;
+	margin: 6px 10px 6px 0px;
+}
+.illu-group-leaf-upload {
+	padding: 4px 8px 4px 20px;	
+}
+.illu-group-illus {
+	border: 1px solid #eee;
+	padding: 6px; 
+	margin: 0px 10px 6px 20px;	
+}
+ 
+.front-header-gallery {
+	background-image: url("../imgs/bullet_admin_gallery.gif");
+	background-repeat: no-repeat;
+	background-position: 4px 3px;
+	color: #f90;
+	padding: 0px 0px 0px 18px;
+}
+.gallery-group {
+	margin: 13px;
+}
+.gallery-group-header {
+	background-color: #f93;
+	padding: 6px;
+}
+.gallery-group-illus {
+	border-right: 1px solid #f93;
+	border-bottom: 1px solid #f93;
+	border-left: 1px solid #f93;
+	padding: 6px; 
+}
+
+.illu-list td {
+	vertical-align: middle;
+	background-color: #eee;
+	padding: 2px 4px 2px 4px;	
+}
+.illu-list td.top {
+	cursor: default;
+	background-color: transparent;
+	padding: 0px 4px 0px 4px;	
+}
+.illu-list td.sort {
+	cursor: pointer;	
+}
+.illu-list td.no {
+	text-align: center;
+	vertical-align: middle;
+	background-color: transparent;
+}
+.illu-list td.illu {
+	vertical-align: middle;
+	background-color: transparent;
+}
+.illu-list td.button {
+	vertical-align: middle;
+	background-color: transparent;
+}
+
+.front-header-top-menu {
+	background-image: url("../imgs/bullet_lilac.gif");
+	background-repeat: no-repeat;
+	background-position: 4px 3px;
+	color: #90f;
+	padding: 0px 0px 0px 18px;
+}
+
+.front-header-front {
+	background-image: url("../imgs/bullet_green.gif");
+	background-repeat: no-repeat;
+	background-position: 4px 3px;
+	color: #3c3;
+	padding: 0px 0px 0px 18px;
+}
+
+.star {
+	font-weight: bold;
+	font-size: 14px;
+	color: #f00;	
+}
+
+.not-implemented {
+	font-style: italic;
+	margin: 4px 0px 4px 10px;	
+}
+
+.buttons {
+	padding: 0px 0px 0px 20px;	
+}
+.button-restore {
+	color: #f00;
+	font-weight: bold;	
+}
+
+#popup {
+	position: absolute; 
+	top: 200px; 
+	left: 300px; 
+	display: none;
+	background-color: #faf;
+	border: 1px dotted #f00;
+}
+
+#glass_pane {
+	position: absolute; 
+	top: 0px; 
+	left: 0px; 
+	cursor: wait; 
+	visibility: hidden; 
+	z-index: -1; 
+	background-color: white; 
+	filter: alpha(opacity=1); 
+	-moz-opacity: 0.01; 
+	opacity: 0.01;
+}

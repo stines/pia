@@ -1,0 +1,49 @@
+RewriteEngine  on
+
+RewriteRule wm/$	http://www.stinesplace.com/
+RewriteRule wm$	http://www.stinesplace.com/
+
+RewriteRule (illus|gallery)_(menu|content)$	www/admin/index.php?p=$1&sp=$2
+RewriteRule logout$	www/admin/index.php?logout=1
+
+RewriteRule webmaster$	www/contact.php?e=1&t=0&po=0&s=0 
+RewriteRule webmastert$	www/contact.php?e=1&t=1&po=0&s=0
+
+# RewriteRule gallery$	www/galleri/?e=1
+# RewriteRule galleryt$	www/galleri/?e=1&t=1
+# RewriteRule galleri$	www/galleri/
+# RewriteRule gallerit$	www/galleri/?t=1
+# RewriteRule poster$	www/galleri/poster.php?e=1
+# RewriteRule plakat$	www/galleri/poster.php
+
+# RewriteRule (alt|bupl|hk|skolen|post|q|spis|horoskop|aller|fiktive|arvid|maradona|ulla|bogomslag|depression|hisOmModer|moderskab|taktOgTone|kort)(1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20|21|22|23|24)$	index.php?keyword=$1&image=$2
+# RewriteRule (cv|calendar|contact)$	index.php?keyword=$1
+
+RewriteCond %{HTTP_HOST} ^webmaster\.piaolsen\.com$ 
+RewriteRule ^(.*)$ http://www.stinesplace.com/ [R=301,L]
+
+# Preventing other domains from linking to Pia's images:
+#RewriteCond %{HTTP_REFERER} !^$
+#RewriteCond %{HTTP_REFERER} !^http://(www\.)?piaolsen.com/.*$
+#RewriteCond %{REQUEST_FILENAME} !stine\.jpg$ 
+#RewriteRule \.(gif|jpg)$ - [F]
+
+IndexIgnore .htaccess */.??* *~ *# */HEADER* */README* */_vti*
+
+#AddType text/cache-manifest .manifest
+
+<Files .htaccess>
+order allow,deny
+deny from all
+</Files>
+
+<Limit GET POST>
+order deny,allow
+deny from all
+allow from all
+</Limit>
+
+<Limit PUT DELETE>
+order deny,allow
+deny from all
+</Limit>

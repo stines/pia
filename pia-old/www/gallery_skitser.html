@@ -1,0 +1,998 @@
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <!--[if IE]>
+    <meta http-equiv="imagetoolbar" content="no" />
+    <![endif]-->
+    <link rel="shortcut icon" href="http://www.piaolsen.com/www/imgs/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="http://www.piaolsen.com/www/imgs/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="http://www.piaolsen.com/www/css/style.css" />
+    <script type="text/javascript" src="http://www.piaolsen.com/www/js/ajax.js"></script>
+    <script type="text/javascript" src="http://www.piaolsen.com/www/js/utils.js"></script>
+    <script type="text/javascript" src="http://www.piaolsen.com/www/js/send.js"></script>
+    <script type="text/javascript" src="http://www.piaolsen.com/www/js/popup.js"></script>
+    <script type="text/javascript" src="http://www.piaolsen.com/www/js/news.js"></script>
+    <script type="text/javascript">
+    <!--
+    var js_popup_news = new js_Popup("news", "below_left", "news_email");
+    js_popups[p++] = js_popup_news;
+    document.onmouseup = function() { 
+        js_popup_onmouseup();
+    }
+	var js_bodyMethods = {
+        onload : function() {
+		    js_popup_init();
+		},
+        onunload : function() {}
+    };
+    //-->
+    </script>
+    <title>Pia Olsen</title>
+    </head>
+    <body onload="js_bodyMethods.onload();">
+    <div class="main">
+    <div class="top">
+      <div class="signatur">
+        <a href="http://www.piaolsen.com"><img src="http://www.piaolsen.com/www/imgs/signatur.gif" alt="" /></a>
+      </div>
+      <div class="top_menu">
+            <div class="top_menu_item">
+              <div class="top_menu_image"><a href="http://www.piaolsen.com/www/illus.html" title="Se et udsnit af mine bladtegninger"><img src="http://www.piaolsen.com/www/imgs/menu/illus.jpg" alt="" /></a></div>
+              <div class=""><a href="http://www.piaolsen.com/www/illus.html" title="Se et udsnit af mine bladtegninger">Illustrationer</a></div>
+            </div>
+            <div class="top_menu_item">
+              <div class="top_menu_image"><a href="http://www.piaolsen.com/www/gallery.html" title="Besøg mit netgalleri"><img src="http://www.piaolsen.com/www/imgs/menu/gallery.jpg" alt="" /></a></div>
+              <div class="active"><a href="http://www.piaolsen.com/www/gallery.html" title="Besøg mit netgalleri">Køb en original</a></div>
+            </div>
+            <div class="top_menu_item">
+              <div class="top_menu_image"><a href="http://www.piaolsen.com/www/info.html" title="Læs mit CV og mine kontaktoplysninger"><img src="http://www.piaolsen.com/www/imgs/menu/info.jpg" alt="" /></a></div>
+              <div class=""><a href="http://www.piaolsen.com/www/info.html" title="Læs mit CV og mine kontaktoplysninger">Info og kontakt</a></div>
+            </div>
+        <div class="top_menu_item">
+          <div class="top_menu_image">
+            <a href="javascript: js_popup_news.update();" onmousedown="js_popup_news.click();" title="Klik for at afmelde/tilmelde dig mit nyhedsbrev :)"><img src="http://www.piaolsen.com/www/imgs/menu/news.jpg" alt="" /></a>
+          </div>
+          <div><a id="news_link" style="position: relative;" href="javascript: js_popup_news.update();" onmousedown="js_popup_news.click();" title="Klik for at afmelde/tilmelde dig mit nyhedsbrev :)">Nyhedsbrev</a></div>
+        </div>
+        <div class="top_menu_item">
+          <div class="top_menu_image"><a href="http://www.piaolsen.com/www/gallery_skitser_en.html" title="Switch to the English version og my home page"><img src="http://www.piaolsen.com/www/imgs/menu/english.jpg" alt="" /></a></div>
+          <div><a href="http://www.piaolsen.com/www/gallery_skitser_en.html" title="Switch to the English version og my home page">English</a></div>
+        </div></div>
+    </div>
+    <div class="content content_gallery">
+    <div class="gallery">
+    <div id="gallery_form">
+        <form onsubmit="return false;">
+        <div class="gallery_form_header">Din email-adresse:</div><div><input type="text" id="from" /></div>
+        <div class="gallery_form_header">Dit telefonnummer:</div><div><input type="text" id="phone" /></div>
+        <div class="gallery_form_header">Originalnumre:</div><div><input type="text" id="numbers" /></div>
+        <div class="gallery_form_header">Yderligere kommentar:</div><div><textarea id="message"></textarea></div>
+        <div class="gallery_form_send"><a href="javascript: js_submitGalleryForm(0);" title="Send formularen afsted">Send &#187;</a></div>
+        </form>
+    </div>
+    <div id="gallery_form_thanks">Tak for din bestilling :) Jeg vender tilbage snarest!</div>
+        
+    <div class="gallery_menu"><div class="tab"><div class="tab_content"><a href="http://www.piaolsen.com/www/gallery_mennesker.html" title="Mennesker">Mennesker</a></div></div><div class="tab"><div class="tab_content"><a href="http://www.piaolsen.com/www/gallery_mennesker_store.html" title="Store mennesker">Store mennesker</a></div></div><div class="tab"><div class="tab_content"><a href="http://www.piaolsen.com/www/gallery_malerier.html" title="Malerier">Malerier</a></div></div><div class="tab_active"><div class="tab_content">Skitser</div></div>  
+    </div>
+    <div class="gallery_illus"> 
+                    <div class="gallery_illu" id="illu_797">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/10100.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 797</div>
+                        <div class="gallery_illu_facts">17 x 23 cm&nbsp;&nbsp;/&nbsp;&nbsp;400 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 797);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_798">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/10090.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 798</div>
+                        <div class="gallery_illu_facts">24 x 18,5 cm&nbsp;&nbsp;/&nbsp;&nbsp;300 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 798);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_799">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/10080.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 799</div>
+                        <div class="gallery_illu_facts">20 x 24,5 cm&nbsp;&nbsp;/&nbsp;&nbsp;400 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 799);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_800">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/10070.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 800</div>
+                        <div class="gallery_illu_facts">10,5 x 27 cm&nbsp;&nbsp;/&nbsp;&nbsp;250 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 800);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_803">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/10040.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 803</div>
+                        <div class="gallery_illu_facts">16 x 24 cm&nbsp;&nbsp;/&nbsp;&nbsp;400 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 803);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_804">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/10030.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 804</div>
+                        <div class="gallery_illu_facts">17,5 x 24 cm&nbsp;&nbsp;/&nbsp;&nbsp;300 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 804);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_805">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/10020.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 805</div>
+                        <div class="gallery_illu_facts">13,5 x 17 cm&nbsp;&nbsp;/&nbsp;&nbsp;300 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 805);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_795">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/10010.jpg" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 795</div>
+                        <div class="gallery_illu_facts">11,5 x 22,5 cm&nbsp;&nbsp;/&nbsp;&nbsp;350 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 795);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_796">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/10000.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 796</div>
+                        <div class="gallery_illu_facts">14 x 19,5 cm&nbsp;&nbsp;/&nbsp;&nbsp;350 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 796);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_742">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/958.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 742</div>
+                        <div class="gallery_illu_facts">10 x 14 cm&nbsp;&nbsp;/&nbsp;&nbsp;350 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 742);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_736">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/956.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 736</div>
+                        <div class="gallery_illu_facts">10 x 14 cm&nbsp;&nbsp;/&nbsp;&nbsp;350 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 736);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_735">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/954.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 735</div>
+                        <div class="gallery_illu_facts">9 x 14 cm&nbsp;&nbsp;/&nbsp;&nbsp;300 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 735);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_722">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/952.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 722</div>
+                        <div class="gallery_illu_facts">10 x 15 cm&nbsp;&nbsp;/&nbsp;&nbsp;350 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 722);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_725">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/950.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 725</div>
+                        <div class="gallery_illu_facts">10 x 14 cm&nbsp;&nbsp;/&nbsp;&nbsp;350 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 725);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_726">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/948.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 726</div>
+                        <div class="gallery_illu_facts">9,5 x 13 cm&nbsp;&nbsp;/&nbsp;&nbsp;300 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 726);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_729">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/946.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 729</div>
+                        <div class="gallery_illu_facts">10 x 14 cm&nbsp;&nbsp;/&nbsp;&nbsp;350 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 729);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_730">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/944.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 730</div>
+                        <div class="gallery_illu_facts">9,5 x 13,5 cm&nbsp;&nbsp;/&nbsp;&nbsp;300 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 730);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_732">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/942.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 732</div>
+                        <div class="gallery_illu_facts">10 x 15 cm&nbsp;&nbsp;/&nbsp;&nbsp;350 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 732);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_733">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/940.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 733</div>
+                        <div class="gallery_illu_facts">10 x 14 cm&nbsp;&nbsp;/&nbsp;&nbsp;300 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 733);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_715">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/938.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 715</div>
+                        <div class="gallery_illu_facts">9 x 12,5 cm&nbsp;&nbsp;/&nbsp;&nbsp;350 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 715);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_713">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/936.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 713</div>
+                        <div class="gallery_illu_facts">9,5 x 14 cm&nbsp;&nbsp;/&nbsp;&nbsp;350 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 713);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_714">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/934.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 714</div>
+                        <div class="gallery_illu_facts">10 x 15 cm&nbsp;&nbsp;/&nbsp;&nbsp;350 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 714);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_719">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/932.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 719</div>
+                        <div class="gallery_illu_facts">10 x 13 cm&nbsp;&nbsp;/&nbsp;&nbsp;200 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 719);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_759">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/930.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 759</div>
+                        <div class="gallery_illu_facts">9 x 10 cm&nbsp;&nbsp;/&nbsp;&nbsp;250 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 759);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_755">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/928.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 755</div>
+                        <div class="gallery_illu_facts">9 x 12 cm&nbsp;&nbsp;/&nbsp;&nbsp;350 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 755);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_734">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/926.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 734</div>
+                        <div class="gallery_illu_facts">10 x 12 cm&nbsp;&nbsp;/&nbsp;&nbsp;150 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 734);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_717">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/924.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 717</div>
+                        <div class="gallery_illu_facts">10,5 x 14 cm&nbsp;&nbsp;/&nbsp;&nbsp;150 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 717);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_757">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/922.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 757</div>
+                        <div class="gallery_illu_facts">10 x 13,5 cm&nbsp;&nbsp;/&nbsp;&nbsp;200 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 757);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_753">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/920.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 753</div>
+                        <div class="gallery_illu_facts">10,5 x 12 cm&nbsp;&nbsp;/&nbsp;&nbsp;375 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 753);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_747">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/918.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 747</div>
+                        <div class="gallery_illu_facts">10 x 13,5 cm&nbsp;&nbsp;/&nbsp;&nbsp;250 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 747);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_727">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/916.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 727</div>
+                        <div class="gallery_illu_facts">8 x 11,5 cm&nbsp;&nbsp;/&nbsp;&nbsp;300 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 727);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_746">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/914.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 746</div>
+                        <div class="gallery_illu_facts">11 x 16 cm&nbsp;&nbsp;/&nbsp;&nbsp;500 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 746);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_762">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/912.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 762</div>
+                        <div class="gallery_illu_facts">12 x 17 cm&nbsp;&nbsp;/&nbsp;&nbsp;250 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 762);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_763">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/910.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 763</div>
+                        <div class="gallery_illu_facts">8,5 x 8,5 cm&nbsp;&nbsp;/&nbsp;&nbsp;150 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 763);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_765">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/908.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 765</div>
+                        <div class="gallery_illu_facts">9,5 x 16 cm&nbsp;&nbsp;/&nbsp;&nbsp;150 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 765);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_766">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/906.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 766</div>
+                        <div class="gallery_illu_facts">9 x 17 cm&nbsp;&nbsp;/&nbsp;&nbsp;150 kr.</div><div class="gallery_illu_sold">Solgt</div></div> 
+                    <div class="gallery_illu" id="illu_768">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/904.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 768</div>
+                        <div class="gallery_illu_facts">9 x 15 cm&nbsp;&nbsp;/&nbsp;&nbsp;250 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 768);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_769">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/902.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 769</div>
+                        <div class="gallery_illu_facts">9 x 10 cm&nbsp;&nbsp;/&nbsp;&nbsp;200 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 769);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_771">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/900.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 771</div>
+                        <div class="gallery_illu_facts">8 x 9 cm&nbsp;&nbsp;/&nbsp;&nbsp;200 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 771);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_772">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/898.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 772</div>
+                        <div class="gallery_illu_facts">10 x 15 cm&nbsp;&nbsp;/&nbsp;&nbsp;250 kr.</div><div class="gallery_illu_sold">Solgt</div></div> 
+                    <div class="gallery_illu" id="illu_774">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/896.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 774</div>
+                        <div class="gallery_illu_facts">11 x 14 cm&nbsp;&nbsp;/&nbsp;&nbsp;250 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 774);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_749">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/892.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 749</div>
+                        <div class="gallery_illu_facts">8 x 8 cm&nbsp;&nbsp;/&nbsp;&nbsp;100 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 749);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_748">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/890.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 748</div>
+                        <div class="gallery_illu_facts">13 x 19,5 cm&nbsp;&nbsp;/&nbsp;&nbsp;200 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 748);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_741">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/888.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 741</div>
+                        <div class="gallery_illu_facts">8,5 x 26 cm&nbsp;&nbsp;/&nbsp;&nbsp;200 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 741);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_737">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/886.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 737</div>
+                        <div class="gallery_illu_facts">26,5 x 250 cm&nbsp;&nbsp;/&nbsp;&nbsp;19 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 737);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_724">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/884.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 724</div>
+                        <div class="gallery_illu_facts">17 x 29 cm&nbsp;&nbsp;/&nbsp;&nbsp;550 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 724);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_756">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/882.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 756</div>
+                        <div class="gallery_illu_facts">19 x 29 cm&nbsp;&nbsp;/&nbsp;&nbsp;600 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 756);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_750">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/880.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 750</div>
+                        <div class="gallery_illu_facts">20,5 x 29 cm&nbsp;&nbsp;/&nbsp;&nbsp;250 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 750);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_761">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/878.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 761</div>
+                        <div class="gallery_illu_facts">20,5 x 29 cm&nbsp;&nbsp;/&nbsp;&nbsp;200 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 761);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_745">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/876.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 745</div>
+                        <div class="gallery_illu_facts">20,5 x 29 cm&nbsp;&nbsp;/&nbsp;&nbsp;250 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 745);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_744">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/874.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 744</div>
+                        <div class="gallery_illu_facts">17 x 26 cm&nbsp;&nbsp;/&nbsp;&nbsp;200 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 744);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_743">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/872.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 743</div>
+                        <div class="gallery_illu_facts">15,5 x 18,5 cm&nbsp;&nbsp;/&nbsp;&nbsp;400 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 743);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_738">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/870.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 738</div>
+                        <div class="gallery_illu_facts">9 x 28 cm&nbsp;&nbsp;/&nbsp;&nbsp;250 kr.</div><div class="gallery_illu_sold">Solgt</div></div> 
+                    <div class="gallery_illu" id="illu_721">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/868.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 721</div>
+                        <div class="gallery_illu_facts">20,5 x 29 cm&nbsp;&nbsp;/&nbsp;&nbsp;250 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 721);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_723">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/866.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 723</div>
+                        <div class="gallery_illu_facts">20,5 x 29 cm&nbsp;&nbsp;/&nbsp;&nbsp;250 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 723);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_728">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/864.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 728</div>
+                        <div class="gallery_illu_facts">20,5 x 29 cm&nbsp;&nbsp;/&nbsp;&nbsp;250 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 728);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_731">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/862.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 731</div>
+                        <div class="gallery_illu_facts">16 x 22 cm&nbsp;&nbsp;/&nbsp;&nbsp;450 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 731);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_718">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/860.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 718</div>
+                        <div class="gallery_illu_facts">14 x 18,5 cm&nbsp;&nbsp;/&nbsp;&nbsp;400 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 718);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_716">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/858.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 716</div>
+                        <div class="gallery_illu_facts">12,5 x 17,5 cm&nbsp;&nbsp;/&nbsp;&nbsp;300 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 716);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_720">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/856.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 720</div>
+                        <div class="gallery_illu_facts">13,5 x 20,5 cm&nbsp;&nbsp;/&nbsp;&nbsp;500 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 720);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_758">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/854.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 758</div>
+                        <div class="gallery_illu_facts">14 x 20 cm&nbsp;&nbsp;/&nbsp;&nbsp;500 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 758);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_754">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/852.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 754</div>
+                        <div class="gallery_illu_facts">15 x 20 cm&nbsp;&nbsp;/&nbsp;&nbsp;500 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 754);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_752">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/850.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 752</div>
+                        <div class="gallery_illu_facts">15 x 18 cm&nbsp;&nbsp;/&nbsp;&nbsp;450 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 752);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_739">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/848.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 739</div>
+                        <div class="gallery_illu_facts">14 x 18 cm&nbsp;&nbsp;/&nbsp;&nbsp;350 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 739);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_760">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/846.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 760</div>
+                        <div class="gallery_illu_facts">13,5 x 18 cm&nbsp;&nbsp;/&nbsp;&nbsp;400 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 760);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_764">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/844.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 764</div>
+                        <div class="gallery_illu_facts">15,5 x 18,5 cm&nbsp;&nbsp;/&nbsp;&nbsp;400 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 764);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_767">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/842.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 767</div>
+                        <div class="gallery_illu_facts">13,5 x 18 cm&nbsp;&nbsp;/&nbsp;&nbsp;450 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 767);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_770">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/840.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 770</div>
+                        <div class="gallery_illu_facts">15 x 18 cm&nbsp;&nbsp;/&nbsp;&nbsp;450 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 770);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_773">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/838.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 773</div>
+                        <div class="gallery_illu_facts">13 x 19 cm&nbsp;&nbsp;/&nbsp;&nbsp;400 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 773);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_775">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/836.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 775</div>
+                        <div class="gallery_illu_facts">14 x 17,5 cm&nbsp;&nbsp;/&nbsp;&nbsp;400 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 775);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_776">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/834.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 776</div>
+                        <div class="gallery_illu_facts">14,5 x 19 cm&nbsp;&nbsp;/&nbsp;&nbsp;400 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 776);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_777">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/832.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 777</div>
+                        <div class="gallery_illu_facts">14 x 19 cm&nbsp;&nbsp;/&nbsp;&nbsp;400 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 777);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_573">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/83.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 573</div>
+                        <div class="gallery_illu_facts">13 x 13 cm&nbsp;&nbsp;/&nbsp;&nbsp;200 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 573);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_778">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/830.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 778</div>
+                        <div class="gallery_illu_facts">15 x 19,5 cm&nbsp;&nbsp;/&nbsp;&nbsp;400 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 778);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_779">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/828.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 779</div>
+                        <div class="gallery_illu_facts">14 x 19 cm&nbsp;&nbsp;/&nbsp;&nbsp;400 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 779);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_780">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/826.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 780</div>
+                        <div class="gallery_illu_facts">13 x 17 cm&nbsp;&nbsp;/&nbsp;&nbsp;350 kr.</div><div class="gallery_illu_sold">Solgt</div></div> 
+                    <div class="gallery_illu" id="illu_781">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/824.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 781</div>
+                        <div class="gallery_illu_facts">15 x 19 cm&nbsp;&nbsp;/&nbsp;&nbsp;400 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 781);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_782">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/822.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 782</div>
+                        <div class="gallery_illu_facts">13 x 18 cm&nbsp;&nbsp;/&nbsp;&nbsp;450 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 782);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_783">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/820.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 783</div>
+                        <div class="gallery_illu_facts">15,5 x 19 cm&nbsp;&nbsp;/&nbsp;&nbsp;400 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 783);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_784">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/818.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 784</div>
+                        <div class="gallery_illu_facts">13,5 x 19,5 cm&nbsp;&nbsp;/&nbsp;&nbsp;400 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 784);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_785">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/816.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 785</div>
+                        <div class="gallery_illu_facts">14,5 x 19,5 cm&nbsp;&nbsp;/&nbsp;&nbsp;450 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 785);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_786">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/814.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 786</div>
+                        <div class="gallery_illu_facts">15,5 x 19 cm&nbsp;&nbsp;/&nbsp;&nbsp;400 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 786);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_787">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/812.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 787</div>
+                        <div class="gallery_illu_facts">13 x 18,5 cm&nbsp;&nbsp;/&nbsp;&nbsp;400 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 787);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_788">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/810.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 788</div>
+                        <div class="gallery_illu_facts">14 x 19,5 cm&nbsp;&nbsp;/&nbsp;&nbsp;575 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 788);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_789">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/808.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 789</div>
+                        <div class="gallery_illu_facts">12 x 14,5 cm&nbsp;&nbsp;/&nbsp;&nbsp;375 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 789);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_790">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/806.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 790</div>
+                        <div class="gallery_illu_facts">8 x 14 cm&nbsp;&nbsp;/&nbsp;&nbsp;250 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 790);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_791">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/804.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 791</div>
+                        <div class="gallery_illu_facts">7,5 x 12 cm&nbsp;&nbsp;/&nbsp;&nbsp;250 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 791);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_793">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/802.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 793</div>
+                        <div class="gallery_illu_facts">8,5 x 12,5 cm&nbsp;&nbsp;/&nbsp;&nbsp;250 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 793);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_701">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/507.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 701</div>
+                        <div class="gallery_illu_facts">9 x 12 cm&nbsp;&nbsp;/&nbsp;&nbsp;375 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 701);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_656">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/612.tiff" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 656</div>
+                        <div class="gallery_illu_facts">25 x 12 cm&nbsp;&nbsp;/&nbsp;&nbsp;300 kr.</div><div class="gallery_illu_sold">Solgt</div></div> 
+                    <div class="gallery_illu" id="illu_608">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/41.gif" alt="" /></div>
+                        <div class="gallery_illu_title">(print med tegning på)</div>
+                        <div class="gallery_illu_no">Original nr. 608</div>
+                        <div class="gallery_illu_facts">21 x 29,5 cm&nbsp;&nbsp;/&nbsp;&nbsp;250 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 608);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_574">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/82.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 574</div>
+                        <div class="gallery_illu_facts">9,5 x 14,5 cm&nbsp;&nbsp;/&nbsp;&nbsp;250 kr.</div><div class="gallery_illu_sold">Solgt</div></div> 
+                    <div class="gallery_illu" id="illu_698">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/510.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 698</div>
+                        <div class="gallery_illu_facts">10,5 x 11,5 cm&nbsp;&nbsp;/&nbsp;&nbsp;375 kr.</div><div class="gallery_illu_sold">Solgt</div></div> 
+                    <div class="gallery_illu" id="illu_699">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/509.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 699</div>
+                        <div class="gallery_illu_facts">12 x 19 cm&nbsp;&nbsp;/&nbsp;&nbsp;450 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 699);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_700">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/508.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 700</div>
+                        <div class="gallery_illu_facts">8,5 x 9,5 cm&nbsp;&nbsp;/&nbsp;&nbsp;375 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 700);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_687">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/521.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 687</div>
+                        <div class="gallery_illu_facts">15 x 19 cm&nbsp;&nbsp;/&nbsp;&nbsp;450 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 687);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_709">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/536.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 709</div>
+                        <div class="gallery_illu_facts">23,5 x 31 cm&nbsp;&nbsp;/&nbsp;&nbsp;600 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 709);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_650">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/120.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 650</div>
+                        <div class="gallery_illu_facts">15,5 x 9,5 cm&nbsp;&nbsp;/&nbsp;&nbsp;150 kr.</div><div class="gallery_illu_sold">Solgt</div></div> 
+                    <div class="gallery_illu" id="illu_706">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/502.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 706</div>
+                        <div class="gallery_illu_facts">14 x 14,5 cm&nbsp;&nbsp;/&nbsp;&nbsp;375 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 706);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_704">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/504.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 704</div>
+                        <div class="gallery_illu_facts">7,5 x 12 cm&nbsp;&nbsp;/&nbsp;&nbsp;375 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 704);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_675">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/535.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 675</div>
+                        <div class="gallery_illu_facts">29 x 15 cm&nbsp;&nbsp;/&nbsp;&nbsp;650 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 675);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_677">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/531.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 677</div>
+                        <div class="gallery_illu_facts">15,5 x 16,5 cm&nbsp;&nbsp;/&nbsp;&nbsp;550 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 677);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_678">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/530.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 678</div>
+                        <div class="gallery_illu_facts">15 x 18,5 cm&nbsp;&nbsp;/&nbsp;&nbsp;550 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 678);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_679">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/529.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 679</div>
+                        <div class="gallery_illu_facts">15 x 19 cm&nbsp;&nbsp;/&nbsp;&nbsp;550 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 679);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_680">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/528.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 680</div>
+                        <div class="gallery_illu_facts">14 x 8 cm&nbsp;&nbsp;/&nbsp;&nbsp;300 kr.</div><div class="gallery_illu_sold">Solgt</div></div> 
+                    <div class="gallery_illu" id="illu_681">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/527.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 681</div>
+                        <div class="gallery_illu_facts">14 x 10 cm&nbsp;&nbsp;/&nbsp;&nbsp;300 kr.</div><div class="gallery_illu_sold">Solgt</div></div> 
+                    <div class="gallery_illu" id="illu_682">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/526.gif" alt="" /></div>
+                        <div class="gallery_illu_title">reserveret til ons. d. 23.4</div>
+                        <div class="gallery_illu_no">Original nr. 682</div>
+                        <div class="gallery_illu_facts">9,5 x 15 cm&nbsp;&nbsp;/&nbsp;&nbsp;375 kr.</div><div class="gallery_illu_sold">Solgt</div></div> 
+                    <div class="gallery_illu" id="illu_683">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/525.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 683</div>
+                        <div class="gallery_illu_facts">9,5 x 14,5 cm&nbsp;&nbsp;/&nbsp;&nbsp;375 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 683);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_684">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/524.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 684</div>
+                        <div class="gallery_illu_facts">10,5 x 15 cm&nbsp;&nbsp;/&nbsp;&nbsp;375 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 684);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_685">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/523.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 685</div>
+                        <div class="gallery_illu_facts">15 x 19 cm&nbsp;&nbsp;/&nbsp;&nbsp;350 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 685);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_686">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/522.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 686</div>
+                        <div class="gallery_illu_facts">10 x 13 cm&nbsp;&nbsp;/&nbsp;&nbsp;350 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 686);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_688">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/520.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 688</div>
+                        <div class="gallery_illu_facts">17 x 27 cm&nbsp;&nbsp;/&nbsp;&nbsp;750 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 688);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_689">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/519.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 689</div>
+                        <div class="gallery_illu_facts">10,5 x 13 cm&nbsp;&nbsp;/&nbsp;&nbsp;375 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 689);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_690">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/518.gif" alt="" /></div>
+                        <div class="gallery_illu_title">reserveret til ons. d. 23.4</div>
+                        <div class="gallery_illu_no">Original nr. 690</div>
+                        <div class="gallery_illu_facts">7,5 x 13 cm&nbsp;&nbsp;/&nbsp;&nbsp;350 kr.</div><div class="gallery_illu_sold">Solgt</div></div> 
+                    <div class="gallery_illu" id="illu_691">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/517.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 691</div>
+                        <div class="gallery_illu_facts">8,5 x 14 cm&nbsp;&nbsp;/&nbsp;&nbsp;350 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 691);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_692">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/516.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 692</div>
+                        <div class="gallery_illu_facts">9 x 13 cm&nbsp;&nbsp;/&nbsp;&nbsp;350 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 692);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_693">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/515.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 693</div>
+                        <div class="gallery_illu_facts">9 x 9 cm&nbsp;&nbsp;/&nbsp;&nbsp;350 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 693);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_694">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/514.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 694</div>
+                        <div class="gallery_illu_facts">9 x 9 cm&nbsp;&nbsp;/&nbsp;&nbsp;350 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 694);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_696">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/512.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 696</div>
+                        <div class="gallery_illu_facts">10,5 x 14 cm&nbsp;&nbsp;/&nbsp;&nbsp;375 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 696);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_702">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/506.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 702</div>
+                        <div class="gallery_illu_facts">7,5 x 11 cm&nbsp;&nbsp;/&nbsp;&nbsp;375 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 702);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_703">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/505.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 703</div>
+                        <div class="gallery_illu_facts">9 x 12,5 cm&nbsp;&nbsp;/&nbsp;&nbsp;375 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 703);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_697">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/511.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 697</div>
+                        <div class="gallery_illu_facts">11,5 x 17 cm&nbsp;&nbsp;/&nbsp;&nbsp;450 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 697);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_705">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/503.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 705</div>
+                        <div class="gallery_illu_facts">15,5 x 10 cm&nbsp;&nbsp;/&nbsp;&nbsp;375 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 705);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_659">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/112.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 659</div>
+                        <div class="gallery_illu_facts">24 x 21 cm&nbsp;&nbsp;/&nbsp;&nbsp;400 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 659);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_707">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/501.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 707</div>
+                        <div class="gallery_illu_facts">8,5 x 12,5 cm&nbsp;&nbsp;/&nbsp;&nbsp;375 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 707);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_708">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/500.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 708</div>
+                        <div class="gallery_illu_facts">8,5 x 13,5 cm&nbsp;&nbsp;/&nbsp;&nbsp;300 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 708);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_672">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/110.gif" alt="" /></div>
+                        <div class="gallery_illu_title">reserveret til ons. d. 23.4</div>
+                        <div class="gallery_illu_no">Original nr. 672</div>
+                        <div class="gallery_illu_facts">23,5 x 31,5 cm&nbsp;&nbsp;/&nbsp;&nbsp;600 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 672);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_710">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/1066.gif" alt="" /></div>
+                        <div class="gallery_illu_title">Litografi (ca 100 stk)</div>
+                        <div class="gallery_illu_no">Original nr. 710</div>
+                        <div class="gallery_illu_facts">21 x 30 cm&nbsp;&nbsp;/&nbsp;&nbsp;350 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 710);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_711">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/1064.gif" alt="" /></div>
+                        <div class="gallery_illu_title">Litografi (ca 100 stk)</div>
+                        <div class="gallery_illu_no">Original nr. 711</div>
+                        <div class="gallery_illu_facts">21 x 27,5 cm&nbsp;&nbsp;/&nbsp;&nbsp;350 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 711);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_712">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/1062.gif" alt="" /></div>
+                        <div class="gallery_illu_title">Litografi (ca 100 stk)</div>
+                        <div class="gallery_illu_no">Original nr. 712</div>
+                        <div class="gallery_illu_facts">21 x 27,5 cm&nbsp;&nbsp;/&nbsp;&nbsp;350 kr.</div><div class="gallery_illu_sold">Solgt</div></div> 
+                    <div class="gallery_illu" id="illu_740">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/960.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 740</div>
+                        <div class="gallery_illu_facts">9,5 x 14 cm&nbsp;&nbsp;/&nbsp;&nbsp;350 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 740);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_578">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/80.gif" alt="" /></div>
+                        <div class="gallery_illu_title">reserveret til ons. d. 23.4</div>
+                        <div class="gallery_illu_no">Original nr. 578</div>
+                        <div class="gallery_illu_facts">14 x 10 cm&nbsp;&nbsp;/&nbsp;&nbsp;250 kr.</div><div class="gallery_illu_sold">Solgt</div></div> 
+                    <div class="gallery_illu" id="illu_794">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/800.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 794</div>
+                        <div class="gallery_illu_facts">9 x 13 cm&nbsp;&nbsp;/&nbsp;&nbsp;200 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 794);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_575">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/79.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 575</div>
+                        <div class="gallery_illu_facts">10 x 15,5 cm&nbsp;&nbsp;/&nbsp;&nbsp;350 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 575);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_567">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/75.gif" alt="" /></div>
+                        <div class="gallery_illu_title">reserveret til ons. d. 23.4</div>
+                        <div class="gallery_illu_no">Original nr. 567</div>
+                        <div class="gallery_illu_facts">8 x 12,5 cm&nbsp;&nbsp;/&nbsp;&nbsp;250 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 567);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_581">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/70.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 581</div>
+                        <div class="gallery_illu_facts">11,5 x 11 cm&nbsp;&nbsp;/&nbsp;&nbsp;200 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 581);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_607">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/69.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 607</div>
+                        <div class="gallery_illu_facts">11,5 x 15 cm&nbsp;&nbsp;/&nbsp;&nbsp;300 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 607);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_606">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/68.gif" alt="" /></div>
+                        <div class="gallery_illu_title">reserveret til ons. d. 23.4</div>
+                        <div class="gallery_illu_no">Original nr. 606</div>
+                        <div class="gallery_illu_facts">7 x 17 cm&nbsp;&nbsp;/&nbsp;&nbsp;250 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 606);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_599">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/61.gif" alt="" /></div>
+                        <div class="gallery_illu_title">reserveret til ons. d. 23.4</div>
+                        <div class="gallery_illu_no">Original nr. 599</div>
+                        <div class="gallery_illu_facts">5,5 x 16 cm&nbsp;&nbsp;/&nbsp;&nbsp;200 kr.</div><div class="gallery_illu_sold">Solgt</div></div> 
+                    <div class="gallery_illu" id="illu_596">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/58.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 596</div>
+                        <div class="gallery_illu_facts">9,5 x 9 cm&nbsp;&nbsp;/&nbsp;&nbsp;200 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 596);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_595">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/57.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 595</div>
+                        <div class="gallery_illu_facts">10,5 x 12 cm&nbsp;&nbsp;/&nbsp;&nbsp;300 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 595);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_594">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/56.gif" alt="" /></div>
+                        <div class="gallery_illu_title">(print med tegning på)</div>
+                        <div class="gallery_illu_no">Original nr. 594</div>
+                        <div class="gallery_illu_facts">17 x 23 cm&nbsp;&nbsp;/&nbsp;&nbsp;150 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 594);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_593">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/55.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 593</div>
+                        <div class="gallery_illu_facts">16 x 24 cm&nbsp;&nbsp;/&nbsp;&nbsp;300 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 593);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_592">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/54.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 592</div>
+                        <div class="gallery_illu_facts">16,5 x 24 cm&nbsp;&nbsp;/&nbsp;&nbsp;300 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 592);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_588">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/50.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 588</div>
+                        <div class="gallery_illu_facts">18 x 22 cm&nbsp;&nbsp;/&nbsp;&nbsp;400 kr.</div><div class="gallery_illu_sold">Solgt</div></div> 
+                    <div class="gallery_illu" id="illu_585">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/47.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 585</div>
+                        <div class="gallery_illu_facts">17,5 x 25 cm&nbsp;&nbsp;/&nbsp;&nbsp;300 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 585);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_583">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/45.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 583</div>
+                        <div class="gallery_illu_facts">18 x 21,5 cm&nbsp;&nbsp;/&nbsp;&nbsp;200 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 583);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_565">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/44.gif" alt="" /></div>
+                        <div class="gallery_illu_title">(print med tegning på)</div>
+                        <div class="gallery_illu_no">Original nr. 565</div>
+                        <div class="gallery_illu_facts">21 x 29,5 cm&nbsp;&nbsp;/&nbsp;&nbsp;250 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 565);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_566">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/42.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 566</div>
+                        <div class="gallery_illu_facts">21 x 29,5 cm&nbsp;&nbsp;/&nbsp;&nbsp;250 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 566);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_609">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/40.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 609</div>
+                        <div class="gallery_illu_facts">15 x 19,5 cm&nbsp;&nbsp;/&nbsp;&nbsp;300 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 609);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_616">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/33.gif" alt="" /></div>
+                        <div class="gallery_illu_title">(print med tegning på)</div>
+                        <div class="gallery_illu_no">Original nr. 616</div>
+                        <div class="gallery_illu_facts">21 x 29,5 cm&nbsp;&nbsp;/&nbsp;&nbsp;250 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 616);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_617">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/32.gif" alt="" /></div>
+                        <div class="gallery_illu_title">(print med tegning på)</div>
+                        <div class="gallery_illu_no">Original nr. 617</div>
+                        <div class="gallery_illu_facts">21 x 29,5 cm&nbsp;&nbsp;/&nbsp;&nbsp;250 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 617);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_618">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/31.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 618</div>
+                        <div class="gallery_illu_facts">17 x 27,5 cm&nbsp;&nbsp;/&nbsp;&nbsp;450 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 618);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_619">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/30.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 619</div>
+                        <div class="gallery_illu_facts">21 x 29,5 cm&nbsp;&nbsp;/&nbsp;&nbsp;300 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 619);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_621">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/28.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 621</div>
+                        <div class="gallery_illu_facts">17 x 27,5 cm&nbsp;&nbsp;/&nbsp;&nbsp;450 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 621);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_622">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/27.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 622</div>
+                        <div class="gallery_illu_facts">18 x 30,5 cm&nbsp;&nbsp;/&nbsp;&nbsp;550 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 622);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_624">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/25.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 624</div>
+                        <div class="gallery_illu_facts">17,5 x 27 cm&nbsp;&nbsp;/&nbsp;&nbsp;550 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 624);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_625">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/24.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 625</div>
+                        <div class="gallery_illu_facts">19 x 28 cm&nbsp;&nbsp;/&nbsp;&nbsp;650 kr.</div><div class="gallery_illu_sold">Solgt</div></div> 
+                    <div class="gallery_illu" id="illu_626">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/23.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 626</div>
+                        <div class="gallery_illu_facts">15,5 x 23 cm&nbsp;&nbsp;/&nbsp;&nbsp;450 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 626);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_627">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/22.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 627</div>
+                        <div class="gallery_illu_facts">19 x 27,5 cm&nbsp;&nbsp;/&nbsp;&nbsp;450 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 627);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_628">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/21.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 628</div>
+                        <div class="gallery_illu_facts">14 x 21 cm&nbsp;&nbsp;/&nbsp;&nbsp;450 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 628);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_792">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/204.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 792</div>
+                        <div class="gallery_illu_facts">8 x 14 cm&nbsp;&nbsp;/&nbsp;&nbsp;250 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 792);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_629">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/20.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 629</div>
+                        <div class="gallery_illu_facts">17 x 27,5 cm&nbsp;&nbsp;/&nbsp;&nbsp;450 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 629);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_631">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/18.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 631</div>
+                        <div class="gallery_illu_facts">17 x 27,5 cm&nbsp;&nbsp;/&nbsp;&nbsp;450 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 631);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_633">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/16.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 633</div>
+                        <div class="gallery_illu_facts">20 x 25 cm&nbsp;&nbsp;/&nbsp;&nbsp;400 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 633);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_634">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/15.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 634</div>
+                        <div class="gallery_illu_facts">17,5 x 28 cm&nbsp;&nbsp;/&nbsp;&nbsp;450 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 634);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_635">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/14.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 635</div>
+                        <div class="gallery_illu_facts">18,5 x 24 cm&nbsp;&nbsp;/&nbsp;&nbsp;550 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 635);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_636">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/13.gif" alt="" /></div>
+                        <div class="gallery_illu_title">reserveret til ons. d. 23.4</div>
+                        <div class="gallery_illu_no">Original nr. 636</div>
+                        <div class="gallery_illu_facts">17 x 26,5 cm&nbsp;&nbsp;/&nbsp;&nbsp;600 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 636);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_637">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/12.gif" alt="" /></div>
+                        <div class="gallery_illu_title">(print med tegning på)</div>
+                        <div class="gallery_illu_no">Original nr. 637</div>
+                        <div class="gallery_illu_facts">21 x 29,5 cm&nbsp;&nbsp;/&nbsp;&nbsp;250 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 637);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_638">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/11.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 638</div>
+                        <div class="gallery_illu_facts">21 x 29,5 cm&nbsp;&nbsp;/&nbsp;&nbsp;250 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 638);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_639">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/10.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 639</div>
+                        <div class="gallery_illu_facts">18 x 23 cm&nbsp;&nbsp;/&nbsp;&nbsp;500 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 639);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_640">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/9.gif" alt="" /></div>
+                        <div class="gallery_illu_title">reserveret til ons. d. 23.4</div>
+                        <div class="gallery_illu_no">Original nr. 640</div>
+                        <div class="gallery_illu_facts">14 x 20,5 cm&nbsp;&nbsp;/&nbsp;&nbsp;550 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 640);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_641">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/8.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 641</div>
+                        <div class="gallery_illu_facts">21 x 29,5 cm&nbsp;&nbsp;/&nbsp;&nbsp;400 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 641);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_644">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/5.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 644</div>
+                        <div class="gallery_illu_facts">17 x 27,5 cm&nbsp;&nbsp;/&nbsp;&nbsp;300 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 644);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_645">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/4.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 645</div>
+                        <div class="gallery_illu_facts">17,5 x 29 cm&nbsp;&nbsp;/&nbsp;&nbsp;400 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 645);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_646">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/3.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 646</div>
+                        <div class="gallery_illu_facts">14,5 x 15 cm&nbsp;&nbsp;/&nbsp;&nbsp;300 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 646);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_647">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/2.gif" alt="" /></div>
+                        <div class="gallery_illu_title">reserveret til ons. d. 23.4</div>
+                        <div class="gallery_illu_no">Original nr. 647</div>
+                        <div class="gallery_illu_facts">13 x 17,5 cm&nbsp;&nbsp;/&nbsp;&nbsp;200 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 647);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div> 
+                    <div class="gallery_illu" id="illu_648">
+                      <div class="gallery_illu_img"><img src="http://www.piaolsen.com/www/gallery/skitser/1.gif" alt="" /></div>
+                        <div class="gallery_illu_title"></div>
+                        <div class="gallery_illu_no">Original nr. 648</div>
+                        <div class="gallery_illu_facts">7 x 16 cm&nbsp;&nbsp;/&nbsp;&nbsp;200 kr.</div><div class="gallery_illu_order"><a href="javascript: js_add(0, 648);" title="Tilføj originalen til bestillingsformularen øverst på siden">Bestil &#187;</a></div></div></div></div>
+    </div>
+    <div class="footer"><div class="top_link"><a href="#" title="Gå til toppen">Gå til toppen &#187;</a></div>
+        <div class="copyright">&copy; Copyright 2014 by Pia Olsen</div>
+    </div>
+    </div>
+    
+    <div id="news" class="popup" onmousedown="js_popup_news.click();">
+      <form onsubmit="return false;">
+        <div>Emailadresse:</div>
+        <div><input type="text" name="news_input" id="news_email" /></div>
+        <div id="news_submit">
+          <a href="javascript: js_submitNewsForm(0,1);">Tilmeld &#187;</a>&nbsp;
+          <a href="javascript: js_submitNewsForm(0,0);">Afmeld &#187;</a>&nbsp;
+        </div>
+        <div id="news_busy"><img src="http://www.stinesplace.com/www/imgs/busy.gif" alt="" /></div>
+      </form>
+    </div>
+
+    <script type="text/javascript">
+    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script type="text/javascript">
+    var pageTracker = _gat._getTracker("UA-2802134-3");
+    pageTracker._trackPageview();
+    </script>
+
+    </body>
+    </html>

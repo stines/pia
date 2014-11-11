@@ -1,0 +1,382 @@
+html {
+	height: 101%;	
+}
+
+body, td, a, textarea, input, div { 
+    font-family: arial, helvetica, sans-serif;
+    font-size: 0.98em;
+    font-variant: normal;
+    letter-spacing: 0.05em;
+    color: #333;
+    text-decoration: none;
+}
+
+input, textarea {
+	width: 300px;
+}
+textarea {
+	height: 150px;
+    overflow: auto;
+}
+
+form {
+	display: inline;
+}g
+
+img {
+    border: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.active, .active a {
+	color: #c94200;
+}
+
+.li {
+	background-image: url(http://www.piaolsen.com/new/imgs/dot.jpg);
+	background-repeat: no-repeat;
+	background-position: 8px 5px;
+	padding-left: 19px;
+}
+
+div.popup {
+    position: absolute; 
+    display: none; 
+    line-height: 1.3;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 20px;
+    z-index: 10;
+}
+.popup input {
+	border: 1px solid #ccc;
+	width: 150px;
+	padding: 2px;
+	margin-bottom: 6px;
+}	
+.popup a, .popup a:hover {
+	text-decoration: none;
+}
+
+.main {
+	width: 900px;
+	margin: 0 auto;
+}
+
+.illu_front_page {
+	position: relative;
+	text-align: center;
+    padding: 30px 0 45px 0;
+}
+
+.top {
+	border-bottom: 1px solid #ccc;
+	height: 110px;
+}
+
+.signatur {
+	padding: 30px 0 0 2px;
+ 	float: left; 
+}
+
+.top_menu {
+	color: #333;
+	font-size: 1em;
+	float: right;
+	padding-right: 2px;
+}
+.top_menu_item {
+	float: left;
+ 	padding: 60px 0 0 25px;
+}
+.top_menu_item a {
+	font-size: 1em;
+}
+.top_menu_image {
+	display: none;
+	padding-bottom: 2px;
+}
+
+#news_submit {
+	height: 20px;
+	padding-top: 2px;
+}
+#news_busy {
+	display: none;
+	text-align: center;
+    height: 20px;
+	padding-top: 2px;
+}
+
+.menu {
+	float: left;
+	width: 250px;
+	padding-top: 10px;
+}
+.menu div.inner {
+	font-size: 1.15em;
+	padding: 20px 0 2px 0;
+}
+.menu div.leaf {
+    padding-top: 3px;
+}
+
+.content {
+	float: left;
+	padding-top: 30px;		
+}
+.content_illus {
+	width: 650px;		
+}
+.content_galery {
+	width: 900px;		
+}
+.content_info {
+	width: 900px;	
+	margin-bottom: 40px;	
+}
+
+.gallery a {
+	color: #333;
+	text-decoration: underline;
+}
+.gallery_header {
+	font-size: 1em;
+	padding-bottom: 15px;	
+}
+.gallery_text {
+	padding-right: 40px;
+}
+#gallery_form {
+	height: 210px;	
+}
+.gallery_form_header {
+	float: left;
+	width: 170px;
+	text-align: right;	
+	margin: 5px 8px 0 0;
+}
+.gallery_form_send {
+	width: 480px;
+	text-align: right;	
+}
+.gallery_form_send a {
+	text-decoration: none;
+}
+#gallery_form input, #gallery_form textarea {
+	border: 1px solid #ccc;
+	width: 300px;
+	padding: 2px;
+	margin: 4px 0;
+}	
+#gallery_form textarea {
+	height: 40px;
+    overflow: auto;
+}
+#gallery_form_thanks {
+	display: none;
+	font-style: italic;
+    height: 210px;
+}
+
+.gallery_menu {
+	border-bottom: 1px solid #ccc;
+	height: 40px;
+	width: 900px;
+	margin-bottom: 20px;
+}
+.gallery_menu .tab_active {
+	float: left;
+	border-left: 1px solid #ccc;
+	border-right: 1px solid #ccc;
+	border-top: 1px solid #ccc;	
+    border-bottom: 4px solid #fff;
+	height: 36px;
+}
+.gallery_menu .tab_active .tab_content {
+	color: #c94200;	
+}
+.gallery_menu .tab {
+	float: left;
+    height: 39px;
+}
+.gallery_menu .tab .tab_content a {
+	text-decoration: none;
+}
+.gallery_menu .tab .tab_content a:hover {
+	text-decoration: underline;
+}
+.gallery_menu .tab_active .tab_content, 
+.gallery_menu .tab .tab_content {
+	margin: 10px 10px 0 10px;
+}
+
+.gallery_illus {
+	clear: both;
+}
+.gallery_illu {
+	float: left;
+	width: 450px;
+}
+.gallery_illu_img {
+	text-align: center;	
+}
+.gallery_illu_title {
+	text-align: center;
+	font-size: 1.15em;
+	font-weight: bold;
+	padding: 5px 0 2px 0;
+}
+.gallery_illu_no {
+	text-align: center;
+	padding: 2px 0 2px 0;
+}
+.gallery_illu_facts {
+	text-align: center;
+	padding: 2px 0 2px 0;
+}
+.gallery_illu_sold, .gallery_illu_order {
+	text-align: center;
+    font-weight: bold;
+	margin: 2px 0 40px 0;
+}
+.gallery_illu_order a {
+	text-decoration: none;
+	color: #090;
+}
+.gallery_illu_sold {
+	color: #c94200;
+}
+
+.gallery_painting {
+}
+.gallery_painting_img {
+	float: left;
+	margin: 10px 0 20px 0;	
+}
+.gallery_painting_info {
+	float: left;
+	width: 310px;
+	padding-top: 70px;
+}
+.gallery_painting_title {
+	text-align: center;
+	font-size: 1.15em;
+	font-weight: bold;
+	padding: 0 0 15px 0;
+}
+.gallery_painting_no {
+	text-align: center;
+	padding: 0 0 8px 0;
+}
+.gallery_painting_facts {
+	text-align: center;
+	padding: 0 0 20px 0;
+}
+.gallery_painting_order {
+	text-align: center;
+	font-size: 10px;
+}
+.gallery_painting_sold {
+	text-align: center;
+    font-weight: bold;
+    color: #c94200;
+}
+
+.gallery_front_page {
+	display: none;
+	text-align: center; 
+	border-top: 1px solid #ccc; 
+	padding-top: 25px; 
+	margin-top: 15px;
+}
+.gallery_front_page_link a {
+	color: #c94200;
+}
+
+.info a {
+	text-decoration: underline;
+}
+.info_header {
+	font-size: 1.15em;
+	padding-bottom: 15px;
+}
+.info .images {
+	float: left;
+	width: 140px;
+	padding-top: 37px;
+}
+.info .images .pia {
+	border: 1px solid #ccc;
+	padding: 1px;		
+	margin-bottom: 15px;
+}
+.info .images img {
+	margin-left: 4px;
+}
+.info .cv {
+	float: left;
+	width: 390px;
+}
+.info .cv .cv_contents {
+	padding-right: 20px;	
+}
+.info .cv .cv_contents .cv_contents_section {
+	line-height: 18px;	
+	margin-bottom: 15px;
+}
+.info .customers {
+	float: left;
+	width: 200px;	
+}
+.info .customers .customers_contents {
+	line-height: 18px;
+}
+.info .contact {
+	float: left;
+	width: 170px;
+}
+.info .contact .contact_contents {
+}
+.info .contact .contact_contents .contact_contents_section {
+	line-height: 18px;
+	margin-bottom: 15px;
+}
+
+div.illu {
+	border-top: 1px solid #ccc;
+	padding-top: 50px;	
+	margin-top: 50px;
+}
+div.illu, div.illu_first {
+	text-align: center;
+}
+div.illu_title {
+    font-size: 1.15em;
+    padding: 20px 0 1px 0;
+}
+div.illu_extra {
+	padding: 2px 0 4px 0;	
+}
+div.illu_date {
+
+}
+
+.footer {
+	clear: both;
+	text-align: right;
+}
+.top_link {
+	font-size: 0.9em;
+	padding: 40px 0 10px 0;
+}
+.copyright {
+	border-top: 1px solid #ccc;	
+	color: #ccc;
+	text-align: right;
+	font-size: 0.9em;
+	padding: 10px 2px 30px 0;
+}
