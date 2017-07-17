@@ -1,26 +1,26 @@
 RewriteEngine  on
 
-RewriteRule ^$	www/html/work.html [QSA,L]
+RewriteCond %{HTTP_HOST} ^piaolsen.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www.piaolsen.com$ 
+RewriteRule ^$	www/php/work.php [QSA,L]
 
-RewriteRule ^opgaver$	www/html/work.html [QSA,L]
-RewriteRule ^kontakt$	www/html/contact.html [QSA,L]
-RewriteRule ^kunder$	www/html/customers.html [QSA,L]
-RewriteRule ^butik$	www/html/shop.html [QSA,L]
+RewriteRule ^opgaver$	www/php/work.php [QSA,L]
+RewriteRule ^kontakt$	www/php/contact.php [QSA,L]
+RewriteRule ^kunder$	www/php/customers.php [QSA,L]
+RewriteRule ^forhandlere$	www/php/dealers.php [QSA,L]
+RewriteRule ^butik$ www/php/shop.php [QSA,L]
 
-RewriteRule ^butik/(.*)$	www/html/shop.html [QSA,L]
-RewriteRule ^opgaver/(.*)$	www/html/work.html [QSA,L]
+RewriteRule ^butik/(.*)$	www/php/shop.php [QSA,L]
+RewriteRule ^opgaver/(.*)$	www/php/work.php [QSA,L]
 
-# Old gallery:
-RewriteRule ^www/gallery.html$	www/html/shop.html [QSA,L]
-RewriteRule ^www/gallery_([a-z_]*).html$	www/html/shop.html [QSA,L]
+# Old pages:
+RewriteRule ^www/gallery.html$	www/php/shop.php [QSA,L]
+RewriteRule ^www/gallery_([a-z_]*).html$	www/php/shop.php [QSA,L]
 
 # Backend:
-RewriteRule ^www/order$ /www/php/order.php [QSA,L]
+RewriteRule ^order$ /www/php/order.php [QSA,L]
 RewriteCond %{HTTP:Authorization} ^Basic.*
-RewriteRule ^www/auth$  /www/php/auth.php?Authorization=%{HTTP:Authorization} [QSA,L]
-
-#RewriteCond %{THE_REQUEST} "^[^ ]* .*?\.php[? ].*$"
-#RewriteRule .* - [L,R=404]
+RewriteRule ^auth$  /www/php/auth.php?Authorization=%{HTTP:Authorization} [QSA,L]
 
 IndexIgnore .htaccess */.??* *~ *# */HEADER* */README* */_vti*
 
