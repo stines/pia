@@ -11,9 +11,11 @@ if (isset($data["check"])) {
     $urls = array();
     $titles = "";
     for ($i = 0; $i < sizeof($data["pictures"]); $i++) {
-        $urls[$i] = "http://www.piaolsen.com".$data["pictures"][$i]["image"];
+        $amount = $data["pictures"][$i]["amount"];
+        $frame = $data["pictures"][$i]["frame"] ? "" : " (u. ramme)";
+        $urls[$i] = $amount." x http://www.piaolsen.com".$data["pictures"][$i]["image"].$frame;
         if ($i > 0) $titles .= $i + 1 < sizeof($data["pictures"]) ? ", " : " og ";
-        $titles .= "\"".$data["pictures"][$i]["title"]."\"";
+        $titles .= "\"".$data["pictures"][$i]["title"]."\"".($amount > 1 ? " x ".$amount : "").$frame;
     }
 
     // Ordre:

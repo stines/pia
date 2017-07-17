@@ -1,27 +1,37 @@
 var Groups = {
     groups: {},
 
-    initialize: function () {
+    matches: function () {
         var matches = Utils.path().match(/\/butik\/kurv/);
-        if (matches == null) {
-            matches = Utils.path().match(/\/(opgaver|butik)(\/([a-z0-9\-]*))*/);
-            if (matches != null) {
-                var scope = matches[1];
-                var key = matches[3];
-                if (scope && key) Groups.show(false, scope, key); else Groups.hide();
-            }
-        }
+        if (matches == null) matches = Utils.path().match(/\/(opgaver|butik)(\/([a-z0-9\-]*))*/);
+        return matches;
+    },
+
+    scope: function () {
+        var matches = this.matches();
+        return matches != null ? matches[1] : null;
+    },
+
+    key: function () {
+        var matches = this.matches();
+        return matches != null ? matches[3] : null;
+    },
+
+    initialize: function () {
+        var scope = this.scope();
+        var key = this.key();
+        if (scope && key) Groups.show(false, scope, key, -1, true); else Groups.hide(true);
     },
 
     find: function (key) {
-        return Groups.groups[key.replace(/\-/g, '_')];
+        return key ? Groups.groups[key.replace(/\-/g, '_')] : null;
     },
 
-    show: function (addHistory, scope, key, index) {
-        console.log("Groups.show(" + addHistory + ", '" + scope + "', '" + key + "', " + index + ")");
+    show: function (addHistory, scope, key, index, entering) {
+        console.log("Groups.show(" + addHistory + ", '" + scope + "', '" + key + "', " + index + ", " + entering + ")");
 
         // Scroll to top:
-        Utils.scrollTo(0);
+        Utils.scrollToTop(entering);
 
         // Hide basket:
         Basket.hide();
@@ -35,22 +45,42 @@ var Groups = {
 
         // Generate group HTML:
         var html = $("<div>");
+        if (group.teaser) html.append($("<div>").addClass("teaser").html($("<img>").attr("src", group.teaser)));
         if (group.text) html.append($("<div>").addClass("text").html(group.text));
         for (var i = 0; i < group.items.length; i++) {
             var item = group.items[i];
             var itemHtml = $("<div>").addClass("item").attr("id", key + "_" + i).html($("<img>").attr("src", item.image));
+
             if (item.text) itemHtml.append($("<div>").addClass("text").html(item.text));
-            if (item.title) itemHtml.append($("<div>").addClass("title").html(item.title));
-            if (item.size || item.price) {
-                var size = item.size ? Utils.displayNumber(item.size.height) + " x " + Utils.displayNumber(item.size.width) + " cm" : "";
-                var price = item.price ? Utils.displayNumber(item.price) + " kr." : "";
-                var splitter = item.size && item.price ? "&nbsp;&nbsp;&middot;&nbsp;&nbsp;" : "";
-                itemHtml.append($("<div>").addClass("size-price").html(" " + size + splitter + price));
+            if ((group.showTitles == null || group.showTitles) && item.title) itemHtml.append($("<div>").addClass("title").html(item.title));
+
+            var dot = $("<span>").addClass("dot").html("&nbsp;&nbsp;&middot;&nbsp;&nbsp");
+            if (item.size) {
+                var size = item.size == "A4" ? item.size : Utils.displayNumber(item.size.height) + " x " + Utils.displayNumber(item.size.width) + " cm";
+                if (item.price && !item.priceNoFrame) {
+                    var sizePrice = $("<div>").addClass("size-price").html(size).append(dot).append(Utils.displayPrice(item.price));
+                    if (item.priceText) sizePrice.append(" " + item.priceText);
+                    itemHtml.append(sizePrice);
+                } else {
+                    itemHtml.append($("<div>").addClass("size").html(size));
+                }
             }
+            if (item.price && (!item.size || item.priceNoFrame)) {
+                var price = $("<div>").addClass("price");
+                if (item.priceNoFrame) {
+                    price.append($("<div>").html("Med ramme: " + Utils.displayPrice(item.price))).append(dot).append($("<div>").html("Uden ramme: " + Utils.displayPrice(item.priceNoFrame)));
+                } else {
+                    price.html(Utils.displayPrice(item.price));
+                    if (item.priceText) price.append(" " + item.priceText);
+                }
+                itemHtml.append(price);
+            }
+
             if (item.price) {
-                if (item.sold) itemHtml.append($("<div>").addClass("sold").html("Solgt"));
+                if (item.sold) itemHtml.append($("<div>").addClass("sold").html(item.soldText ? item.soldText : "Solgt"));
                 else itemHtml.append(Basket.status(key, i, $("<div>").addClass("basket-status").attr("id", "basket_" + key + "_" + i)));
             }
+
             html.append(itemHtml);
         }
         var explore = $("#explore").html(html.html());
@@ -67,15 +97,27 @@ var Groups = {
         });
     },
 
-    hide: function () {
-        console.log("Groups.hide()");
+    hide: function (entering) {
+        console.log("Groups.hide(" + entering + ")");
 
         // Scroll to top:
-        Utils.scrollTo(0);
+        Utils.scrollToTop(entering);
 
         // Hide explore layers:
         $("#explore").hide();
         $("#middle").hide();
+    },
+
+    title: function (key, index, citations) {
+        var group = Groups.find(key);
+        var item = group.items[index];
+        if (item.title) return citations ? "\"" + item.title + "\"" : item.title;
+        return firstWord ? "Billede" : "billede";
+    },
+
+    printed: function (key) {
+        var group = Groups.find(key);
+        return group.printed == true;
     }
 };
 
@@ -90,10 +132,10 @@ var Basket = {
         // Read basket content from cookie:
         try {
             Basket.content = JSON.parse($.cookie("basket-data"));
-            if (!Basket.content || !Basket.content.length) Basket.content = [];
+            if (!Basket.content || !Basket.size()) Basket.content = [];
             else {
-                for (var i = 0; i < Basket.content.length; i++) {
-                    if (Basket.key(i) == null || Basket.index(i) == null) {
+                for (var i = 0; i < Basket.size(); i++) {
+                    if (Basket.key(i) == null || Basket.index(i) == null || Basket.amount(i) == null) {
                         Basket.content = [];
                         break;
                     }
@@ -108,7 +150,7 @@ var Basket = {
 
         // Show basket?
         var matches = Utils.path().match(/\/butik(\/(kurv)*)*/);
-        if (matches != null) if (matches[2]) Basket.show(false); else Basket.hide();
+        if (matches != null) if (matches[2]) Basket.show(false, true); else Basket.hide();
     },
 
     key: function (index) {
@@ -123,6 +165,18 @@ var Basket = {
         return item ? item.index : null;
     },
 
+    amount: function (index) {
+        if (index < 0 || index >= Basket.size()) return null;
+        var item = Basket.content[index];
+        return item ? item.amount : null;
+    },
+
+    frame: function (index) {
+        if (index < 0 || index >= Basket.size()) return null;
+        var item = Basket.content[index];
+        return item ? item.frame : false;
+    },
+
     size: function () {
         return Basket.content.length;
     },
@@ -131,12 +185,18 @@ var Basket = {
         return Basket.size() == 0;
     },
 
-    show: function (addHistory) {
-        console.log("Basket.show()");
+    show: function (addHistory, entering) {
+        console.log("Basket.show(" + addHistory + ", " + entering + ")");
 
         // Empty?
         if (Basket.isEmpty()) {
-            if (!addHistory) History.modify("/butik");
+            if (addHistory) {
+                History.statistics("/butik/kurv");
+                History.statistics("/butik");
+            } else {
+                History.modify("/butik");
+            }
+
             return Dialogs.open("Indkøbskurven er tom. Du lægger noget i kurven ved at trykke BESTIL under et billede, når du bevæger dig rundt i billedkategorierne.");
         }
 
@@ -144,7 +204,7 @@ var Basket = {
         if (addHistory) History.add("/butik/kurv");
 
         // Scroll to top:
-        Utils.scrollTo(0);
+        Utils.scrollToTop(entering);
 
         // Hide other opened group if any:
         Groups.hide();
@@ -170,6 +230,19 @@ var Basket = {
         Basket.manifest();
     },
 
+    price: function () {
+        var price = 0;
+        for (var i = 0; i < Basket.size(); i++) {
+            var group = Groups.find(Basket.key(i));
+            var item = group.items[Basket.index(i)];
+            var amount = Basket.amount(i);
+            var frame = Basket.frame(i);
+            price += amount * (frame ? item.price : item.priceNoFrame);
+        }
+        if (price > 0) price += 39;
+        return price;
+    },
+
     manifest: function () {
         // Save basket content to cookie:
         $.cookie("basket-data", JSON.stringify(Basket.content), { path: "/" });
@@ -187,71 +260,126 @@ var Basket = {
         for (var i = 0; i < Basket.size(); i++) {
             var key = Basket.key(i);
             var index = Basket.index(i);
-            console.log("Basket.manifest() - Basket[" + i + "]: { key: '" + key + "', index: " + index + " }");
+            var amount = Basket.amount(i);
+            var frame = Basket.frame(i);
+            console.log("Basket.manifest() - Basket[" + i + "]: { key: '" + key + "', index: " + index + ", amount: " + amount + ", frame: " + frame + "}");
             var item = Groups.find(key).items[index];
-            picturesField.append(
-                    $("<div>")
-                            .addClass("picture")
-                            .html($("<img>").addClass("link").attr("src", item.image).attr("title", item.title).attr("onClick", "Groups.show(true, 'butik', '" + key + "', " + index + ");"))
-                            .append($("<a>").addClass("close").attr("href", "javascript: Basket.remove('" + key + "', " + index + ");").html($("<img>").attr("src", "/www/images/remove.gif")))
-            );
+            var picture = $("<div>")
+                    .addClass("picture")
+                    .html($("<img>").addClass("link").attr("src", item.image).attr("title", Groups.title(key, index, false)).attr("onClick", "Groups.show(true, 'butik', '" + key + "', " + index + ", false);"))
+                    .append($("<div>").addClass("amount")
+                                    .html(Groups.printed(key) ? $("<div>").addClass("current").html("x " + amount) : "")
+                                    .append($("<a>").addClass("decrease").attr("href", "javascript: Basket.remove('" + key + "', " + index + ", 0, true, false);").html($("<img>").attr("src", "/www/images/remove.png")))
+                                    .append($("<a>").addClass("increase").attr("href", "javascript: Basket.add('" + key + "', " + index + ", " + (amount + 1) + ", true, false);").html($("<img>").attr("src", "/www/images/add.png"))));
+            if (item.priceNoFrame) {
+                picture.append($("<div>")
+                                       .addClass("frame")
+                                       .append($("<input>")
+                                                       .attr({"type": "checkbox", "checked": frame})
+                                                       .attr("id", "basket_picture_" + key + "_" + index)
+                                                       .on('change', function () {
+                                                               var id = $(this).attr("id").split("_");
+                                                               Basket.changeFrame(id[2], parseInt(id[3]), $(this).is(":checked"));
+                                                           }))
+                                       .append($("<span>").html("Ramme")));
+            }
+            picturesField.append(picture);
         }
+
+        // Reveal total price:
+        $("#price").find("span").html(Basket.price());
     },
 
-    add: function (key, index) {
-        if (!Basket.contains(key, index)) Basket.content.push({ key: key, index: index });
+    changeFrame: function (key, index, frame) {
+        History.statistics(Utils.path(), "Changed frame for " + Groups.title(key, index, true) + " to " + frame);
+        Basket.get(key, index).frame = frame;
         Basket.manifest();
         Basket.status(key, index);
-        var item = Groups.find(key).items[index];
-        Dialogs.open("\"" + item.title + "\" er nu lagt i indkøbskurven.");
     },
 
-    remove: function (key, index) {
-        var item = Groups.find(key).items[index];
-        Dialogs.open("Vil du fjerne \"" + item.title + "\" fra indkøbskurven?",
-                     [
-                         Dialogs.button("Ja",
-                                        function () {
-                                            Basket.removeConfirmed(key, index);
-                                        }
-                         ),
-                         Dialogs.button("Nej")
-                     ]);
-    },
+    add: function (key, index, amount, checkAmount, notify) {
+        if (checkAmount && Groups.printed(key)) {
+            Dialogs.open("Hvor mange eksemplarer af " + Groups.title(key, index, true) + " ønsker du i indkøbskurven? " +
+                         "<input id=\"amount\" type=\"text\" value=\"" + amount + "\"/>",
+                         [
+                             Dialogs.button("Okay",
+                                            function () {
+                                                var amount = parseInt($("#amount").val());
+                                                if (amount <= 0) Basket.remove(key, index, 0, false, true);
+                                                else Basket.add(key, index, amount, false, notify);
+                                            }
+                             ),
+                             Dialogs.button("Fortryd")
+                         ]);
 
-    removeConfirmed: function (key, index) {
-        // Remove item from basket:
-        var content = [];
-        for (var i = 0; i < Basket.size(); i++) {
-            if (Basket.key(i) != key || Basket.index(i) != index) content.push(Basket.content[i]);
+        } else {
+            History.statistics(Utils.path(), "Added " + amount + " x " + Groups.title(key, index, true) + " to basket");
+            if (Basket.contains(key, index)) {
+                var item = Basket.get(key, index);
+                item.amount = amount;
+            } else Basket.content.push({ key: key, index: index, amount: amount, frame: true });
+            Basket.manifest();
+            Basket.status(key, index);
+            if (notify) Dialogs.open("Indkøbskurven indeholder nu " + Groups.title(key, index, true) + (Groups.printed(key) ? " x " + amount : "") + ".");
         }
-        Basket.content = content;
+    },
 
-        // If basket ends up empty then manipulate address line:
-        if (Basket.isEmpty()) History.modify("/butik");
+    remove: function (key, index, amount, checkAmount, confirmed) {
+        if (checkAmount && Groups.printed(key)) {
+            Dialogs.open("Hvor mange eksemplarer af " + Groups.title(key, index, true) + " ønsker du i indkøbskurven? " +
+                         "<input id=\"amount\" type=\"text\" value=\"" + amount + "\"/>",
+                         [
+                             Dialogs.button("Okay",
+                                            function () {
+                                                var amount = parseInt($("#amount").val());
+                                                if (amount <= 0) Basket.remove(key, index, 0, false, true);
+                                                else Basket.add(key, index, amount, false, false);
+                                            }
+                             ),
+                             Dialogs.button("Fortryd")
+                         ]);
 
-        Basket.manifest();
+        } else if (confirmed) {
+            // Remove item from basket:
+            var content = [];
+            for (var i = 0; i < Basket.size(); i++) {
+                if (Basket.key(i) != key || Basket.index(i) != index) content.push(Basket.content[i]);
+            }
+            Basket.content = content;
+
+            // If basket ends up empty then manipulate address line:
+            if (Basket.isEmpty()) History.modify("/butik");
+
+            Basket.manifest();
+
+        } else {
+            Dialogs.open("Vil du fjerne " + Groups.title(key, index, true) + " fra indkøbskurven?",
+                         [
+                             Dialogs.button("Ja",
+                                            function () {
+                                                Basket.remove(key, index, 0, false, true);
+                                            }
+                             ),
+                             Dialogs.button("Nej")
+                         ]);
+        }
+    },
+
+    get: function (key, index) {
+        for (var i = 0; i < Basket.size(); i++) if (Basket.key(i) == key && Basket.index(i) == index) return Basket.content[i];
+        return null;
     },
 
     contains: function (key, index) {
-        for (var i = 0; i < Basket.size(); i++) if (Basket.key(i) == key && Basket.index(i) == index) return true;
-        return false;
+        return Basket.get(key, index) != null;
     },
 
     status: function (key, index, element) {
         if (!element) element = $("#basket_" + key + "_" + index);
         return element.html(
                 Basket.contains(key, index) ?
-                $("<a>").addClass("in-basket").attr("href", "javascript: Basket.show(true);").html("Kurv (<span class=\"basket-count\">" + Basket.size() + "</span>)") :
-                $("<a>").addClass("add-to-basket").attr("href", "javascript: Basket.add('" + key + "', " + index + ");").html("Bestil &#187;")
-                /*
-                 $("<button>").html("Bestil &#187;").button({ disabled: false }).click(
-                 function (event) {
-                 event.preventDefault();
-                 Basket.add(key, index);
-                 }
-                 )
-                 */
+                $("<a>").addClass("in-basket").attr("href", "javascript: Basket.show(true, false);").html("Kurv (<span class=\"basket-count\">" + Basket.size() + "</span>)") :
+                $("<a>").addClass("add-to-basket").attr("href", "javascript: Basket.add('" + key + "', " + index + ", 1, true, true);").html("Bestil &#187;")
         );
     },
 
@@ -273,8 +401,14 @@ var Basket = {
         // Build body:
         var submit = [];
         for (var i = 0; i < Basket.size(); i++) {
-            var item = Groups.find(Basket.key(i)).items[Basket.index(i)];
-            submit.push({ image: item.image, title: item.title});
+            submit.push(
+                    {
+                        image: Groups.find(Basket.key(i)).items[Basket.index(i)].image,
+                        title: Groups.title(Basket.key(i), Basket.index(i), false),
+                        amount: Basket.amount(i),
+                        frame: Basket.frame(i)
+                    }
+            );
         }
         var body = JSON.stringify(
                 {
@@ -290,7 +424,7 @@ var Basket = {
         $.ajax(
                 {
                     type: "POST",
-                    url: "/www/order?sid=" + Math.random(),
+                    url: "/order?sid=" + Math.random(),
                     processData: false,
                     contentType: 'application/json',
                     data: body,
@@ -308,6 +442,7 @@ var History = {
         console.log("History.initialize()");
 
         if (Utils.path() == "/") History.modify("/opgaver");
+        else History.statistics(Utils.path());
 
         window.onpopstate = function () {
             console.log("State pop -> " + Utils.path());
@@ -318,10 +453,18 @@ var History = {
 
     add: function (path) {
         window.history.pushState({ "path": path }, "Pia Olsen", path);
+        History.statistics(Utils.path());
     },
 
     modify: function (path) {
         window.history.replaceState({ path: path }, "Pia Olsen", path);
+        History.statistics(Utils.path());
+    },
+
+    statistics: function (path, text) {
+        if (text == null) text = "Viewed";
+        console.log("Statistics: '" + path + "', '" + text + "'");
+        _gaq.push(["_trackEvent", path, text]);
     }
 };
 
@@ -333,9 +476,38 @@ var Links = {
         });
     },
 
+    apps: [
+        { app: "fb://", web: "https://www.facebook.com/" },
+        { app: "instagram://", web: "https://www.instagram.com/" }
+    ],
+
     open: function (address) {
-        var newWindow = window.open(address, "", "height=" + (window.innerHeight * 0.75) + ",width=" + (window.innerWidth * 0.75));
-        if (newWindow.focus) newWindow.focus();
+        if (address.indexOf("http") == 0) {
+            var windowHeight = window.innerHeight * 0.8;
+            var windowWidth = window.innerWidth * 0.8;
+            var windowTop = (window.innerHeight * 0.1) + (window.screenTop ? window.screenTop : window.screenY);
+            var windowLeft = (window.innerWidth * 0.1) + (window.screenLeft ? window.screenLeft : window.screenX);
+            var newWindow = window.open(address, "_blank", "top=" + windowTop + ",left=" + windowLeft + ",height=" + windowHeight + ",width=" + windowWidth + ",scrollbars=1");
+            if (newWindow.focus) newWindow.focus();
+
+        } else {
+            // fb://page/894032124000742
+            for (var i = 0; i < Links.apps.length; i++) {
+                var app = Links.apps[i];
+                if (address.indexOf(app.app) == 0) {
+                    if (navigator.userAgent.match(/iPhone|iPad|iPod/i)) {
+                        var start = new Date();
+                        window.location = address;
+                        setTimeout(function () {
+                            var wait = new Date() - start;
+                            if (wait < 2.0 * 1250) Links.open(address.replace(app.app, app.web));
+                        }, 1250);
+
+                    } else Links.open(address.replace(app.app, app.web));
+                    return;
+                }
+            }
+        }
     }
 };
 
@@ -349,10 +521,6 @@ var Dialogs = {
 
         $("#dialog")
                 .html(html)
-            /*.keyup(function (e) {
-             if (e.keyCode != $.ui.keyCode.ENTER) return;
-             $(".ui-dialog-buttonpane button:last").focus().trigger("click");
-             })*/
                 .dialog("option", "buttons", buttons).dialog("open");
     },
 
@@ -384,8 +552,16 @@ var Utils = {
         element.fadeIn({ duration: "slow", easing: "linear", complete: complete });
     },
 
-    scrollTo: function (top) {
-        return $("html,body").scrollTop(top);
+    scrollTo: function (position) {
+        return $("html,body").scrollTop(position);
+    },
+
+    scrollToTop: function (entering) {
+        if (entering || Utils.bigScreen()) return Utils.scrollTo(0);
+        else {
+            var top = $("#top");
+            return Utils.scrollTo(top.position().top + top.outerHeight(true) - 5);
+        }
     },
 
     goTo: function (path) {
@@ -394,6 +570,10 @@ var Utils = {
 
     displayNumber: function (number) {
         return ("" + number).replace(".", ",");
+    },
+
+    displayPrice: function (kroner) {
+        return Utils.displayNumber(kroner) + " kr.";
     },
 
     exists: function (selector) {
@@ -406,6 +586,10 @@ var Utils = {
 
     touchScreen: function () {
         return 'ontouchstart' in document.documentElement;
+    },
+
+    bigScreen: function () {
+        return $("#x").is(":visible");
     },
 
     path: function () {
@@ -478,7 +662,7 @@ var Auth = {
             $.ajax(
                     {
                         type: "GET",
-                        url: "/www/auth?sid=" + Math.random(),
+                        url: "/auth?sid=" + Math.random(),
                         async: false,
                         headers: {
                             "Authorization": "Basic " + btoa(username + ":" + password)
@@ -504,4 +688,6 @@ $(document).ready(function () {
     History.initialize();
     Basket.initialize();
     Groups.initialize();
+
+    $(".year").html(new Date().getFullYear());
 });

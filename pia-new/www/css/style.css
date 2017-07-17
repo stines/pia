@@ -61,8 +61,45 @@ a:hover {
     line-height: 1.5em;
 }
 
+.highlight {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 1.5em;
+    display: block;
+    margin-top: 30px;
+    line-height: 1.25em;
+}
+
 .moobaa {
     color: #DBA901;
+}
+
+.appit {
+    color: #B93B8F;
+}
+
+.gyldendal {
+    color: #C12283;
+}
+
+.redbarnet {
+    color: #e71944;
+}
+
+.gavekalaset {
+    color: #FE2E64;
+}
+
+.baghuset21b {
+    color: #0489B1;
+}
+
+.marked {
+    color: #DF0101;
+}
+
+.marked6 {
+	color: #DF0174;
 }
 
 /* Entire page */
@@ -151,10 +188,9 @@ a:hover {
 .work > #categories > .item > .text,
 .work > #teasers > .item > .text {
     display: inline-block;
-    text-transform: none;
-    letter-spacing: 0.02em;
-    font-size: smaller;
-    color: #777;
+    text-transform: none !important;
+    letter-spacing: 0.02em !important;
+    color: #222;
     padding-top: 12px;
 }
 
@@ -169,10 +205,6 @@ a:hover {
 
 .item > .title {
     font-weight: bolder;
-    padding-top: 15px;
-}
-
-.item > .size-price {
     padding-top: 15px;
 }
 
@@ -205,10 +237,31 @@ a:hover {
     font-weight: bolder;
 }
 
-.contact > .news > a {
+.contact > .news > a,
+.contact > .facebook > a,
+.contact > .instagram > a,
+.contact > .pinterest > a {
     text-transform: uppercase;
     letter-spacing: 0 !important;
     padding: 10px 5px;
+}
+
+.contact > .facebook > a {
+    color: #3b5998;
+}
+
+.contact > .instagram > a {
+    color: #125688;
+}
+
+.contact > .pinterest > a {
+    color: #C92228;
+}
+
+.contact > .facebook > a:hover,
+.contact > .instagram > a:hover,
+.contact > .pinterest > a:hover {
+    color: #777;
 }
 
 /* Content - Customers */
@@ -221,6 +274,21 @@ a:hover {
 .customers > div {
     display: inline-block;
     text-align: left;
+}
+
+/* Content - Dealers */
+
+.dealers {
+    text-align: center;
+    margin: 40px 0;
+}
+
+.dealers .dealer {
+    padding-top: 20px;
+}
+
+.dealers .dealer > div:first-child {
+    font-weight: bold;
 }
 
 /* Content - Shop - Basket */
@@ -252,8 +320,26 @@ a:hover {
     display: inline-block;
 }
 
-#basket > #form > #pictures > .picture > a.close:hover {
+#basket > #form > #pictures > .picture > div.amount > a.increase:hover,
+#basket > #form > #pictures > .picture > div.amount > a.decrease:hover {
     text-decoration: none;
+}
+
+#amount {
+    display: block;
+    text-align: center;
+    font-size: 1em;
+    border: none;
+    width: 50%;
+    margin: 10px auto;
+}
+
+#basket > #form > #pictures > .picture > .frame > input[type=checkbox] {
+    -webkit-appearance: checkbox;
+}
+
+#basket > #form > #pictures > .picture > .frame > span {
+    font-size: smaller;
 }
 
 #basket > #form > .field > label {
@@ -290,17 +376,32 @@ a:hover {
     padding: 10px 5px;
 }
 
+#basket > #form > #price {
+    margin-bottom: 15px;
+}
+
 /* Responsiveness */
 
 /* BIG screen */
 @media all
 and (min-width: 650px) {
+    #x {
+        display: block;
+    }
+
     .navigation {
         float: right;
     }
 
     .navigation > nav > a {
         display: inline-block;
+    }
+
+    .navigation > nav > a.facebook > img,
+    .navigation > nav > a.instagram > img,
+    .navigation > nav > a.pinterest > img {
+        width: 22px;
+        margin-bottom: -5px;
     }
 
     .float > div {
@@ -348,6 +449,16 @@ and (min-width: 650px) {
     }
 
     /* Content item */
+    .item > .size-price,
+    .item > .size,
+    .item > .price {
+        padding-top: 15px;
+    }
+
+    .item > .price > div {
+        display: inline;
+    }
+
     .item > .basket-status > a {
         display: inline-block;
     }
@@ -369,13 +480,28 @@ and (min-width: 650px) {
         margin-bottom: 15px;
     }
 
-    .contact > .news {
+    .contact > .news,
+    .contact > .facebook {
         margin-top: 20px;
     }
 
+    .contact > .instagram,
+    .contact > .pinterest {
+        margin-top: 10px;
+    }
+
     /* Content - Shop */
+    .shop > .teaser {
+        margin-top: 15px;
+        margin-bottom: 20px;
+    }
+
     .shop > #explore {
         margin-top: -25px;
+    }
+
+    .shop > #explore > .teaser {
+        margin-bottom: 20px;
     }
 
     .shop > #categories {
@@ -405,7 +531,7 @@ and (min-width: 650px) {
 
     #basket > #form > #pictures > .picture {
         position: relative;
-        text-align: left;
+        text-align: center;
         width: 118px;
         margin: 0 20px 10px 0;
     }
@@ -414,11 +540,21 @@ and (min-width: 650px) {
         width: 100px;
     }
 
-    #basket > #form > #pictures > .picture > a.close {
+    #basket > #form > #pictures > .picture > div.amount {
+        display: block;
+        text-align: center;
+        margin: 5px 0;
+    }
+
+    #basket > #form > #pictures > .picture > div.amount > div.current {
         display: inline-block;
-        position: absolute;
-        bottom: 0;
-        right: 0;
+        padding: 0 10px;
+    }
+
+    #basket > #form > #pictures > .picture > div.amount > a.increase,
+    #basket > #form > #pictures > .picture > div.amount > a.decrease {
+        display: inline-block;
+        padding: 0 2px;
     }
 
     #basket > #form > .send {
@@ -438,12 +574,28 @@ and (min-width: 650px) {
 /* SMALL screen */
 @media all
 and (max-width: 649px) {
+    #x {
+        display: none;
+    }
+
     .navigation {
         text-align: center;
     }
 
     .navigation > nav > a {
         display: block;
+    }
+
+    .navigation > nav > a.facebook > img,
+    .navigation > nav > a.instagram > img,
+    .navigation > nav > a.pinterest > img {
+        height: 30px;
+    }
+
+    #middle > .navigation > nav > a.facebook,
+    #middle > .navigation > nav > a.instagram,
+    #middle > .navigation > nav > a.pinterest {
+        display: none;
     }
 
     .float > div {
@@ -477,6 +629,23 @@ and (max-width: 649px) {
     }
 
     /* Content item */
+    .item > .size-price,
+    .item > .size {
+        padding-top: 15px;
+    }
+
+    .item > .price > div:first-of-type {
+        padding-top: 15px;
+    }
+
+    .item > .price > div:nth-of-type(2) {
+        padding-top: 5px;
+    }
+
+    .item > .price > .dot {
+        display: none;
+    }
+
     .item > .basket-status > a {
         display: block;
     }
@@ -494,11 +663,20 @@ and (max-width: 649px) {
         margin-bottom: 20px;
     }
 
-    .contact > .news {
+    .contact > .news,
+    .contact > .facebook {
         margin-top: 20px;
     }
 
-    .contact > .news > a {
+    .contact > .instagram,
+    .contact > .pinterest {
+        margin-top: 0;
+    }
+
+    .contact > .news > a,
+    .contact > .facebook > a,
+    .contact > .instagram > a,
+    .contact > .pinterest > a {
         display: block;
     }
 
@@ -532,7 +710,9 @@ and (max-width: 649px) {
         width: 100px;
     }
 
-    #basket > #form > #pictures > .picture > a.close {
+    #basket > #form > #pictures > .picture > div.amount > div.current,
+    #basket > #form > #pictures > .picture > div.amount > a.increase,
+    #basket > #form > #pictures > .picture > div.amount > a.decrease {
         display: block;
         padding: 4px 0;
     }
@@ -543,6 +723,16 @@ and (max-width: 649px) {
 
     #basket > #form > .send > a {
         display: block;
+    }
+
+    .shop > .teaser {
+        margin-top: 20px;
+        margin-bottom: -20px;
+    }
+
+    .shop > #explore > .teaser {
+        margin-top: -20px;
+        margin-bottom: 20px;
     }
 }
 

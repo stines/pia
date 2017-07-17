@@ -27,10 +27,25 @@ Groups.groups = {
               "</a>",
         items: [
             { image: "/www/work/moobaa1.gif" },
-            { image: "/www/work/moobaa2.jpg" },
+            { image: "/www/work/moobaa2.gif" },
             { image: "/www/work/moobaa3.gif" },
             { image: "/www/work/moobaa4.gif" },
-            { image: "/www/work/moobaa6.gif" }
+            { image: "/www/work/moobaa5.gif" }
+        ],
+        float: false
+    },
+    appit: {
+        text: "<a class=\"appit\" href=\"javascript: Links.open('http://www.appit.dk/');\">Når jeg bliver stor</a> er en app til små børn.<br/>" +
+              "Den kan købes hos App Store.<br/><br/>" +
+              "<a href=\"javascript: Links.open('https://itunes.apple.com/dk/app/nar-jeg-bliver-stor/id943442065?mt=8');\">" +
+              "<img src='/www/images/appstore.png' alt='App Store'/>" +
+              "</a>",
+        items: [
+            { image: "/www/work/appit1.gif" },
+            { image: "/www/work/appit2.gif" },
+            { image: "/www/work/appit3.gif" },
+            { image: "/www/work/appit4.gif" },
+            { image: "/www/work/appit5.gif" }
         ],
         float: false
     },
@@ -50,6 +65,21 @@ Groups.groups = {
             { image: "/www/work/bupl1.gif" },
             { image: "/www/work/bupl2.gif" },
             { image: "/www/work/bupl3.gif" }
+        ]
+    },
+    psyk: {
+        text: "Illustrationer til Psykiatrifondens fagblad.",
+        items: [
+            { image: "/www/work/psyk1.jpg" },
+            { image: "/www/work/psyk2.jpg" }
+        ]
+    },
+    skoleboern: {
+        text: "Illustrationer til Skolemagasinet. Til tema om trivsel i skolen.",
+        items: [
+            { image: "/www/work/skoleboern1.jpg" },
+            { image: "/www/work/skoleboern2.jpg" },
+            { image: "/www/work/skoleboern3.jpg" }
         ]
     },
     digogmig: {
@@ -97,5 +127,26 @@ Groups.groups = {
             { image: "/www/work/moder3.gif" }
         ],
         float: false
-    }
+    },
+    indenimig: {
+        text: "\"Indeni mig... og i de andre\" er en børnebog til de 2-9-årige om følelser og empati. <br/>Bogen udkom i maj 2015 og kan købes online <a class=\"gyldendal\" href=\"javascript: Links.open('http://www.gyldendal.dk/indeni-mig-og-i-de-andre-en-bog-om-boern-og-foelelser-id38722');\">hos Gyldendal</a>.",
+        items: [
+            { image: "/www/work/indenimig1.gif" },
+            { image: "/www/work/indenimig2.gif" },
+            { image: "/www/work/indenimig3.gif" },
+            { image: "/www/work/indenimig4.gif" }
+        ],
+        float: false
+    },
+    vuggestue: {
+        text: "Udsmykning af vuggestuen Carl Nielsen.</br>Tema: Bring naturen indenfor.",
+        items: [
+            { image: "/www/work/vuggestue1.jpg" },
+            { image: "/www/work/vuggestue2.jpg" },
+            { image: "/www/work/vuggestue3.jpg" },
+            { image: "/www/work/vuggestue4.jpg" },
+            { image: "/www/work/vuggestue5.jpg" }
+        ],
+        float: false
+    }    
 };
