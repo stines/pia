@@ -1,20 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Pia Olsen</title>
+    <title>Pia Olsen | ILLUSTRATION</title>
     <meta charset="UTF-8"/>
     <meta property="og:url" content="http://piaolsen.com"/>
-    <meta property="og:title" content="Pia Olsen"/>
+    <meta property="og:title" content="Pia Olsen | ILLUSTRATION"/>
     <meta property="og:image" content="http://piaolsen.com/www/work/work_fb.gif"/>
-    <meta name="description" content="Se et udpluk af Pia Olsens tegninger og besøg webbutikken."/>
+    <meta name="description" content="Se et udpluk af Pia Olsens illustrationer og besøg webbutikken."/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0"/>
     <link rel="shortcut icon" type="image/ico" href="/www/images/favicon.ico"/>
     <link rel="apple-touch-icon" href="/www/images/appicon.png"/>
-    <link rel="stylesheet" type="text/css" href="/www/css/jquery-ui-1.11.2.smoothness/jquery-ui.min.css">
+    <link rel="stylesheet" type="text/css" href="/www/css/jquery-ui-1.12.1.smoothness/jquery-ui.min.css">
     <link rel="stylesheet" type="text/css" href="/www/css/style.css" media="screen">
-    <script language="javascript" type="text/javascript" src="/www/js/jquery-1.11.1.min.js"></script>
-    <script language="javascript" type="text/javascript" src="/www/js/jquery-ui-1.11.2.js"></script>
+    <script language="javascript" type="text/javascript" src="/www/js/jquery-3.4.1.min.js"></script>
+    <script language="javascript" type="text/javascript" src="/www/js/jquery-ui-1.12.1.min.js"></script>
     <script language="javascript" type="text/javascript" src="/www/js/jquery.cookie.js"></script>
+    <script language="javascript" type="text/javascript" src="/www/js/jquery.viewport.js"></script>
     <script language="javascript" type="text/javascript" src="/www/js/script.js"></script>
     <script language="javascript" type="text/javascript" src="/www/js/work.js"></script>
 </head>
@@ -55,20 +56,36 @@
             <div id="q"><img src="/www/work/q0.gif" alt=""/></div>
             <div class="text">Se mere...</div>
         </div>
+        <div class="item link" onclick="Groups.show(true, 'opgaver', 'akutmodtagelsen', -1, false);">
+            <div id="akutmodtagelsen"><img src="/www/work/akut0.jpg" alt=""/></div>
+            <div class="text">Se mere...</div>
+        </div>
+        <div class="item link" onclick="Groups.show(true, 'opgaver', 'giffer', -1, false);">
+            <div id="giffer"><img src="/www/work/gif_gymnast_forside.gif" alt=""/></div>
+            <div class="text">Se mere...</div>    
+        </div>
+        <div class="item link" onclick="Groups.show(true, 'opgaver', 'skoleboern', -1, false);">
+            <div id="skoleboern"><img src="/www/work/skoleboern0.jpg" alt=""/></div>
+            <div class="text">Se mere...</div>
+        </div>               
+        <div class="item link" onclick="Groups.show(true, 'opgaver', 'artikelillu', -1, false);">
+            <div id="artikelillu"><img src="/www/work/artikelillu0.jpg" alt=""/></div>
+            <div class="text">Se mere...</div>
+        </div>                
+        <div class="item link" onclick="Groups.show(true, 'opgaver', 'indenimig', -1, false);">
+            <div id="indenimig"><img src="/www/work/indenimig0.gif" alt=""/></div>
+            <div class="text">Se mere...</div>
+        </div>         
         <div class="item link" onclick="Groups.show(true, 'opgaver', 'moobaa', -1, false);">
             <div id="moobaa"><img src="/www/work/moobaa0.gif" alt=""/></div>
             <div class="text">Se mere...</div>
         </div>
-        <div class="item link" onclick="Groups.show(true, 'opgaver', 'indenimig', -1, false);">
-            <div id="indenimig"><img src="/www/work/indenimig0.gif" alt=""/></div>
+        <!--div class="item link" onclick="Groups.show(true, 'opgaver', 'vuggestue', -1, false);">
+            <div id="vuggestue"><img src="/www/work/vuggestue0.jpg" alt=""/></div>
             <div class="text">Se mere...</div>
-        </div>
-        <div class="item link" onclick="Groups.show(true, 'opgaver', 'digogmig', -1, false);">
-            <div id="digogmig"><img src="/www/work/digmig0.gif" alt=""/></div>
-            <div class="text">Se mere...</div>
-        </div>
-        <div class="item link" onclick="Groups.show(true, 'opgaver', 'skoleboern', -1, false);">
-            <div id="vuggestue"><img src="/www/work/skoleboern0.jpg" alt=""/></div>
+        </div-->
+        <div class="item link" onclick="Groups.show(true, 'opgaver', 'sundhedsplejen', -1, false);">
+            <div id="sundhedsplejen"><img src="/www/work/sundhedsplejen0.jpg" alt=""/></div>
             <div class="text">Se mere...</div>
         </div>
         <div class="item link" onclick="Groups.show(true, 'opgaver', 'glistrup', -1, false);">
@@ -84,15 +101,15 @@
             <div class="text">Se mere...</div>
         </div>
         <div class="item link" onclick="Groups.show(true, 'opgaver', 'psyk', -1, false);">
-            <div id="vuggestue"><img src="/www/work/psyk0.jpg" alt=""/></div>
+            <div id="psyk"><img src="/www/work/psyk0.jpg" alt=""/></div>
             <div class="text">Se mere...</div>
         </div>
-        <div class="item link" onclick="Groups.show(true, 'opgaver', 'plakater', -1, false);">
-            <div id="plakater"><img src="/www/work/plakat1.gif" alt=""/></div>
+		<div class="item link" onclick="Groups.show(true, 'opgaver', 'farmorogboern', -1, false);">
+            <div id="farmorogboern"><img src="/www/work/farmorogboern0.jpg" alt=""/></div>
             <div class="text">Se mere...</div>
         </div>
-        <div class="item link" onclick="Groups.show(true, 'opgaver', 'vuggestue', -1, false);">
-            <div id="vuggestue"><img src="/www/work/vuggestue0.jpg" alt=""/></div>
+		<div class="item link" onclick="Groups.show(true, 'opgaver', 'digogmig', -1, false);">
+            <div id="digogmig"><img src="/www/work/digmig0.gif" alt=""/></div>
             <div class="text">Se mere...</div>
         </div>
         <!--div class="item link" onclick="Utils.goTo('/butik/plakater-sort-hvid', -1, false);">
@@ -111,15 +128,19 @@
             <div id="fsb"><img src="/www/work/fsb0.gif" alt=""/></div>
             <div class="text">Se mere...</div>
         </div>
-        <div class="item link" onclick="Groups.show(true, 'opgaver', 'moder', -1, false);">
-            <div id="moder"><img src="/www/work/moder0.gif" alt=""/></div>
+        <div class="item link" onclick="Groups.show(true, 'opgaver', 'plakater', -1, false);">
+            <div id="plakater"><img src="/www/work/plakat1.gif" alt=""/></div>
             <div class="text">Se mere...</div>
         </div>
+        <!--div class="item link" onclick="Groups.show(true, 'opgaver', 'moder', -1, false);">
+            <div id="moder"><img src="/www/work/moder0.gif" alt=""/></div>
+            <div class="text">Se mere...</div>
+        </div-->
     </div>
 
     <div id="teasers" class="float">
         <div class="item link" onclick="Utils.goTo('/butik');">
-            <div id="shop"><img src="/www/work/shop.gif" alt=""/></div>
+            <div id="shop"><img src="/www/work/shop.jpg" alt=""/></div>
             <div class="text">Besøg butikken...</div>
         </div>
     </div>
@@ -133,7 +154,7 @@
                 <a href="/butik">Butik</a>
             </nav>
         </div>
-        <div class="copyright">&copy; Pia Olsen <span class="year"></span></div>
+        <div class="copyright">&copy; <a href="http://piaolsen.com/">Pia Olsen</a> <span class="year"></span></div>
         <div class="clearer"></div>
     </div>
 </div>

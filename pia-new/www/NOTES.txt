@@ -1,1 +1,40 @@
 Basic auth: http://one-docs.com/tools/htaccess/?lang=da
+
+GLS shops: https://www.gls.dk/webservices_v4/wsShopFinder.asmx/GetParcelShopsInZipcode?zipcode=2100&countryIso3166A2=DK
+
+https://www.toptal.com/designers/htmlarrows/symbols/
+
+
+PayPal:
+
+https://developer.paypal.com/docs/api/orders/v2/#definition-application_context
+
+
+TODO:
+
+FEATURES:
+
+* Tilføje postnummer i selve shoplistepopuppen
+* Fakturerings/Leveringsadresse
+* KURV menu stuck in top always? Done for iPhone - hvad med stor skærm?
+* Dialog: Trykke på knap ved at trykke Enter
+* Lav GODKEND til BESTIL, når bankoverførsel er valgt
+
+LAYOUT:
+  
+* Inputfelter rager for langt ud til højre på iPhone
+* Buttons lige høje - how to?
+* Dialog position uafhængig af keyboard?
+(* Slukke for PayPal-knappens animation)
+
+MISSING:
+
+* Fylde Paypal-metoder ud
+* Handle error on submit
+* Hvad hvis man refresher siden under "Behandles..."?
+* Hvad hvis man lukker PayPal-vinduet?
+* Tilføj tjek for korrekt betaling på server: https://developer.paypal.com/docs/checkout/integrate/#2-server-side
+* Tilpasse kvitteringsemailen - faktura etc. – lav billedoversigt?
+
+* Cookie warning?
+* Tilføj forklarende tekster til kurven

@@ -1,44 +1,37 @@
 var Groups = {
     groups: {},
 
-    matches: function () {
+    matches: function() {
         var matches = Utils.path().match(/\/butik\/kurv/);
-        if (matches == null) matches = Utils.path().match(/\/(opgaver|butik)(\/([a-z0-9\-]*))*/);
+        if (matches === null) matches = Utils.path().match(/\/(opgaver|butik)(\/([a-z0-9\-]*))*/);
         return matches;
     },
 
-    scope: function () {
+    scope: function() {
         var matches = this.matches();
-        return matches != null ? matches[1] : null;
+        return matches !== null ? matches[1] : null;
     },
 
-    key: function () {
+    key: function() {
         var matches = this.matches();
-        return matches != null ? matches[3] : null;
+        return matches !== null ? matches[3] : null;
     },
 
-    initialize: function () {
+    initialize: function() {
         var scope = this.scope();
         var key = this.key();
         if (scope && key) Groups.show(false, scope, key, -1, true); else Groups.hide(true);
     },
 
-    find: function (key) {
-        return key ? Groups.groups[key.replace(/\-/g, '_')] : null;
-    },
-
-    show: function (addHistory, scope, key, index, entering) {
+    show: function(addHistory, scope, key, index, entering) {
         console.log("Groups.show(" + addHistory + ", '" + scope + "', '" + key + "', " + index + ", " + entering + ")");
 
-        // Scroll to top:
-        Utils.scrollToTop(entering);
-
         // Hide basket:
-        Basket.hide();
+        Basket.hide(false, entering);
 
         // Find group to display:
-        var group = Groups.find(key);
-        if (group == null) return;
+        var group = Groups.group(key);
+        if (group === null) return;
 
         // Manipulate address line:
         if (addHistory) History.add("/" + scope + "/" + key);
@@ -48,20 +41,24 @@ var Groups = {
         if (group.teaser) html.append($("<div>").addClass("teaser").html($("<img>").attr("src", group.teaser)));
         if (group.text) html.append($("<div>").addClass("text").html(group.text));
         for (var i = 0; i < group.items.length; i++) {
-            var item = group.items[i];
+            var item = Groups.item(key, i);
+            
             var itemHtml = $("<div>").addClass("item").attr("id", key + "_" + i).html($("<img>").attr("src", item.image));
 
             if (item.text) itemHtml.append($("<div>").addClass("text").html(item.text));
-            if ((group.showTitles == null || group.showTitles) && item.title) itemHtml.append($("<div>").addClass("title").html(item.title));
+            if ((group.showTitles === null || group.showTitles) && item.title) itemHtml.append($("<div>").addClass("title").html(item.title));
 
+ 			if (item.text2) itemHtml.append($("<div>").addClass("text").html(item.text2));
+           
             var dot = $("<span>").addClass("dot").html("&nbsp;&nbsp;&middot;&nbsp;&nbsp");
             if (item.size) {
-                var size = item.size == "A4" ? item.size : Utils.displayNumber(item.size.height) + " x " + Utils.displayNumber(item.size.width) + " cm";
+                var size = typeof item.size !== 'object' ? item.size : Utils.displayNumber(item.size.height) + " x " + Utils.displayNumber(item.size.width) + " cm";
+                if (item.sizeText) size += " " + item.sizeText;
                 if (item.price && !item.priceNoFrame) {
-                    var sizePrice = $("<div>").addClass("size-price").html(size).append(dot).append(Utils.displayPrice(item.price));
+                    sizePrice = $("<div>").addClass("size-price").html(size).append(dot).append(Utils.displayPrice(item.price));
                     if (item.priceText) sizePrice.append(" " + item.priceText);
                     itemHtml.append(sizePrice);
-                } else {
+                 } else {
                     itemHtml.append($("<div>").addClass("size").html(size));
                 }
             }
@@ -75,13 +72,17 @@ var Groups = {
                 }
                 itemHtml.append(price);
             }
+            
+            if (item.text3) itemHtml.append($("<div>").addClass("text").html(item.text3));
 
             if (item.price) {
                 if (item.sold) itemHtml.append($("<div>").addClass("sold").html(item.soldText ? item.soldText : "Solgt"));
                 else itemHtml.append(Basket.status(key, i, $("<div>").addClass("basket-status").attr("id", "basket_" + key + "_" + i)));
             }
-
+            
             html.append(itemHtml);
+            
+            if (item.newline) html.append("<br>");
         }
         var explore = $("#explore").html(html.html());
 
@@ -89,15 +90,15 @@ var Groups = {
         $("#middle").show();
 
         // Should items float?
-        if (group.float == null || group.float) explore.addClass("float"); else explore.removeClass("float");
+        if (group.float === null || group.float) explore.addClass("float"); else explore.removeClass("float");
 
         // Reveal explore area:
-        Utils.fadeIn(explore, function () {
+        Utils.fadeIn(explore, function() {
             if (index >= 0) Utils.scrollTo($("#" + key + "_" + index).offset().top);
         });
     },
 
-    hide: function (entering) {
+    hide: function(entering) {
         console.log("Groups.hide(" + entering + ")");
 
         // Scroll to top:
@@ -107,35 +108,159 @@ var Groups = {
         $("#explore").hide();
         $("#middle").hide();
     },
-
-    title: function (key, index, citations) {
-        var group = Groups.find(key);
-        var item = group.items[index];
-        if (item.title) return citations ? "\"" + item.title + "\"" : item.title;
-        return firstWord ? "Billede" : "billede";
+    
+    group: function(key) {
+        return key ? Groups.groups[key.replace(/\-/g, '_')] : null;
     },
-
-    printed: function (key) {
-        var group = Groups.find(key);
-        return group.printed == true;
+    
+    item: function(key, index) {
+      var group = Groups.group(key);
+      var item = group.items[index];
+      item.key = key;
+      item.index = index;
+      return item.parent ? Groups.item(item.parent.key, item.parent.index) : item;
+    },
+    
+    basketTitle: function(key, index, emph) {
+        var item = Groups.item(key, index);
+        var title = item.basketTitle ? item.basketTitle : (item.title ? item.title : null);
+        if (title) return emph ? "<b>" + title + "</b>" : title;
+        return "billede";
+    },
+    
+    printed: function(key, index) {
+        var item = Groups.item(key, index);
+        return item.printed === true;
     }
 };
 
 var Basket = {
+	data: {},
     content: [],
-
-    initialize: function () {
+	
+    initialize: function() {
         if (!Utils.exists(".shop")) return;
 
         console.log("Basket.initialize()");
+        
+        Basket.initializeData();
 
-        // Read basket content from cookie:
+    	// Start listening for user input:
+    	$.each(Basket.inputIds(), function(i, inputId) {
+    		$("#" + inputId).keyup(function() { 
+				Basket.updateData(inputId, $(this).val().trim());
+    			Basket.validateInput(inputId);
+			});
+    	});
+    	
+    	/*
+        $("#address").autocomplete({
+			source: function(request, response) {
+				$.ajax({
+					url: "https://dawa.aws.dk/autocomplete",
+					dataType: "jsonp",
+					data: { type: "adresse", per_side: 50, q: request.term },
+					success: function(data) {
+						response($.map(data, function(item) { return item.tekst; }));
+					}    
+				});
+			},
+			minLength: 1
+		});
+		*/
+        
+        Payment.initialize();
+    	Delivery.initialize();
+    	
+    	Basket.initializeContent();
+
+    	if (Utils.smallScreen()) {
+    		$(window).on("resize scroll", function() {
+    			Basket.handleP();
+				if (Utils.inViewPort("#basket") && Utils.visible("#basket")) {
+					Basket.showShopInBasketNav();
+				} else {
+					Basket.showBasketInBasketNav();
+				}
+			});
+    	} else Basket.showBasketInBasketNav();
+    	        
+    	// Show basket?
+        var matches = Utils.path().match(/\/butik(\/(kurv)*)*/);
+        if (matches !== null) {
+        	if (matches[2]) Basket.show(false, true); 
+        	else Basket.hide(false, true);
+        }
+    },
+    
+    // Make the long P in Pia Olsen disappear/appear:
+    handleP: function() {
+    	$("#top").css("zIndex", Utils.inViewPort("#top .title") ? 101 : 95);
+    },
+    
+    inputValidators: {
+		"email": function(value) { return /^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/.test(value); },
+		"name": function(value) { return /^\S+\s.+$/.test(value); },
+		"company": function(value) { return true; },
+		"address": function(value) { return /^\S+.*$/.test(value); },
+		"phone": function(value) { return /^[0-9]{8}$/.test(value); },
+		"message": function(value) { return true; }
+	},
+	
+	inputIds: function() {
+		return Object.getOwnPropertyNames(Basket.inputValidators);
+	},
+	
+	initializeData: function() {
+		console.log("Basket.initializeData()");
+		
+		// Populate basket data from cookie:
         try {
-            Basket.content = JSON.parse($.cookie("basket-data"));
-            if (!Basket.content || !Basket.size()) Basket.content = [];
+        	var data = Utils.readCookie("basket-data");
+        	if (data) Basket.data = data;
+        
+        } catch (error) {
+        	// Ignore...
+        }
+        
+        // Fill basket data into corresponding input fields:
+    	$.each(Basket.inputIds(), function(i, inputId) {
+    		var val = Basket.data[inputId];
+    		if (val) $("#" + inputId).val(val);
+    	});
+    	// Well, because it is the easiest, we let this method take care of the delivery and payment radio buttons as well
+    	// even though it would be more correct to let Delivery and Payment take care of those: 
+    	$.each(["delivery", "payment"], function(i, radioName) {
+    		var val = Basket.data[radioName];
+    		if (val) $("input[name=" + radioName + "]").val([val]);
+    	});
+    },
+    	
+    updateData: function(key, value) {
+    	/*var logStart = "Basket.updateData(" + key + ","; 
+    	if ($.type(value) === "object") console.log(logStart, value, ")");
+    	else console.log(logStart + " '" + value + "')");*/
+    	
+		Basket.data[key] = value;
+		Utils.writeCookie("basket-data", Basket.data);
+	},	
+	
+	removeData: function(key) {
+		console.log("Basket.removeData(" + key + ")");
+		delete Basket.data[key];
+		Utils.writeCookie("basket-data", Basket.data);
+	},
+	
+	initializeContent: function() {
+		console.log("Basket.initializeContent()");
+		
+        // Populate basket content from cookie:
+        try {
+        	Basket.content = Utils.readCookie("basket-content");
+        	if (!Basket.content || !Basket.size()) Basket.content = [];
             else {
                 for (var i = 0; i < Basket.size(); i++) {
-                    if (Basket.key(i) == null || Basket.index(i) == null || Basket.amount(i) == null) {
+                    if (Basket.key(i) === null || Basket.index(i) === null || Basket.amount(i) === null) {
                         Basket.content = [];
                         break;
                     }
@@ -145,49 +270,242 @@ var Basket = {
         } catch (error) {
             Basket.content = [];
         }
+        
+        Basket.updatedContent();
+    },
+    
+    updatedContent: function() {
+    	console.log("Basket.updatedContent()");
+    	
+        // Save basket content to cookie:
+        Utils.writeCookie("basket-content", Basket.content);
 
-        Basket.manifest();
+        // Display amount of items in basket in basket links:
+        $(".basket-count").each(function() {
+            $(this).html(Basket.size());
+        });
 
-        // Show basket?
-        var matches = Utils.path().match(/\/butik(\/(kurv)*)*/);
-        if (matches != null) if (matches[2]) Basket.show(false, true); else Basket.hide();
+		// Fill basket content into the basket form:
+        var picturesTable = $("<table>").html("");
+        for (var i = 0; i < Basket.size(); i++) {
+            var key = Basket.key(i);
+            var index = Basket.index(i);
+            var amount = Basket.amount(i);
+            var posterNames = Basket.posterNames(i);
+            var frame = Basket.frame(i);
+            console.log("Basket.updatedContent() - Basket[" + i + "]: { key: '" + key + "', index: " + index + ", amount: " + amount + ", frame: " + frame + (posterNames ? ", posterNames: '" + posterNames + "'" : "") + "}");
+            var item = Groups.item(key, index);
+                
+            var thumbnailTag = $("<img>").addClass("link")
+            .attr("src", item.image)
+            .attr("title", Groups.basketTitle(key, index, false))
+            .attr("onClick", "Groups.show(true, 'butik', '" + key + "', " + index + ", false);");
+                
+            var titleTag = $("<a>")
+            .attr("href", "javascript: Groups.show(true, 'butik', '" + key + "', " + index + ", false);")
+            .html(Groups.basketTitle(key, index, false));
+            
+            var increaseTag = $("<a>").addClass("increase")
+            .attr("id", "increase-" + i)
+            .attr("href", "javascript: Basket.addIfEnabled('increase-" + i + "', '" + key + "', " + index + ", " + amount + ", true, false" + (posterNames ? " , '" + posterNames + "'" : "") + ");")
+            .html("x " + amount);
+            var decreaseTag = $("<a>").addClass("decrease")
+            .attr("href", "javascript: Basket.remove('" + key + "', " + index + ", 0, true, false" + (posterNames ? " , '" + posterNames + "'" : "") + ");")
+            .html($("<img>").attr("src", "/www/images/remove.png"));
+
+            var pictureRow = $("<tr>").addClass("picture")
+            .html($("<td>").addClass("thumbnail").html(thumbnailTag))
+            .append($("<td>").addClass("title").html(titleTag)
+            			.append(posterNames ? $("<div>").addClass("poster-names").html("(" + (amount == 1 ? "Navn: " : "Navne: ") + posterNames + ")") : ""))
+            .append($("<td>").addClass("amount").html(Groups.printed(key, index) ? increaseTag : ""))
+            .append($("<td>").addClass("decrease").html(decreaseTag))
+            .append($("<td>").addClass("price").html((amount * item.price) + " kr."));
+            
+            picturesTable.append(pictureRow);
+        }
+        $("#pictures").html(Basket.size() > 0 ? picturesTable : "");
+        
+        Delivery.handlePickUpOnly();
+	        
+	    Basket.showTotalPrice();
     },
 
-    key: function (index) {
-        if (index < 0 || index >= Basket.size()) return null;
-        var item = Basket.content[index];
-        return item ? item.key : null;
+	addIfEnabled: function(linkId, key, index, amount, checkAmount, notify, posterNames) {
+		if (Utils.linkEnabled($("#" + linkId))) {
+			Basket.add(key, index, amount, checkAmount, notify, posterNames);
+		}
+	},
+
+    add: function(key, index, amount, checkAmount, notify, posterNames) {
+    	Basket.hideErrors();
+    
+        if (checkAmount && Groups.printed(key, index)) {
+        	Dialogs.open(Basket.addRemoveText(key, index, amount, posterNames), [
+				 Dialogs.button("Fint",
+								function() {
+									amount = parseInt($("#amount").val());
+									var parsedPosterNames;
+									if (key === "navneplakater") {
+										parsedPosterNames = Basket.parsePosterNames($("#poster-names").val());
+										posterNames = parsedPosterNames.join(", ");
+									}
+									if (isNaN(amount)) Basket.add(key, index, $("#amount").val(), true, notify, posterNames);
+									else if (amount <= 0) Basket.remove(key, index, 0, false, true);
+									else Basket.add(key, index, amount, key === "navneplakater" && parsedPosterNames.length !== amount, notify, posterNames);
+								}
+				 ),
+				 Dialogs.button("Fortryd")
+            ]);
+
+        } else {
+            History.statistics(Utils.path(), "Added " + amount + " x " + Groups.basketTitle(key, index, false) + " to basket");
+            if (Basket.contains(key, index)) {
+            	var basketItem = Basket.get(key, index);
+            	basketItem.amount = amount;
+            	if (key === "navneplakater") basketItem.posterNames = posterNames;
+            
+            } else { 
+                var item = Groups.item(key, index);
+                var basketItem = { key: item.key, index: item.index, amount: amount, frame: true };
+                if (key === "navneplakater") basketItem.posterNames = posterNames;
+            	Basket.content.push(basketItem);
+            }
+            
+            Basket.updatedContent();
+            Basket.status(key, index);
+        
+            if (notify) Dialogs.open("Indkøbskurven indeholder nu " + Groups.basketTitle(key, index, true) + (Groups.printed(key, index) ? " x " + amount : "") + ".");
+        }
     },
 
-    index: function (index) {
-        if (index < 0 || index >= Basket.size()) return null;
-        var item = Basket.content[index];
-        return item ? item.index : null;
-    },
+    remove: function(key, index, amount, checkAmount, confirmed, posterNames) {
+    	Basket.hideErrors();
+    
+        if (checkAmount && Groups.printed(key, index)) {
+            Dialogs.open(Basket.addRemoveText(key, index, amount, posterNames), [
+				 Dialogs.button("Fint",
+								function() {
+									amount = parseInt($("#amount").val());
+									var parsedPosterNames;
+									if (key === "navneplakater") {
+										parsedPosterNames = Basket.parsePosterNames($("#poster-names").val());
+										posterNames = parsedPosterNames.join(", ");
+									}
+									if (isNaN(amount)) Basket.remove(key, index, $("#amount").val(), true, true, posterNames);
+									else if (amount <= 0) Basket.remove(key, index, 0, false, true);
+									else if (key === "navneplakater" && parsedPosterNames.length !== amount) Basket.remove(key, index, amount, true, true, posterNames);
+									else Basket.add(key, index, amount, false, false, posterNames);
+								}
+				 ),
+				 Dialogs.button("Fortryd")
+            ]);
 
-    amount: function (index) {
-        if (index < 0 || index >= Basket.size()) return null;
-        var item = Basket.content[index];
-        return item ? item.amount : null;
-    },
+        } else if (confirmed) {
+            // Remove item from basket:
+            var content = [];
+            for (var i = 0; i < Basket.size(); i++) {
+                if (Basket.key(i) === key && Basket.index(i) === index) {
+                	History.statistics(Utils.path(), "Removed " + Basket.amount(i) + " x " + Groups.basketTitle(key, index, false) + " from basket");
+                } else content.push(Basket.content[i]);
+            }
+            Basket.content = content;
 
-    frame: function (index) {
-        if (index < 0 || index >= Basket.size()) return null;
-        var item = Basket.content[index];
-        return item ? item.frame : false;
+            if (Basket.isEmpty()) Basket.clear();
+            else Basket.updatedContent();
+            
+        } else {
+            Dialogs.open("Vil du fjerne " + Groups.basketTitle(key, index, true) + " fra indkøbskurven?", [
+            	Dialogs.button("Fint", function() {
+                	Basket.remove(key, index, 0, false, true);
+                }),
+                Dialogs.button("Fortryd")
+            ]);
+        }
     },
-
-    size: function () {
+    
+    addRemoveText: function(key, index, amount, posterNames) {
+    	var text = "Hvor mange eksemplarer af " + Groups.basketTitle(key, index, true) + " ønsker du i indkøbskurven? " 
+            	 + "<input id='amount' class='dialog-input-center' type='text' value='" + amount + "'/>";
+        if (key === "navneplakater") {
+        	text += "Angiv et navn til hver plakat (separér med komma): " 
+            	 + "<input id='poster-names' class='dialog-input' type='text'" + (posterNames ? " value='" + posterNames + "'" : "") + "/>";
+        }
+        return text; 
+    },
+    
+    parsePosterNames: function(posterNames) {
+    	var parsedPosterNames = [];
+		$.each(posterNames.split(","), function(i, name) {
+			name = name.trim();
+			if (name !== "") parsedPosterNames.push(name);
+		});
+		return parsedPosterNames;
+    },
+    
+    clear: function() {
+    	Basket.content = [];
+        Basket.updatedContent();
+        Basket.hide(true, false);
+    },
+    
+    size: function() {
         return Basket.content.length;
     },
 
-    isEmpty: function () {
+    isEmpty: function() {
         return Basket.size() == 0;
     },
 
-    show: function (addHistory, entering) {
+    price: function() {
+        var price = 0;
+        for (var i = 0; i < Basket.size(); i++) {
+            var item = Groups.item(Basket.key(i), Basket.index(i));
+            var amount = Basket.amount(i);
+            var frame = Basket.frame(i);
+            price += amount * (frame ? item.price : item.priceNoFrame);
+        }
+        return price;
+    },
+    
+    totalPrice: function() {
+    	return Delivery.price() + Basket.price();
+    },
+    
+    showTotalPrice: function() {
+    	$("#total div").html(Basket.totalPrice() + " kr.");
+    },
+    
+    pickUpOnly: function() {
+        var pickup = false;
+        for (var i = 0; i < Basket.size(); i++) {
+            var item = Groups.item(Basket.key(i), Basket.index(i));
+            if (typeof item.pickup !== "undefined" && item.pickup) pickup = true;
+        }
+        return pickup;
+    },
+    
+    toggle: function() {
+    	var inViewPort = Utils.inViewPort("#basket");
+    	var visible = Utils.visible("#basket");
+    	if (inViewPort && visible) {
+    		console.log("Basket.toggle() -> Basket.hide(true, false)");
+    		Basket.hide(true, false);
+    	} else if (!inViewPort && visible) {
+    		console.log("Basket.toggle() -> Utils.scrollToTop()");
+    		if (Utils.smallScreen()) Basket.showShopInBasketNav();
+    		Utils.scrollToTop();
+    	} else {
+    		console.log("Basket.toggle() -> Basket.show(true, false)");
+    		Basket.show(true, false);
+    	}
+    },
+        
+    show: function(addHistory, entering) {
         console.log("Basket.show(" + addHistory + ", " + entering + ")");
 
+		// Hide any popup boxes:
+		Dialogs.close();
+		
         // Empty?
         if (Basket.isEmpty()) {
             if (addHistory) {
@@ -206,262 +524,259 @@ var Basket = {
         // Scroll to top:
         Utils.scrollToTop(entering);
 
+		// Hide any input validation errors:
+		Basket.hideErrors();
+		
+		// Ensure that the basket is open for editing:
+		Basket.toggleEditable(true);
+				
         // Hide other opened group if any:
-        Groups.hide();
+        Groups.hide(entering);
 
-        // Hide basket link:
-        $("#basket-nav").hide();
+        // Handle basket link:
+        if (Utils.smallScreen()) Basket.showShopInBasketNav();
+        else $("#basket-nav").hide();
 
         // Reveal basket:
         Utils.fadeIn($("#basket"));
     },
 
-    hide: function () {
+    hide: function(addHistory, entering) {
+    	console.log("Basket.hide(" + addHistory + ", " + entering + ")");
+    
+        if (addHistory) History.add("/butik");      
+        
         $("#basket").hide();
-        $("#basket-nav").show();
+        
+        Utils.scrollToTop(entering);
+		
+        if (Utils.smallScreen()) Basket.showBasketInBasketNav();
+        else $("#basket-nav").show();
+    },
+    
+    showShopInBasketNav: function() {
+		$("#basket-nav a:first-of-type").html("x");
     },
 
-    clear: function () {
-        $("#from").val("");
-        $("#phone").val("");
-        $("#message").val("");
-
-        Basket.content = [];
-        Basket.manifest();
+    showBasketInBasketNav: function() {
+		$("#basket-nav a:first-of-type")
+			.html("Kurv (<span class='basket-count'>" + Basket.size() + "</span>)");
     },
-
-    price: function () {
-        var price = 0;
-        for (var i = 0; i < Basket.size(); i++) {
-            var group = Groups.find(Basket.key(i));
-            var item = group.items[Basket.index(i)];
-            var amount = Basket.amount(i);
-            var frame = Basket.frame(i);
-            price += amount * (frame ? item.price : item.priceNoFrame);
+    
+	toggleEditable: function(editable) {
+		Utils.toggleEnabledInput("#personal .basket-form-input", editable);
+        Utils.toggleVisibility("a.decrease", editable);
+        Utils.toggleEnabledLink("a.increase", editable)
+        
+        Delivery.toggleEditable(editable);
+        Payment.toggleEditable(editable);
+        	 
+    	if (typeof editable !== "undefined" && editable) {
+    		$("#payment-buttons-container").hide(0);
+    		$("#validate-button-container").show(0);
+    		
+    	} else {
+        	$("#validate-button-container, #payment-buttons-container").toggle(0);
         }
-        if (price > 0) price += 39;
-        return price;
+	},   
+	status: function(key, index, element) {
+        if (!element) element = $("#basket_" + key + "_" + index);
+        
+        return element.html(
+                Basket.contains(key, index) ?
+                $("<a>").addClass("in-basket").attr("href", "javascript: Basket.show(true, false);").html("Kurv (<span class='basket-count'>" + Basket.size() + "</span>)") :
+                $("<a>").addClass("add-to-basket").attr("href", "javascript: Basket.add('" + key + "', " + index + ", 1, true, true);").html("Bestil &#187;")
+        );
+    }, 
+
+	key: function(index) {
+        if (index < 0 || index >= Basket.size()) return null;
+        var item = Basket.content[index];
+        return item ? item.key : null;
     },
 
-    manifest: function () {
-        // Save basket content to cookie:
-        $.cookie("basket-data", JSON.stringify(Basket.content), { path: "/" });
-
-        // Display amount of items in basket in basket links:
-        $(".basket-count").each(function () {
-            $(this).html(Basket.size());
-        });
-
-        // If empty then just hide:
-        if (Basket.isEmpty()) return Basket.hide();
-
-        // Make basket content visible in basket form:
-        var picturesField = $("#pictures").html("");
-        for (var i = 0; i < Basket.size(); i++) {
-            var key = Basket.key(i);
-            var index = Basket.index(i);
-            var amount = Basket.amount(i);
-            var frame = Basket.frame(i);
-            console.log("Basket.manifest() - Basket[" + i + "]: { key: '" + key + "', index: " + index + ", amount: " + amount + ", frame: " + frame + "}");
-            var item = Groups.find(key).items[index];
-            var picture = $("<div>")
-                    .addClass("picture")
-                    .html($("<img>").addClass("link").attr("src", item.image).attr("title", Groups.title(key, index, false)).attr("onClick", "Groups.show(true, 'butik', '" + key + "', " + index + ", false);"))
-                    .append($("<div>").addClass("amount")
-                                    .html(Groups.printed(key) ? $("<div>").addClass("current").html("x " + amount) : "")
-                                    .append($("<a>").addClass("decrease").attr("href", "javascript: Basket.remove('" + key + "', " + index + ", 0, true, false);").html($("<img>").attr("src", "/www/images/remove.png")))
-                                    .append($("<a>").addClass("increase").attr("href", "javascript: Basket.add('" + key + "', " + index + ", " + (amount + 1) + ", true, false);").html($("<img>").attr("src", "/www/images/add.png"))));
-            if (item.priceNoFrame) {
-                picture.append($("<div>")
-                                       .addClass("frame")
-                                       .append($("<input>")
-                                                       .attr({"type": "checkbox", "checked": frame})
-                                                       .attr("id", "basket_picture_" + key + "_" + index)
-                                                       .on('change', function () {
-                                                               var id = $(this).attr("id").split("_");
-                                                               Basket.changeFrame(id[2], parseInt(id[3]), $(this).is(":checked"));
-                                                           }))
-                                       .append($("<span>").html("Ramme")));
-            }
-            picturesField.append(picture);
-        }
-
-        // Reveal total price:
-        $("#price").find("span").html(Basket.price());
+    index: function(index) {
+        if (index < 0 || index >= Basket.size()) return null;
+        var item = Basket.content[index];
+        return item ? item.index : null;
     },
 
-    changeFrame: function (key, index, frame) {
-        History.statistics(Utils.path(), "Changed frame for " + Groups.title(key, index, true) + " to " + frame);
+    amount: function(index) {
+        if (index < 0 || index >= Basket.size()) return null;
+        var item = Basket.content[index];
+        return item ? item.amount : null;
+    },    
+    
+    posterNames: function(index) {
+        if (index < 0 || index >= Basket.size()) return null;
+        var item = Basket.content[index];
+        return item ? item.posterNames : null;
+    },
+
+    frame: function(index) {
+        if (index < 0 || index >= Basket.size()) return null;
+        var item = Basket.content[index];
+        return item ? item.frame : false;
+    },
+    
+    updateFrame: function(key, index, frame) {
+        History.statistics(Utils.path(), "Changed frame for " + Groups.basketTitle(key, index, false) + " to " + frame);
         Basket.get(key, index).frame = frame;
-        Basket.manifest();
+        Basket.updatedContent();
         Basket.status(key, index);
     },
 
-    add: function (key, index, amount, checkAmount, notify) {
-        if (checkAmount && Groups.printed(key)) {
-            Dialogs.open("Hvor mange eksemplarer af " + Groups.title(key, index, true) + " ønsker du i indkøbskurven? " +
-                         "<input id=\"amount\" type=\"text\" value=\"" + amount + "\"/>",
-                         [
-                             Dialogs.button("Okay",
-                                            function () {
-                                                var amount = parseInt($("#amount").val());
-                                                if (amount <= 0) Basket.remove(key, index, 0, false, true);
-                                                else Basket.add(key, index, amount, false, notify);
-                                            }
-                             ),
-                             Dialogs.button("Fortryd")
-                         ]);
-
-        } else {
-            History.statistics(Utils.path(), "Added " + amount + " x " + Groups.title(key, index, true) + " to basket");
-            if (Basket.contains(key, index)) {
-                var item = Basket.get(key, index);
-                item.amount = amount;
-            } else Basket.content.push({ key: key, index: index, amount: amount, frame: true });
-            Basket.manifest();
-            Basket.status(key, index);
-            if (notify) Dialogs.open("Indkøbskurven indeholder nu " + Groups.title(key, index, true) + (Groups.printed(key) ? " x " + amount : "") + ".");
-        }
+    contains: function(key, index) {
+        return Basket.get(key, index) !== null;
     },
 
-    remove: function (key, index, amount, checkAmount, confirmed) {
-        if (checkAmount && Groups.printed(key)) {
-            Dialogs.open("Hvor mange eksemplarer af " + Groups.title(key, index, true) + " ønsker du i indkøbskurven? " +
-                         "<input id=\"amount\" type=\"text\" value=\"" + amount + "\"/>",
-                         [
-                             Dialogs.button("Okay",
-                                            function () {
-                                                var amount = parseInt($("#amount").val());
-                                                if (amount <= 0) Basket.remove(key, index, 0, false, true);
-                                                else Basket.add(key, index, amount, false, false);
-                                            }
-                             ),
-                             Dialogs.button("Fortryd")
-                         ]);
-
-        } else if (confirmed) {
-            // Remove item from basket:
-            var content = [];
-            for (var i = 0; i < Basket.size(); i++) {
-                if (Basket.key(i) != key || Basket.index(i) != index) content.push(Basket.content[i]);
-            }
-            Basket.content = content;
-
-            // If basket ends up empty then manipulate address line:
-            if (Basket.isEmpty()) History.modify("/butik");
-
-            Basket.manifest();
-
-        } else {
-            Dialogs.open("Vil du fjerne " + Groups.title(key, index, true) + " fra indkøbskurven?",
-                         [
-                             Dialogs.button("Ja",
-                                            function () {
-                                                Basket.remove(key, index, 0, false, true);
-                                            }
-                             ),
-                             Dialogs.button("Nej")
-                         ]);
-        }
-    },
-
-    get: function (key, index) {
-        for (var i = 0; i < Basket.size(); i++) if (Basket.key(i) == key && Basket.index(i) == index) return Basket.content[i];
+    get: function(key, index) {
+    	var item = Groups.item(key, index);
+        for (var i = 0; i < Basket.size(); i++) {
+	        if (Basket.key(i) === item.key && Basket.index(i) === item.index) return Basket.content[i];
+ 		}
         return null;
     },
 
-    contains: function (key, index) {
-        return Basket.get(key, index) != null;
-    },
-
-    status: function (key, index, element) {
-        if (!element) element = $("#basket_" + key + "_" + index);
-        return element.html(
-                Basket.contains(key, index) ?
-                $("<a>").addClass("in-basket").attr("href", "javascript: Basket.show(true, false);").html("Kurv (<span class=\"basket-count\">" + Basket.size() + "</span>)") :
-                $("<a>").addClass("add-to-basket").attr("href", "javascript: Basket.add('" + key + "', " + index + ", 1, true, true);").html("Bestil &#187;")
-        );
-    },
-
-    submit: function () {
-        // Email / Phone:
-        var emailField = $("#from");
-        var email = emailField.val().trim();
-        var phone = $("#phone").val().trim();
-        if (email == "" && phone == "") {
-            return Dialogs.open("Du har glemt at angive enten din emailadresse eller dit telefonnummer.", [
-                Dialogs.button("OK",
-                               function () {
-                                   emailField.focus();
-                               }
-                )
-            ]);
+	validate: function() {
+		Dialogs.wait("Behandles...");
+		
+		Basket.hideErrors();
+		
+		var errors = false;
+		
+		$.each(Basket.inputIds(), function(i, inputId) {
+			if (!Basket.validateInput(inputId)) {
+				Basket.showError("error-" + inputId);
+        		$("#" + inputId).addClass("error");
+        		errors = true;
+   			}
+		});
+        
+        // Delivery:
+        errors = Delivery.validate(errors);
+        
+        if (!errors) Basket.toggleEditable(false);
+        
+        Dialogs.close();
+        
+        if (errors) {
+        	Utils.scrollToTop(false);
+        	Basket.showErrors();
+        } else {
+        	if (Payment.paypalChosen()) {
+        		Dialogs.open("De angivne oplysninger er i orden.<br/><br/><b><i>Tryk på den blå PayPal-knap, når du er klar til at betale og afgive bestillingen.</i></b><br/><br/>Hvis der er noget, du ønsker at rette, så tryk på linket 'Ret din bestilling' under PayPal-knappen.");
+        	} else {
+        		Dialogs.open("De angivne oplysninger er i orden.<br/><br/><b><i>Tryk på BESTIL-knappen, når du er klar til at afgive bestillingen.</i></b><br/><br/>Hvis der er noget, du ønsker at rette, så tryk på linket 'Ret din bestilling' under BESTIL-knappen.");
+        	}
         }
+	},
 
-        // Build body:
-        var submit = [];
+	validateInput: function(inputId) {
+		var value = Basket.data[inputId];
+		if (typeof value === "undefined") value = "";
+	    if (Basket.inputValidators[inputId](value)) {
+    		Basket.fixError("error-" + inputId);
+    		$("#" + inputId).removeClass("error");
+    		return true;
+    	} 
+    	return false;
+	},
+	
+	showErrors: function() {
+		$("#errors").show(0);
+	},
+	
+	hideErrors: function() {
+		$("#errors, .error-entry").hide(0);
+		$("#email, #name, #address, #phone, #message, #gls-shops-link").removeClass("error");
+	},
+	
+	showError: function(error) {
+		$("#" + error).removeClass("error-entry-fixed").addClass("error-entry-fix").show(0);
+	},
+	
+	fixError: function(error) {
+		$("#" + error).removeClass("error-entry-fix").addClass("error-entry-fixed");
+	},
+	
+	submit: function() {
+		Dialogs.wait("Behandles...");
+		
+        Basket.submitAfterPayment();
+	},
+	
+    submitAfterPayment: function(paymentId) {
+		var submit = [];
         for (var i = 0; i < Basket.size(); i++) {
-            submit.push(
-                    {
-                        image: Groups.find(Basket.key(i)).items[Basket.index(i)].image,
-                        title: Groups.title(Basket.key(i), Basket.index(i), false),
-                        amount: Basket.amount(i),
-                        frame: Basket.frame(i)
-                    }
-            );
+        	var key = Basket.key(i);
+        	var amount = Basket.amount(i);
+        	var posterNames = Basket.posterNames(i);
+         	submit.push({
+				image: Groups.item(key, Basket.index(i)).image,
+				title: Groups.basketTitle(key, Basket.index(i), false),
+				amount: amount,
+				posterNames: posterNames,
+				frame: Basket.frame(i)
+            });
         }
-        var body = JSON.stringify(
-                {
-                    check: true,
-                    pictures: submit,
-                    from: email,
-                    phone: phone,
-                    message: $("#message").val().trim()
-                }
-        );
-
+		
+		var body = {
+			check: true,
+			pictures: submit,
+			email: Basket.data.email,
+			name: Basket.data.name,
+			address: Basket.data.address,
+			phone: Basket.data.phone,
+			delivery: Basket.data.delivery,
+			payment: Basket.data.payment,
+			price: Basket.totalPrice()
+        };
+        if (paymentId) body.paymentId = paymentId;
+        if (Basket.data.company) body.company = Basket.data.company;
+        if (Basket.data.message) body.message = Basket.data.message;
+        if (Basket.data.glsShop) body.glsShop = Basket.data.glsShop.text;
+        
         // Submit:
-        $.ajax(
-                {
-                    type: "POST",
-                    url: "/order?sid=" + Math.random(),
-                    processData: false,
-                    contentType: 'application/json',
-                    data: body,
-                    success: function () {
-                        Basket.clear();
-                        Dialogs.open("Tak, Pia vender snart tilbage!");
-                    }
-                }
-        );
+        $.ajax({
+			type: "POST",
+			url: "/order?sid=" + Math.random(),
+			processData: false,
+			contentType: "application/json",
+			data: JSON.stringify(body),
+			success: function() {
+				Basket.clear();
+				Dialogs.open("Tak, Pia vender snart tilbage til dig!");
+			}
+        });
     }
 };
 
 var History = {
-    initialize: function () {
+    initialize: function() {
         console.log("History.initialize()");
 
         if (Utils.path() == "/") History.modify("/opgaver");
         else History.statistics(Utils.path());
 
-        window.onpopstate = function () {
+        window.onpopstate = function() {
             console.log("State pop -> " + Utils.path());
             Basket.initialize();
             Groups.initialize();
         };
     },
 
-    add: function (path) {
+    add: function(path) {
         window.history.pushState({ "path": path }, "Pia Olsen", path);
         History.statistics(Utils.path());
     },
 
-    modify: function (path) {
+    modify: function(path) {
         window.history.replaceState({ path: path }, "Pia Olsen", path);
         History.statistics(Utils.path());
     },
 
-    statistics: function (path, text) {
+    statistics: function(path, text) {
         if (text == null) text = "Viewed";
         console.log("Statistics: '" + path + "', '" + text + "'");
         _gaq.push(["_trackEvent", path, text]);
@@ -469,9 +784,11 @@ var History = {
 };
 
 var Links = {
-    initialize: function () {
-        $('.external').click(function () {
-            Links.open($(this).prop("href"));
+    initialize: function() {
+        $(".external").click(function() {
+        	if (Utils.linkEnabled($(this))) {
+        		Links.open($(this).prop("href"));
+        	}
             return false;
         });
     },
@@ -481,7 +798,7 @@ var Links = {
         { app: "instagram://", web: "https://www.instagram.com/" }
     ],
 
-    open: function (address) {
+    open: function(address) {
         if (address.indexOf("http") == 0) {
             var windowHeight = window.innerHeight * 0.8;
             var windowWidth = window.innerWidth * 0.8;
@@ -498,7 +815,7 @@ var Links = {
                     if (navigator.userAgent.match(/iPhone|iPad|iPod/i)) {
                         var start = new Date();
                         window.location = address;
-                        setTimeout(function () {
+                        setTimeout(function() {
                             var wait = new Date() - start;
                             if (wait < 2.0 * 1250) Links.open(address.replace(app.app, app.web));
                         }, 1250);
@@ -512,149 +829,221 @@ var Links = {
 };
 
 var Dialogs = {
-    initialize: function () {
-        $("#dialog").dialog({ autoOpen: false, modal: true });
+    initialize: function() {
+    	var dialogSettings = { 
+        	autoOpen: false, 
+        	modal: true, 
+        	resizable: false
+		};
+		if (Utils.smallScreen()) {
+			dialogSettings.position = { my: "center top+100", at: "center top" };
+		}
+        $("#dialog").dialog(dialogSettings);
+    },
+    
+    maxWidth: function() {
+    	return Math.min(600, $("#categories").width());
+    },
+    
+    maxHeight: function() {
+    	return Math.min(500, 0.8 * $(window).height());
+    },
+    
+    wait: function(html) {
+    	Dialogs.open(html, []);
+    },
+    
+    open: function(html, buttons) {
+        Dialogs.openWidthHeight(null, null, html, buttons);
+    },
+    
+    openLarge: function(html, buttons) {
+        Dialogs.openWidthHeight(Dialogs.maxWidth(), Dialogs.maxHeight(), 
+                                "<div id='dialog-scroll'>" + html + "</div>", 
+                                buttons);
+    },
+    
+    openWidthHeight: function(width, height, html, buttons) {
+    	Utils.switchOffScrolling();
+				
+        if (!buttons) buttons = [ Dialogs.button("Fint") ];
+
+		$("#dialog")
+			.dialog({ open: function() { if (Utils.bigScreen()) $("#dialog input").first().select(); }})
+ 			.html(html)
+			.dialog("option", "width", width ? width : 300)
+        	.dialog("option", "height", height ? height : "auto")
+        	.dialog("option", "buttons", buttons)
+ 			.dialog("open");
     },
 
-    open: function (html, buttons) {
-        if (!buttons) buttons = [ Dialogs.button("OK") ];
-
-        $("#dialog")
-                .html(html)
-                .dialog("option", "buttons", buttons).dialog("open");
-    },
-
-    close: function () {
+    close: function() {
         $("#dialog").dialog("close");
+        
+        Utils.switchOnScrolling();
+        
+        // Hack to fix the fact that opening a dialog makes the page scroll down a bit:
+        if (Utils.inViewPort("#top .title")) Utils.scrollToTop(false);
     },
 
-    button: function (text, action) {
+    button: function(text, action) {
         return {
             text: text,
-            click: function () {
+            click: function() {
                 Dialogs.close();
-                if (action != null) action();
+                if (typeof action !== 'undefined' && action !== null) action();
             }
         };
     }
 };
 
-var ToolTips = {
-    initialize: function () {
-        $(".click").each(function () {
-            $(this).html(Utils.touchScreen() ? "Tryk" : "Klik");
-        });
-    }
-};
-
 var Utils = {
-    fadeIn: function (element, complete) {
+	initialize: function() {
+		$("form")
+			.on("submit", function() { return false; }) // To prevent form is actually submitted 
+			.on("keydown", ":input:not(textarea)", function(event) { return event.key != "Enter"; }); // To prevent button is fired on Enter in input field 
+	},
+	
+    fadeIn: function(element, complete) {
         element.fadeIn({ duration: "slow", easing: "linear", complete: complete });
     },
-
-    scrollTo: function (position) {
+	
+	visible: function(selector) {
+    	return $(selector).is(":visible");
+	},
+	    
+    inViewPort: function(selector) {
+    	return $(selector).inViewport(true);
+	},
+	
+    scrollTo: function(position) {
         return $("html,body").scrollTop(position);
     },
 
-    scrollToTop: function (entering) {
-        if (entering || Utils.bigScreen()) return Utils.scrollTo(0);
+    scrollToTop: function(entering) {
+        if (entering || Utils.bigScreen()) return Utils.scrollTo(0);
         else {
-            var top = $("#top");
-            return Utils.scrollTo(top.position().top + top.outerHeight(true) - 5);
+            var top = $("#top");				
+            Utils.scrollTo(top.position().top + top.outerHeight(true) + 5);
+            Basket.handleP();
         }
     },
-
-    goTo: function (path) {
+    
+    switchOffScrolling: function() {
+		$("body").addClass("no-scroll");
+    },
+    
+    switchOnScrolling: function() {
+ 		$("body").removeClass("no-scroll");
+    },
+    
+    goTo: function(path) {
         window.location.href = path;
     },
 
-    displayNumber: function (number) {
+    displayNumber: function(number) {
         return ("" + number).replace(".", ",");
     },
 
-    displayPrice: function (kroner) {
+    displayPrice: function(kroner) {
         return Utils.displayNumber(kroner) + " kr.";
     },
 
-    exists: function (selector) {
+    exists: function(selector) {
         return $(selector)[0];
     },
+    
+    toggleOpaqueness: function(selector, opaque) {
+    	$(selector).each(function(i, element) {
+			if ($(element).hasClass("removed")) $(element).addClass("transparent");
+    		else if (opaque || $(element).hasClass("transparent")) $(element).removeClass("transparent");
+			else $(element).addClass("transparent");
+		});
+    },
+    
+    toggleVisibility: function(selector, visible) {
+    	$(selector).each(function(i, element) {
+    		if ($(element).hasClass("removed")) $(element).css("visibility", "hidden");
+    		else if (visible || $(element).css("visibility") === "hidden") $(element).css("visibility", "visible");
+			else if ($(element).css("visibility") === "visible") $(element).css("visibility", "hidden");
+			else $(element).css("visibility",  "hidden");
+    	});
+    },
+	
+	toggleEnabledInput: function(selector, enabled) {
+		$(selector).each(function(i, element) {
+			if ($(element).hasClass("removed")) $(element).prop("disabled", true);
+			else if (enabled) $(element).prop("disabled", false);
+			else if ($(element).prop("disabled") === false) $(element).prop("disabled", true);
+			else if ($(element).prop("disabled") === "false") $(element).prop("disabled", true);
+			else if ($(element).prop("disabled") === "enabled") $(element).prop("disabled", true);
+			else if ($(element).prop("disabled") === true) $(element).prop("disabled", false);
+			else if ($(element).prop("disabled") === "true") $(element).prop("disabled", false);
+			else if ($(element).prop("disabled") === "disabled") $(element).prop("disabled", false);
+			else if ($(element).prop("disabled")) $(element).prop("disabled", false);
+			else $(element).prop("disabled", true);
+		});
+	},
+	
+	toggleEnabledLink: function(selector, enabled) {
+		$(selector).each(function(i, element) {
+			if ($(element).hasClass("removed")) $(element).addClass("link-disabled");
+			else if (enabled) $(element).removeClass("link-disabled");
+			else if ($(element).hasClass("link-disabled")) $(element).removeClass("link-disabled");
+			else $(element).addClass("link-disabled");
+		});
+	}, 	
+	
+	linkEnabled: function(link) {
+		return !link.hasClass("link-disabled");
+	},
 
-    visible: function (selector) {
-        $(selector).css('visibility', 'visible');
+    touchScreen: function() {
+        return "ontouchstart" in document.documentElement;
     },
 
-    touchScreen: function () {
-        return 'ontouchstart' in document.documentElement;
-    },
-
-    bigScreen: function () {
+    bigScreen: function() {
         return $("#x").is(":visible");
     },
+    
+    smallScreen: function() {
+        return !Utils.bigScreen();
+    },
 
-    path: function () {
+    path: function() {
         return window.location.pathname;
     },
 
-    param: function (name) {
+    param: function(name) {
         name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
         var regex = new RegExp("[\\?&]" + name + "=([^&#]*)");
         var results = regex.exec(location.search);
         return results === null ? null : decodeURIComponent(results[1].replace(/\+/g, " "));
     },
 
-    paramExists: function (name) {
+    paramExists: function(name) {
         name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
         var regex = new RegExp("[\\?&]" + name + "$");
         var results = regex.exec(location.search);
         return results !== null;
-    }
-};
-
-var Edit = {
-    enabled: false,
-
-    initialize: function () {
-        if (Utils.paramExists("edit")) {
-            Auth.auth(function () {
-                Edit.enabled = true;
-                Edit.manifest();
-            });
-        } else {
-            try {
-                Edit.enabled = JSON.parse($.cookie("edit"));
-            } catch (error) {
-                Edit.enabled = false;
-            }
-            Edit.manifest();
-        }
     },
-
-    manifest: function () {
-        $.cookie("edit", JSON.stringify(Edit.enabled), { path: "/" });
-
-        if (!Edit.enabled) return;
-
-        $("#categories").find(".item > div:first-child").each(function (index, element) {
-            $(this).append($("<div>").addClass("category-edit").html("- +"));
-        });
-
-        $("body").append($("<div>").attr("style", "position: absolute; top: 2px; right: 5px;").html($("<a>").attr("href", "javascript: Edit.logout();").html("Log ud")));
+    
+    writeCookie: function(key, value) {
+    	$.cookie(key, JSON.stringify(value), { path: "/" });
     },
-
-    logout: function () {
-        $.cookie("edit", null, { path: "/" });
-        Utils.goTo("/opgaver");
+    
+    readCookie: function(key) {
+    	return JSON.parse($.cookie(key));
     }
 };
 
 var Auth = {
-    auth: function (success) {
+    auth: function(success) {
         var username = $("<div>").html($("<label>").html("Brugernavn:")).append($("<input>").attr("id", "username"));
         var password = $("<div>").html($("<label>").html("Kodeord:")).append($("<input>").attr("id", "password"));
         var html = $("<div>").html(username).append(password);
 
-        var doAuth = function () {
+        var doAuth = function() {
             console.log("doAuth()");
             var username = $("#username").val();
             var password = $("#password").val();
@@ -669,25 +1058,24 @@ var Auth = {
                         },
                         context: this,
                         success: success,
-                        error: function () {
+                        error: function() {
                             Dialogs.open("Beklager, ugyldigt brugernavn/kodeord.");
                         }
                     }
             );
         };
 
-        Dialogs.open(html, [ Dialogs.button("OK", doAuth) ]);
+        Dialogs.open(html, [ Dialogs.button("Fint", doAuth) ]);
     }
 };
 
-$(document).ready(function () {
+$(document).ready(function() {
+    Utils.initialize();
     Dialogs.initialize();
     Links.initialize();
-    ToolTips.initialize();
-    Edit.initialize();
     History.initialize();
     Basket.initialize();
     Groups.initialize();
 
     $(".year").html(new Date().getFullYear());
-});
+});    

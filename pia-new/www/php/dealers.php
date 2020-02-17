@@ -9,10 +9,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0"/>
     <link rel="shortcut icon" type="image/ico" href="/www/images/favicon.ico"/>
     <link rel="apple-touch-icon" href="/www/images/appicon.png"/>
-    <link rel="stylesheet" type="text/css" href="/www/css/jquery-ui-1.11.2.smoothness/jquery-ui.min.css">
+    <link rel="stylesheet" type="text/css" href="/www/css/jquery-ui-1.12.1.smoothness/jquery-ui.min.css">
     <link rel="stylesheet" type="text/css" href="/www/css/style.css" media="screen">
-    <script language="javascript" type="text/javascript" src="/www/js/jquery-1.11.1.min.js"></script>
-    <script language="javascript" type="text/javascript" src="/www/js/jquery-ui-1.11.2.js"></script>
+    <script language="javascript" type="text/javascript" src="/www/js/jquery-3.4.1.min.js"></script>
+    <script language="javascript" type="text/javascript" src="/www/js/jquery-ui-1.12.1.min.js"></script>
     <script language="javascript" type="text/javascript" src="/www/js/jquery.cookie.js"></script>
     <script language="javascript" type="text/javascript" src="/www/js/script.js"></script>
 </head>

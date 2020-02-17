@@ -1,0 +1,1058 @@
+body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 0.95em;
+    letter-spacing: 0.02em;
+    cursor: default;
+    color: #222;
+    margin: 0;
+    padding: 0;
+    overflow-y: scroll;
+}
+
+body.no-scroll {
+  overflow-y: hidden;
+}
+
+table {
+    width: 100%;
+    border-spacing: 1px 0;
+    border-collapse: collapse;
+}
+
+td {
+	padding: 0;
+}
+
+td.radio {
+	padding: 0 10px 3px 5px;
+}
+
+textarea {
+	min-height: 75px;
+}
+
+input[type=text], textarea {
+	border: 1px solid #ccc;
+	border-radius: 2px;
+	text-indent: 2px;
+    -webkit-appearance: none;
+}
+
+input[type=text]:disabled, textarea:disabled {
+	color: #222;
+	-webkit-text-fill-color: #222;
+	border: 1px solid #eee !important;
+	opacity: 1;
+}	
+
+img {
+	display: inline-block;
+    max-width: 100%;
+}
+
+a, a:active, a:visited {
+    color: #222;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #777;
+}
+
+.link {
+    color: #222;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0 !important;
+}
+
+.link:hover {
+    color: #777;
+    text-decoration: none;
+}
+
+.link-ordinary {
+    color: #222;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.link-ordinary:hover {
+    color: #777;
+    text-decoration: none;
+}
+
+.link-disabled {
+    color: #222;
+    cursor: default;
+    text-decoration: none;
+}
+
+.link-disabled:hover {
+    color: #222;
+    text-decoration: none;
+}
+
+.navigation > nav > a {
+    text-transform: uppercase;
+    letter-spacing: 0 !important;
+    padding: 10px 5px;
+}
+
+.navigation > nav > a.active {
+    font-weight: bolder;
+}
+
+.navigation > nav > a.active:hover {
+    color: #777;
+    text-decoration: none;
+}
+
+input.error, textarea.error {
+	border-color: #f00 !important;
+}
+
+a.error {
+	color: #f00 !important;
+}
+
+a.error:hover {
+	color: #f77 !important;
+}
+
+.transparent {
+	opacity: 0.3;
+}
+
+.clearer {
+    clear: both;
+}
+
+.text {
+    line-height: 1.5em;
+}
+
+.highlight {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 1.5em;
+    display: block;
+    margin-top: 30px;
+    line-height: 1.25em;
+}
+
+.moobaa {
+    color: #DBA901;
+}
+
+.appit {
+    color: #B93B8F;
+}
+
+.gyldendal {
+    color: #C12283;
+}
+
+.snakomdet {
+    color: #C12283;
+}
+
+.redbarnet {
+    color: #e71944;
+}
+
+.gavekalaset {
+    color: #FE2E64;
+}
+
+.baghuset21b {
+    color: #0489B1;
+}
+
+.marked {
+    color: #DF0101;
+}
+
+.marked6 {
+	color: #DF0174;
+}
+
+#footnotes {
+	margin-top: 30px;
+}
+
+.footnote {
+	display: none;
+    font-style: italic;
+	padding: 10px 0;
+}
+
+.footnote-stars {
+	font-weight: bold;
+}
+
+/* Entire page */
+
+.canvas {
+    max-width: 960px;
+    margin: 30px auto;
+}
+
+/* Top */
+
+#top {
+    border-bottom: 1px solid #222;
+}
+
+#top > .title img {
+    height: 90px;
+}
+
+/* Middle */
+
+#middle {
+    display: none;
+    border-top: 1px solid #222;
+    border-bottom: 1px solid #222;
+    padding: 20px 0;
+    margin-bottom: 10px;
+}
+
+/* Bottom */
+
+#bottom {
+    border-top: 1px solid #222;
+}
+
+#bottom > .navigation {
+    padding: 20px 0;
+}
+
+#bottom > .copyright {
+    font-size: small;
+    letter-spacing: 0 !important;
+}
+
+/* Content */
+
+#explore {
+    display: none;
+    text-align: center;
+    padding-top: 40px;
+}
+
+#explore > .text {
+    display: block;
+    padding-bottom: 50px;
+}
+
+#categories {
+    text-align: center;
+    padding-top: 40px;
+}
+
+#categories > .text {
+    display: block;
+    padding-bottom: 50px;
+}
+
+#teasers {
+    border-top: 1px solid #222;
+    text-align: center;
+    padding-top: 60px;
+}
+
+/* Content item */
+
+.item {
+    position: relative;
+    text-align: center;
+    padding: 0 2em 60px 2em;
+}
+
+.item > .text {
+    padding-top: 10px;
+}
+
+.work > #categories > .item > .text,
+.work > #teasers > .item > .text {
+    display: inline-block;
+    text-transform: none !important;
+    letter-spacing: 0.02em !important;
+    color: #222;
+    padding-top: 12px;
+}
+
+.work > #categories > .item > .text:hover,
+.work > #teasers > .item > .text:hover {
+    color: #777;
+}
+
+.item > .text:nth-of-type(1) {
+    padding-top: 15px;
+}
+
+.item > .title {
+    font-weight: bolder;
+    padding-top: 15px;
+}
+
+.item > .basket-status > a {
+    text-transform: uppercase;
+    letter-spacing: 0 !important;
+    padding: 10px 5px;
+    margin-top: 5px;
+}
+
+.item > .sold {
+    font-style: italic;
+    letter-spacing: 0 !important;
+    padding: 10px 5px;
+    margin-top: 5px;
+}
+
+/* Content - Contact */
+
+.contact {
+    text-align: center;
+    margin: 40px 0;
+}
+
+.contact > img.pia {
+    width: 200px;
+}
+
+.contact > .telephone {
+    font-weight: bolder;
+}
+
+.contact > .news > a,
+.contact > .facebook > a,
+.contact > .instagram > a,
+.contact > .pinterest > a {
+    text-transform: uppercase;
+    letter-spacing: 0 !important;
+    padding: 10px 5px;
+}
+
+.contact > .facebook > a {
+    color: #3b5998;
+}
+
+.contact > .instagram > a {
+    color: #125688;
+}
+
+.contact > .pinterest > a {
+    color: #C92228;
+}
+
+.contact > .facebook > a:hover,
+.contact > .instagram > a:hover,
+.contact > .pinterest > a:hover {
+    color: #777;
+}
+
+/* Content - Customers */
+
+.customers {
+    text-align: center;
+    margin: 40px 0;
+}
+
+.customers > div {
+    display: inline-block;
+    text-align: left;
+}
+
+/* Content - Dealers */
+
+.dealers {
+    text-align: center;
+    margin: 40px 0;
+}
+
+.dealers .dealer {
+    padding-top: 20px;
+}
+
+.dealers .dealer > div:first-child {
+    font-weight: bold;
+}
+
+/* Content - Shop - Basket */
+
+#basket-nav {
+    padding-top: 20px;
+}
+
+#basket-nav a {
+    text-transform: uppercase;
+    letter-spacing: 0 !important;
+    padding: 10px 5px;
+}
+
+#basket {
+    display: none;
+    position: relative;
+    border-bottom: 1px solid #222;
+}
+
+#basket #pictures .picture .frame > input[type=checkbox] {
+    -webkit-appearance: checkbox;
+}
+
+#basket #pictures .picture .frame > span {
+    font-size: smaller;
+}
+
+#basket .input-container > label {
+	display: block;
+	margin-bottom: 5px;
+}
+
+#basket .input-container > input[type=text], 
+#basket .input-container > textarea {
+	width: 100%;
+	margin-bottom: 15px;
+}
+
+#basket #pictures > table tr {
+	border-bottom: 1px solid #ccc;
+}
+
+#basket #pictures > table tr:last-child {
+	border-bottom: none;
+}
+
+#basket #pictures .picture .thumbnail {
+	width: 75px;
+	padding: 10px 0;
+}
+
+#basket #pictures .picture .thumbnail > img {
+	width: 75px;
+}
+
+#basket #pictures .picture .title {
+	text-align: left;
+	padding: 10px;
+}
+
+#basket #pictures .picture .amount {
+	text-align: left;
+	white-space: nowrap;
+	padding: 10px;
+}
+
+#basket #pictures .picture .price {
+	text-align: right;
+	white-space: nowrap;
+	padding: 10px 0 10px 10px;
+	font-weight: normal;
+}
+	
+#basket #pictures .picture .decrease {
+	text-align: center;
+	padding: 10px 0;
+	min-width: 24px;
+}
+
+#basket #pictures .picture .poster-names {
+	margin-top: 5px;
+}
+
+#basket #delivery {
+	padding: 30px 0;
+	border-top: 1px solid #ccc;
+}
+
+#basket #delivery .label {
+	width: 100%;
+}
+ 
+#basket #delivery .price {
+	text-align: right;
+	white-space: nowrap;
+	font-weight: normal;
+}
+
+#gls-shop {
+	padding: 10px 0 0 0;
+}
+
+.gls-shop {
+	float: left;
+	padding: 10px 5px;
+}    
+
+.gls-shop .gls-shop-info {
+	display: inline-block;
+	vertical-align: middle;
+	width: 240px;
+	padding-left: 10px;
+}
+
+.gls-shop .gls-shop-info .company-name {
+	font-weight: bold;
+	padding-bottom: 4px;
+}    
+
+.gls-shop .gls-shop-info .gls-id {
+	padding-top: 4px;
+	font-style: italic;
+}
+        
+#basket #total {
+	padding: 15px 0 10px 0;
+	border-bottom: 3px double #ccc;
+	border-top: 1px solid #ccc;
+}
+
+#basket #total div {
+	float: right;
+	font-weight: normal;
+}
+  
+#basket #payment {
+	padding: 30px 0 40px 0;
+}
+
+#basket #payment .label {
+	width: 100%;
+}
+
+#basket #payment #paypal-info img {
+	height: 50px;
+	padding: 0 0 8px 5px;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+#basket #validate-button-container,
+#basket #payment-buttons-container,
+#basket #paypal-button-container,
+#basket #bank-button-container {
+	text-align: center;
+}
+
+#basket #payment-buttons-container .link-ordinary {
+	margin-top: 25px;
+}
+	
+#basket #validate-button-container button,
+#basket #bank-button-container button {
+	background-color: #2C2E2F; 
+	color: #fff;
+	width: 100%;
+	border: none;
+	border-radius: 4px;
+	outline: none !important;
+	box-shadow: none !important;
+	box-sizing: border-box;
+	display: inline-block;
+	text-align: center;
+	text-decoration: none;
+	font-size: 16px;
+	font-weight: 500;
+	/*letter-spacing: 0.02em !important;*/
+}   
+
+#basket #errors {
+	display: none;
+	margin: 0 0 30px 0;
+}
+
+#basket #errors ul {
+  	list-style: none;
+  	padding: 0;
+  	margin: 0;
+}
+
+#basket #errors ul li.error-entry {
+	display: none;
+  	padding-left: 1.3em;
+	margin-bottom: 10px;
+}
+
+#basket #errors ul li.error-entry:before {
+  	display: inline-block;
+  	width: 1.3em; /* same as padding-left set on li */
+  	margin-left: -1.3em; /* same as padding-left set on li */
+}
+
+#basket #errors ul li.error-entry-fix {
+	color: #f00;
+}
+
+#basket #errors ul li.error-entry-fix:before {
+	content: "\2715"; /* Cross */
+}
+
+#basket #errors ul li.error-entry-fixed {
+	color: #222;
+}
+
+#basket #errors ul li.error-entry-fixed:before {
+  	content: "\2713"; /* Check */
+}
+
+#pickup-gls-spacer {
+	font-size: 5px;
+	height: 26px;
+}
+
+#bank-paypal-spacer {
+	font-size: 5px;
+	height: 10px;
+}
+
+/* jQuery UI - Dialog */
+
+.ui-dialog {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+    font-size: 0.95em !important;
+    letter-spacing: 0 !important;
+    border: 1px solid #ccc !important;
+    border-radius: 2px !important;
+    box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+	position: fixed;
+}
+
+.ui-dialog-titlebar, .ui-dialog-titlebar-close {
+    display: none;
+}
+
+.ui-widget-overlay {
+    top: -10px;
+    height: 110%;
+}
+
+.ui-front {
+	z-index: 150;
+}
+
+.ui-widget-content {
+	color: #222 !important;
+}
+
+.dialog-scroll {
+	overflow: scroll;
+}
+
+.dialog-input,
+.dialog-input-center {
+    display: block;
+    color: #222 !important;
+    margin: 10px auto;
+}
+
+.dialog-input-center {
+	text-align: center;
+}
+
+/* jQuery UI - Autocomplete */
+
+.ui-autocomplete {
+     max-height: 200px;
+     overflow-y: scroll;
+     overflow-x: hidden;
+}
+ 
+/* Responsiveness */
+
+/* BIG screen */
+@media all
+and (min-width: 650px) {
+	input[type=text] {
+		min-height: 25px;
+	}
+	
+    #x {
+        display: block;
+    }
+	
+    .navigation {
+        float: right;
+    }
+
+    .navigation > nav > a {
+        display: inline-block;
+    }
+
+    .navigation > nav > a.facebook > img,
+    .navigation > nav > a.instagram > img,
+    .navigation > nav > a.pinterest > img {
+        width: 22px;
+        margin-bottom: -5px;
+    }
+
+    .float > div {
+        display: inline-block;
+    }
+
+    .canvas {
+        padding: 0 70px;
+    }
+
+    /* Top */
+    #top {
+        position: relative;
+    }
+
+    #top > .title {
+        float: left;
+    }
+
+    #top > .title img {
+        margin: 0 0 -15px -45px;
+    }
+
+    #top > .navigation {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        padding-bottom: 20px;
+    }
+
+    /* Middle */
+    #middle {
+        margin-top: 40px;
+    }
+
+    /* Bottom */
+    #bottom > .copyright {
+        float: left;
+        padding: 30px 0;
+    }
+
+    /* Content */
+    #explore {
+        margin-bottom: 40px;
+    }
+
+    /* Content item */
+    .item > .size-price,
+    .item > .size,
+    .item > .price {
+        padding-top: 15px;
+    }
+
+    .item > .price > div {
+        display: inline;
+    }
+
+    .item > .basket-status > a {
+        display: inline-block;
+    }
+
+    .item > .sold {
+        display: inline-block;
+    }
+
+    /* Content - Contact */
+    .contact > img.pia {
+        margin-bottom: 10px;
+    }
+
+    .contact > .title {
+        margin-bottom: 15px;
+    }
+
+    .contact > .address {
+        margin-bottom: 15px;
+    }
+
+    .contact > .news,
+    .contact > .facebook {
+        margin-top: 20px;
+    }
+
+    .contact > .instagram,
+    .contact > .pinterest {
+        margin-top: 10px;
+    }
+
+    /* Content - Shop */
+    .shop > .teaser {
+        margin-top: 15px;
+        margin-bottom: 20px;
+    }
+
+    .shop > #explore {
+        margin-top: -25px;
+    }
+
+    .shop > #explore > .teaser {
+        margin-bottom: 20px;
+    }
+
+    .shop > #categories {
+        margin-top: -25px;
+    }
+
+    .shop > #middle {
+        margin-bottom: 40px;
+    }
+
+	/* Content - Shop - Basket */
+    #basket-nav {
+        text-align: right;
+    }
+
+    #basket-nav a {
+        display: inline-block;
+    }
+
+    #basket {
+        padding: 50px 50px 70px 50px;
+        margin-bottom: 40px;
+    }
+    
+    #basket .input-container {
+		width: 100%;
+	}
+
+	#basket .input-container > input[type=text], 
+	#basket .input-container > textarea {
+		font-size: 0.95em;
+	}
+
+	#basket #payment-buttons-container .link-ordinary {
+		display: inline-block;
+	}
+
+	#basket #validate-button-container button,
+	#basket #bank-button-container button {
+  		height: 55px;
+  		max-width: 750px;
+  	} 	
+  	
+	/* jQuery UI - Dialog */
+	.dialog-input,
+	.dialog-input-center {
+    	width: 100%;
+	}
+}
+
+/* SMALL screen */
+@media all
+and (max-width: 649px) {
+	a {
+		color: #222 !important;
+    }
+    
+    #x {
+        display: none;
+    }
+    
+    input[type="text"], textarea {
+  		font-size: 16px !important; /* To avoid zoom effect */
+	}
+
+    .navigation {
+        text-align: center;
+    }
+
+    .navigation > nav > a {
+        display: block;
+    }
+
+    .navigation > nav > a.facebook > img,
+    .navigation > nav > a.instagram > img,
+    .navigation > nav > a.pinterest > img {
+        height: 30px;
+    }
+
+    .shop > #top > .navigation,
+    .shop > #middle,
+    .shop > #bottom > .navigation > nav > a:not(.external) {
+        display: none !important;
+    }
+
+	/** As the middle navigation is not displayed, we need to get the black line below 
+	    the explore section in this way instead: */
+	.shop > #explore {
+		border-bottom: 1px solid #222;
+	}
+	
+    .float > div {
+        display: block;
+    }
+
+    .canvas {
+        padding: 0 20px;
+        margin-top: 0 !important;
+    }
+
+    /* Top */
+    #top {
+    	padding-top: 30px;
+    	position: relative;
+        z-index: 101;
+	}
+
+    #top > .title {
+        border-bottom: 1px solid #222;
+        text-align: center;
+    }
+
+    #top > .title img {
+        margin: 0 0 -20px 0;
+    }
+
+    #top > .navigation {
+        padding: 20px 0;
+    }
+    
+    /** As the top navigation is not displayed, we need one black line less: */
+    .shop > #top > .title {
+    	border-bottom: none;
+    }
+
+    /* Bottom */
+    #bottom > .copyright {
+        display: block;
+        text-align: center;
+        border-top: 1px solid #222;
+        padding: 40px 0;
+    }
+
+    /* Content item */
+    .item > .size-price,
+    .item > .size,
+    .item > .price {
+        padding-top: 15px;
+    }
+
+    .item > .price:first-of-type {
+        padding-top: 15px;
+    }
+
+    .item > .price:nth-of-type(2) {
+        padding-top: 10px;
+    }
+    
+    .item > .price > div {
+        padding-top: 5px;
+    }
+
+    .item > .price > .dot {
+        display: none;
+    }
+
+    .item > .basket-status > a {
+        display: block;
+    }
+
+    /* Content - Contact */
+    .contact > img.pia {
+        margin-bottom: 15px;
+    }
+
+    .contact > .title {
+        margin-bottom: 20px;
+    }
+
+    .contact > .address {
+        margin-bottom: 20px;
+    }
+
+    .contact > .news,
+    .contact > .facebook {
+        margin-top: 20px;
+    }
+
+    .contact > .instagram,
+    .contact > .pinterest {
+        margin-top: 0;
+    }
+
+    .contact > .news > a,
+    .contact > .facebook > a,
+    .contact > .instagram > a,
+    .contact > .pinterest > a {
+        display: block;
+    }
+
+    /* Content - Shop */
+    .shop > .teaser {
+        margin-top: 20px;
+        margin-bottom: -20px;
+    }
+
+    .shop > #explore > .teaser {
+        margin-top: -20px;
+        margin-bottom: 20px;
+    }
+    
+    /* Content - Shop - Basket */
+    #basket-nav {
+    	position: sticky;
+   		top: -5px;
+    	z-index: 100;
+        background-color: #fff;
+        text-align: center;
+    	border-bottom: 1px solid #222;
+        padding-bottom: 20px;
+    }
+    
+    #basket-nav > a {
+        display: block;
+    }
+
+    #basket {
+        padding: 50px 25px;
+        margin-bottom: 10px;  
+    }
+
+    #basket .input-container input[type=text],
+    #basket .input-container textarea {
+		width: 95% !important;
+	}
+	
+	#basket #payment-buttons-container .link-ordinary {
+ 	   display: block;
+	}
+
+	#basket #validate-button-container button,
+	#basket #bank-button-container button {
+		height: 45px;
+  	} 
+	
+	/* jQuery UI - Dialog */
+	.dialog-input,
+	.dialog-input-center {
+    	width: 60%;
+	}
+}
+
+/* iPad landscape */
+@media all
+and (device-width: 768px)
+and (device-height: 1024px)
+and (orientation: landscape) {
+    .item {
+        padding: 0 1em 60px 1em;
+    }
+}
+
+/* Edit */
+
+.layer {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #fff;
+    opacity: 0.4;
+    filter: alpha(opacity=40); /* For IE8 and earlier */
+}
+
+.category-edit {
+    position: absolute;
+    top: 0;
+    right: 0;
+}

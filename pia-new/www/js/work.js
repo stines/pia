@@ -1,4 +1,29 @@
 Groups.groups = {
+    artikelillu: {
+        text: "Artikelillustration.",
+        items: [
+            { image: "/www/work/artikelillu1.jpg" },
+            { image: "/www/work/artikelillu2.jpg" },
+            { image: "/www/work/artikelillu3.jpg" },
+            { image: "/www/work/artikelillu4.jpg" },
+            { image: "/www/work/artikelillu5.jpg" },
+            { image: "/www/work/artikelillu6.jpg" }
+        ],
+        float: false
+    },
+    giffer: {
+        text: "Små animerede tegninger.",
+        items: [
+            { image: "/www/work/gif_kyssemutter.gif" },
+            { image: "/www/work/gif_sleepingbeauty.gif" },
+            { image: "/www/work/gif_baby.gif" },
+            { image: "/www/work/gif_hop.gif" },
+            { image: "/www/work/gif_happy.gif" },
+            { image: "/www/work/gif_gymnast.gif" },
+            { image: "/www/work/gif_hjerte.gif" }
+        ],
+        float: false
+    },
     plakater: {
         text: "Plakater til den norske organisation <a href=\"javascript: Links.open('http://www.vfb.no/');\">Voksne for Barn</a>.",
         items: [
@@ -50,12 +75,13 @@ Groups.groups = {
         float: false
     },
     glistrup: {
-        text: "Illustrationer til forfatter og terapeut <a href=\"javascript: Links.open('http://www.familiesamtaler.dk/');\">Karen Glistrup</a>s udgivelser.",
+        text: "Illustrationer til forfatter og terapeut <a href=\"javascript: Links.open('http://www.familiesamtaler.dk/');\">Karen Glistrup</a>s udgivelser.<br/>Du kan se og læse mere om udgivelserne på <a class=\"snakomdet\" href=\"javascript: Links.open('http://www.snakomdet.dk/');\">Snakomdet.dk</a>.",
         items: [
             { image: "/www/work/dep1.gif" },
             { image: "/www/work/dep2.gif" },
             { image: "/www/work/dep3.gif" },
-            { image: "/www/work/dep4.jpg" }
+            { image: "/www/work/dep5.jpg" },
+            { image: "/www/work/dep6.jpg" }
         ],
         float: false
     },
@@ -103,10 +129,11 @@ Groups.groups = {
     voresboern: {
         text: "Illustrationer til magasinet <a href=\"javascript: Links.open('http://www.voresborn.dk/');\">Vores Børn</a>.",
         items: [
-            { image: "/www/work/voresboern1.gif" },
+            { image: "/www/work/voresboern1.gif", text: "Opdragelse og humor." },
             { image: "/www/work/voresboern2.gif", text: "Børn i sengen." },
-            { image: "/www/work/voresboern3.gif" },
-            { image: "/www/work/voresboern4.gif", text: "Blomster og bier." }
+            { image: "/www/work/voresboern3.gif", text: "Superduper far." },
+            { image: "/www/work/voresboern4.gif", text: "Blomster og bier." },
+            { image: "/www/work/voresboern5.jpg" }
         ],
         float: false
     },
@@ -129,12 +156,34 @@ Groups.groups = {
         float: false
     },
     indenimig: {
-        text: "\"Indeni mig... og i de andre\" er en børnebog til de 2-9-årige om følelser og empati. <br/>Bogen udkom i maj 2015 og kan købes online <a class=\"gyldendal\" href=\"javascript: Links.open('http://www.gyldendal.dk/indeni-mig-og-i-de-andre-en-bog-om-boern-og-foelelser-id38722');\">hos Gyldendal</a>.",
+        text: "\"Indeni mig... og i de andre\" er en børnebog til de 2-9-årige om følelser og empati. <br/>Bogen udkom i maj 2015 og kan købes online hos <a class=\"gyldendal\" href=\"javascript: Links.open('http://www.gyldendal.dk/indeni-mig-og-i-de-andre-en-bog-om-boern-og-foelelser-id38722');\">Gyldendal</a> eller på <a class=\"snakomdet\" href=\"javascript: Links.open('http://www.snakomdet.dk/');\">Snakomdet.dk</a>.",
         items: [
             { image: "/www/work/indenimig1.gif" },
             { image: "/www/work/indenimig2.gif" },
             { image: "/www/work/indenimig3.gif" },
             { image: "/www/work/indenimig4.gif" }
+        ],
+        float: false
+    },
+    farmorogboern: {
+        text: "\"Far, mor … og børn\" er en samtalebog til børn om liv i familien.<br/>Bogen udkom i februar 2018 og kan købes online hos <a class=\"gyldendal\" href=\"javascript: Links.open('http://www.gyldendal.dk/produkter/karen-glistrup/far-mor--og-brn-47602/indbundet-9788702261653');\">Gyldendal</a> eller på <a class=\"snakomdet\" href=\"javascript: Links.open('http://www.snakomdet.dk/');\">Snakomdet.dk</a>.",
+        items: [
+            { image: "/www/work/farmorogboern1.jpg" },
+            { image: "/www/work/farmorogboern2.jpg" },
+            { image: "/www/work/farmorogboern3.jpg" },
+            { image: "/www/work/farmorogboern4.jpg" }
+        ],
+        float: false
+    },
+    akutmodtagelsen: {
+        text: "Pjecer til børn. Lavet til Akutmodtagelsen i Region Hovedstaden.",
+        items: [
+            { image: "/www/work/hosp2.jpg" },
+            { image: "/www/work/hosp3.jpg" },
+            { image: "/www/work/hosp4.jpg" },
+            { image: "/www/work/hosp5.jpg" },
+            //{ image: "/www/work/hosp6.jpg" },
+            { image: "/www/work/hosp1.jpg" }
         ],
         float: false
     },
@@ -148,5 +197,12 @@ Groups.groups = {
             { image: "/www/work/vuggestue5.jpg" }
         ],
         float: false
-    }    
+    },
+    sundhedsplejen: {
+        text: "Plakat til Sundhedsplejen, Furesø Kommune.",
+        items: [
+            { image: "/www/work/sundhedsplejen0.jpg" }
+        ],
+        float: false
+    }        
 };

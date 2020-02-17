@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Pia Olsen</title>
+    <title>Pia Olsen | ILLUSTRATION</title>
     <meta charset="UTF-8"/>
     <meta property="og:url" content="http://piaolsen.com/kunder" />
-    <meta property="og:title" content="Pia Olsen · Kunder" />
+    <meta property="og:title" content="Pia Olsen | ILLUSTRATION" />
     <meta property="og:image" content="http://piaolsen.com/www/images/pia.jpg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0"/>
     <link rel="shortcut icon" type="image/ico" href="/www/images/favicon.ico"/>
     <link rel="apple-touch-icon" href="/www/images/appicon.png"/>
-    <link rel="stylesheet" type="text/css" href="/www/css/jquery-ui-1.11.2.smoothness/jquery-ui.min.css">
+    <link rel="stylesheet" type="text/css" href="/www/css/jquery-ui-1.12.1.smoothness/jquery-ui.min.css">
     <link rel="stylesheet" type="text/css" href="/www/css/style.css" media="screen">
-    <script language="javascript" type="text/javascript" src="/www/js/jquery-1.11.1.min.js"></script>
-    <script language="javascript" type="text/javascript" src="/www/js/jquery-ui-1.11.2.js"></script>
+    <script language="javascript" type="text/javascript" src="/www/js/jquery-3.4.1.min.js"></script>
+    <script language="javascript" type="text/javascript" src="/www/js/jquery-ui-1.12.1.min.js"></script>
     <script language="javascript" type="text/javascript" src="/www/js/jquery.cookie.js"></script>
     <script language="javascript" type="text/javascript" src="/www/js/script.js"></script>
 </head>
@@ -58,13 +58,19 @@
             <div><a href="http://www.magasinetmad.dk/" class="external">Mad!</a></div>
             <div><a href="http://www.magnoliapress.dk/" class="external">Magnolia Press</a></div>
             <div><a href="http://www.meda.dk/" class="external">Meda</a></div>
+            <div><a href="https://moedrehjaelpen.dk/" class="external">Mødrehjælpen</a></div>
             <div><a href="http://www.nicorette.dk/" class="external">Nicorette</a></div>
             <div><a href="http://www.novell.dk/" class="external">Novell Danmark</a></div>
             <div><a href="http://www.postdanmark.dk/" class="external">Post Danmark</a></div>
             <div><a href="http://www.psykiatrifonden.dk" class="external">Psykiatrifonden</a></div>
             <div><a href="http://www.oestrogen.dk/" class="external">Q</a></div>
+            <div><a href="https://www.regionh.dk/" class="external">Region Hovedstaden</a></div>
+            <div><a href="https://samvirke.dk/" class="external">Samvirke</a></div>
+            <div><a href="http://www.seges.dk/" class="external">Seges</a></div>
             <div><a href="http://www.skoleborn.dk/" class="external">Skolebørn</a></div>
+            <div><a href="http://www.snakomdet.dk/" class="external">Snakomdet.dk</a></div>
             <div><a href="http://www.spisbedre.dk/" class="external">Spis Bedre</a></div>
+            <div><a href="http://www.storyseller.dk/" class="external">Storyseller</a></div>
             <div><a href="http://www.sygeplejersken.dk/" class="external">Sygeplejersken</a></div>
             <div><a href="http://www.taenk.dk/" class="external">TÆNK</a></div>
             <div><a href="http://www.ugeskriftet.dk/" class="external">Ugeskrift for Læger</a></div>
@@ -84,7 +90,7 @@
                 <a href="/butik">Butik</a>
             </nav>
         </div>
-        <div class="copyright">&copy; Pia Olsen <span class="year"></span></div>
+        <div class="copyright">&copy; <a href="http://piaolsen.com/">Pia Olsen</a> <span class="year"></span></div>
         <div class="clearer"></div>
     </div>
 </div>

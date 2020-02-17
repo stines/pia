@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Pia Olsen</title>
+    <title>Pia Olsen | ILLUSTRATION</title>
     <meta charset="UTF-8"/>
     <meta property="og:url" content="http://piaolsen.com/kontakt"/>
-    <meta property="og:title" content="Pia Olsen · Kontakt"/>
+    <meta property="og:title" content="Pia Olsen | ILLUSTRATION"/>
     <meta property="og:image" content="http://piaolsen.com/www/images/pia.jpg"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0"/>
     <link rel="shortcut icon" type="image/ico" href="/www/images/favicon.ico"/>
     <link rel="apple-touch-icon" href="/www/images/appicon.png"/>
-    <link rel="stylesheet" type="text/css" href="/www/css/jquery-ui-1.11.2.smoothness/jquery-ui.min.css">
+    <link rel="stylesheet" type="text/css" href="/www/css/jquery-ui-1.12.1.smoothness/jquery-ui.min.css">
     <link rel="stylesheet" type="text/css" href="/www/css/style.css" media="screen">
-    <script language="javascript" type="text/javascript" src="/www/js/jquery-1.11.1.min.js"></script>
-    <script language="javascript" type="text/javascript" src="/www/js/jquery-ui-1.11.2.js"></script>
+    <script language="javascript" type="text/javascript" src="/www/js/jquery-3.4.1.min.js"></script>
+    <script language="javascript" type="text/javascript" src="/www/js/jquery-ui-1.12.1.min.js"></script>
     <script language="javascript" type="text/javascript" src="/www/js/jquery.cookie.js"></script>
     <script language="javascript" type="text/javascript" src="/www/js/script.js"></script>
 </head>
@@ -66,7 +66,7 @@
                 <a href="/butik">Butik</a>
             </nav>
         </div>
-        <div class="copyright">&copy; Pia Olsen <span class="year"></span></div>
+        <div class="copyright">&copy; <a href="http://piaolsen.com/">Pia Olsen</a> <span class="year"></span></div>
         <div class="clearer"></div>
     </div>
 </div>
