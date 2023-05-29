@@ -50,8 +50,16 @@ img {
     max-width: 100%;
 }
 
-a, a:active, a:visited {
+a {
     color: #222;
+    text-decoration: none;
+}
+
+a.external {
+	color: #8904B1;
+}
+
+a:active, a:visited {
     text-decoration: none;
 }
 
@@ -163,39 +171,7 @@ a.angel {
 }
 
 .butik {
-	color: #C12283;
-}
-
-.moedrehjaelpen {
-    color: #FA95DA;
-}
-
-.moobaa {
-    color: #DBA901;
-}
-
-.appit {
-    color: #B93B8F;
-}
-
-.gyldendal {
-    color: #C12283;
-}
-
-.snakomdet {
-    color: #C12283;
-}
-
-.redbarnet {
-    color: #e71944;
-}
-
-.gavekalaset {
-    color: #FE2E64;
-}
-
-.baghuset21b {
-    color: #0489B1;
+	color: #FF0080;
 }
 
 .marked {
@@ -693,7 +669,7 @@ a.angel {
 
 /* BIG screen */
 @media all
-and (min-width: 750px) {
+and (min-width: 900px) {
 	input[type=text] {
 		min-height: 25px;
 	}
@@ -875,7 +851,7 @@ and (min-width: 750px) {
 
 /* SMALL screen */
 @media all
-and (max-width: 749px) {
+and (max-width: 899px) {
 	a {
 		color: #222 !important;
     }
