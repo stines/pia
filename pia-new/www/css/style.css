@@ -29,6 +29,10 @@ td.radio {
 
 textarea {
 	min-height: 75px;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 0.95em;
+    letter-spacing: 0.02em;
+    color: #222;
 }
 
 input[type=text], textarea {
@@ -403,14 +407,6 @@ a.angel {
     border-bottom: 1px solid #222;
 }
 
-#basket #pictures .picture .frame > input[type=checkbox] {
-    -webkit-appearance: checkbox;
-}
-
-#basket #pictures .picture .frame > span {
-    font-size: smaller;
-}
-
 #basket .input-container > label {
 	display: block;
 	margin-bottom: 5px;
@@ -422,48 +418,63 @@ a.angel {
 	margin-bottom: 15px;
 }
 
+#basket #pictures > table tr:first-child,
+#basket #pictures > table tr.picture_frame {
+	border-top: none;
+}
+
 #basket #pictures > table tr {
-	border-bottom: 1px solid #ccc;
+	border-top: 1px solid #ccc;
 }
 
-#basket #pictures > table tr:last-child {
-	border-bottom: none;
-}
-
-#basket #pictures .picture .thumbnail {
+#basket #pictures .thumbnail {
 	width: 75px;
 	padding: 10px 0;
 }
 
-#basket #pictures .picture .thumbnail > img {
+#basket #pictures .thumbnail > img {
 	width: 75px;
 }
 
-#basket #pictures .picture .title {
+#basket #pictures .title {
 	text-align: left;
 	padding: 10px;
 }
 
-#basket #pictures .picture .amount {
+#basket #pictures .frame {
+	text-align: left;
+	padding: 10px;
+}
+
+#basket #pictures .frame label input[type=checkbox] {
+    -webkit-appearance: checkbox;
+}
+
+#basket #pictures .frame label div {
+	display: inline-block;
+	padding-left: 5px;
+}
+
+#basket #pictures .amount {
 	text-align: left;
 	white-space: nowrap;
 	padding: 10px;
 }
 
-#basket #pictures .picture .price {
+#basket #pictures .price {
 	text-align: right;
 	white-space: nowrap;
 	padding: 10px 0 10px 10px;
 	font-weight: normal;
 }
 	
-#basket #pictures .picture .decrease {
+#basket #pictures .decrease {
 	text-align: center;
 	padding: 10px 0;
 	min-width: 24px;
 }
 
-#basket #pictures .picture .poster-names {
+#basket #pictures .poster-names {
 	margin-top: 5px;
 }
 
