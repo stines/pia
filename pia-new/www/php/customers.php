@@ -3,9 +3,9 @@
 <head>
     <title>Pia Olsen | ILLUSTRATION</title>
     <meta charset="UTF-8"/>
-    <meta property="og:url" content="http://piaolsen.com/kunder" />
+    <meta property="og:url" content="https://piaolsen.com/kunder" />
     <meta property="og:title" content="Pia Olsen | ILLUSTRATION" />
-    <meta property="og:image" content="http://piaolsen.com/www/images/pia.jpg" />
+    <meta property="og:image" content="https://piaolsen.com/www/images/pia.jpg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0"/>
     <link rel="shortcut icon" type="image/ico" href="/www/images/favicon.ico"/>
     <link rel="apple-touch-icon" href="/www/images/appicon.png"/>
@@ -15,6 +15,7 @@
     <script language="javascript" type="text/javascript" src="/www/js/jquery-ui-1.12.1.min.js"></script>
     <script language="javascript" type="text/javascript" src="/www/js/jquery.cookie.js"></script>
     <script language="javascript" type="text/javascript" src="/www/js/script.js"></script>
+    <script language="javascript" type="text/javascript" src="/www/js/basket.js"></script>
 </head>
 <body>
 
@@ -28,6 +29,7 @@
                 <a href="/opgaver">Opgaver</a>
                 <a href="/kontakt">Kontakt</a>
                 <a href="/kunder" class="active">Kunder</a>
+                <a href="/om">Om</a>
                 <a href="/butik">Butik</a>
             </nav>
         </div>
@@ -36,48 +38,48 @@
 
     <div class="customers">
         <div>
-            <div><a href="http://www.addwish.com/" class="external">Addwish</a></div>
-            <div><a href="http://www.alinea.dk/" class="external">Alinea</a></div>
-            <div><a href="http://www.altfordamerne.dk/" class="external">ALT for damerne</a></div>
-            <div><a href="http://www.aschehoug.dk/" class="external">Aschehoug</a></div>
-            <div><a href="http://www.boernogunge.dk/" class="external">Børn &amp; Unge</a></div>
-            <div><a href="http://www.cpbcopenhagen.dk" class="external">CP+B Copenhagen</a></div>
-            <div><a href="http://www.dp.dk/" class="external">Dansk Psykolog Forening</a></div>
-            <div><a href="http://www.dsr.dk/" class="external">Dansk Sygeplejeråd</a></div>
-            <div><a href="http://www.foa.dk/" class="external">FOA</a></div>
-            <div><a href="http://www.fsb.dk/" class="external">FSB</a></div>
-            <div><a href="https://www.gigtforeningen.dk/" class="external">Gigtforeningen</a></div>
-            <div><a href="http://www.gyldendal.dk/" class="external">Gyldendal</a></div>
-            <div><a href="http://www.hansreitzel.dk/" class="external">Hans Reitzels Forlag</a></div>
-            <div><a href="http://www.hk.dk/" class="external">HK</a></div>
-            <div><a href="http://www.illum.dk/" class="external">Illum</a></div>
-            <div><a href="http://www.familiesamtaler.dk/" class="external">Karen Glistrup</a></div>
-            <div><a href="http://www.kmd.dk/" class="external">KMD</a></div>
-            <div><a href="http://www.kreativgrafisk.dk" class="external">KreativGrafisk</a></div>
-            <div><a href="http://www.lindhardtogringhof.dk/" class="external">Lindhardt &amp; Ringhof</a></div>
-            <div><a href="http://www.magasinetmad.dk/" class="external">Mad!</a></div>
-            <div><a href="http://www.magnoliapress.dk/" class="external">Magnolia Press</a></div>
-            <div><a href="http://www.meda.dk/" class="external">Meda</a></div>
-            <div><a href="https://moedrehjaelpen.dk/" class="external">Mødrehjælpen</a></div>
-            <div><a href="http://www.nicorette.dk/" class="external">Nicorette</a></div>
-            <div><a href="http://www.novell.dk/" class="external">Novell Danmark</a></div>
-            <div><a href="http://www.postdanmark.dk/" class="external">Post Danmark</a></div>
-            <div><a href="http://www.psykiatrifonden.dk" class="external">Psykiatrifonden</a></div>
-            <div><a href="http://www.oestrogen.dk/" class="external">Q</a></div>
-            <div><a href="https://www.regionh.dk/" class="external">Region Hovedstaden</a></div>
-            <div><a href="https://samvirke.dk/" class="external">Samvirke</a></div>
-            <div><a href="http://www.seges.dk/" class="external">Seges</a></div>
-            <div><a href="http://www.skoleborn.dk/" class="external">Skolebørn</a></div>
-            <div><a href="http://www.snakomdet.dk/" class="external">Snakomdet.dk</a></div>
-            <div><a href="http://www.spisbedre.dk/" class="external">Spis Bedre</a></div>
-            <div><a href="http://www.storyseller.dk/" class="external">Storyseller</a></div>
-            <div><a href="http://www.sygeplejersken.dk/" class="external">Sygeplejersken</a></div>
-            <div><a href="http://www.taenk.dk/" class="external">TÆNK</a></div>
-            <div><a href="http://www.ugeskriftet.dk/" class="external">Ugeskrift for Læger</a></div>
-            <div><a href="http://www.vfb.no/" class="external">Voksne for Barn</a></div>
-            <div><a href="http://www.voresborn.dk/" class="external">Vores Børn</a></div>
-            <div><a href="http://www.voresvilla.dk/" class="external">Vores Villa</a></div>
-            <div><a href="http://www.welovepeople.dk/" class="external">We Love People</a></div>
+            <div><a href="https://www.moedrehjaelpen.dk/">Mødrehjælpen</a></div>
+            <div><a href="https://www.gyldendal.dk/">Gyldendal</a></div>
+            <div><a href="https://www.taenk.dk/">TÆNK</a></div>
+            <div><a href="https://www.regionh.dk/">Region Hovedstaden</a></div>
+            <div><a href="https://www.samvirke.dk/">Samvirke</a></div>
+            <div><a href="https://www.snakomdet.dk/">Snakomdet.dk</a></div>
+            <div><a href="https://www.psykiatrifonden.dk">Psykiatrifonden</a></div>
+            <div><a href="https://www.dp.dk/">Dansk Psykolog Forening</a></div>
+            <div><a href="https://www.altfordamerne.dk/">ALT for damerne</a></div>
+            <div><a href="https://www.foa.dk/">FOA</a></div>
+            <div>Addwish</div>
+            <div><a href="https://www.alinea.dk/">Alinea</a></div>
+            <div><a href="https://www.lindhardtogringhof.dk/">Aschehoug</a></div>
+            <div><a href="https://www.bupl.dk/boern-unge">Børn &amp; Unge</a></div>
+            <div><a href="https://www.cpbcopenhagen.dk">CP+B Copenhagen</a></div>
+            <div><a href="https://www.dsr.dk/">Dansk Sygeplejeråd</a></div>
+            <div><a href="https://www.fsb.dk/">FSB</a></div>
+            <div><a href="https://www.gigtforeningen.dk/">Gigtforeningen</a></div>
+            <div><a href="https://www.hansreitzel.dk/">Hans Reitzels Forlag</a></div>
+            <div><a href="https://www.hk.dk/">HK</a></div>
+            <div><a href="https://www.illum.dk/">Illum</a></div>
+            <div><a href="http://www.familiesamtaler.dk/">Karen Glistrup</a></div>
+            <div><a href="https://www.kmd.dk/">KMD</a></div>
+            <div><a href="https://www.kreativgrafisk.dk">KreativGrafisk</a></div>
+            <div><a href="https://www.lindhardtogringhof.dk/">Lindhardt &amp; Ringhof</a></div>
+            <div><a href="https://www.spisbedre.dk/">Mad!</a></div>
+            <div><a href="https://www.mapress.com/">Magnolia Press</a></div>
+            <div>Meda</div>
+            <div><a href="https://www.nicorette.dk/">Nicorette</a></div>
+            <div><a href="https://www.microfocus.com/en-us/products/novell">Novell Danmark</a></div>
+            <div><a href="https://www.postdanmark.dk/">Post Danmark</a></div>
+            <div>Q</div>
+            <div><a href="https://www.seges.dk/">Seges</a></div>
+            <div><a href="https://www.skoleborn.dk/">Skolebørn</a></div>
+            <div><a href="https://www.spisbedre.dk/">Spis Bedre</a></div>
+            <div>Storyseller</div>
+            <div><a href="https://www.dsr.dk/sygeplejersken">Sygeplejersken</a></div>
+            <div><a href="https://www.ugeskriftet.dk/">Ugeskrift for Læger</a></div>
+            <div><a href="https://www.vfb.no/">Voksne for Barn</a></div>
+            <div><a href="https://www.voresborn.dk/">Vores Børn</a></div>
+            <div><a href="https://www.voresvilla.dk/">Vores Villa</a></div>
+            <div><a href="https://www.welovepeople.dk/">We Love People</a></div>
         </div>
     </div>
 
@@ -87,10 +89,11 @@
                 <a href="/opgaver">Opgaver</a>
                 <a href="/kontakt">Kontakt</a>
                 <a href="/kunder" class="active">Kunder</a>
+                <a href="/om">Om</a>
                 <a href="/butik">Butik</a>
             </nav>
         </div>
-        <div class="copyright">&copy; <a href="http://piaolsen.com/">Pia Olsen</a> <span class="year"></span></div>
+        <div class="copyright">&copy; <a href="https://piaolsen.com/">Pia Olsen</a> <span class="year"></span></div>
         <div class="clearer"></div>
     </div>
 </div>

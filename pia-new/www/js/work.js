@@ -1,4 +1,26 @@
 Groups.groups = {
+    klip: {
+        text: "Udvikling af ny illustrationsstil.",
+        items: [
+            { image: "/www/work/klip1.jpg" },
+            { image: "/www/work/klip2.jpg" },
+            { image: "/www/work/klip3.jpg" },
+            { image: "/www/work/klip4.jpg" },
+            { image: "/www/work/klip5.jpg" }
+        ],
+        float: false
+    },
+    arkitektur: {
+        text: "ArkitekTUR i børnehaven.<br/>Projekt lavet i samarbejde med <a class=\"external\" href=\"https://dac.dk/\">DAC</a> og <a class=\"external\" href=\"https://utzoncenter.dk/\">Utzon Center</a>. Støttet af <a class=\"external\" href=\"https://nordeafonden.dk/\">Nordeafonden</a>.<br/>" + 
+        "Bogen Arkitekten og den gule kat kan købes i <a class=\"butik\" href=\"/butik/boerneboeger\">min butik</a>.",
+        items: [
+            { image: "/www/work/arkitekten1.jpg" },
+            { image: "/www/work/arkitekten2.jpg" },
+            { image: "/www/work/arkitekten3.jpg" },
+            { image: "/www/work/arkitekten4.jpg" }
+        ],
+        float: false
+    },
     artikelillu: {
         text: "Artikelillustration.",
         items: [
@@ -14,18 +36,19 @@ Groups.groups = {
     giffer: {
         text: "Små animerede tegninger.",
         items: [
-            { image: "/www/work/gif_kyssemutter.gif" },
+            //{ image: "/www/work/gif_danser.gif" },
+            //{ image: "/www/work/gif_gaaroggaar.gif" },
+            //{ image: "/www/work/gif_udrykning.gif" },
             { image: "/www/work/gif_sleepingbeauty.gif" },
             { image: "/www/work/gif_baby.gif" },
             { image: "/www/work/gif_hop.gif" },
-            { image: "/www/work/gif_happy.gif" },
             { image: "/www/work/gif_gymnast.gif" },
             { image: "/www/work/gif_hjerte.gif" }
         ],
         float: false
     },
     plakater: {
-        text: "Plakater til den norske organisation <a href=\"javascript: Links.open('http://www.vfb.no/');\">Voksne for Barn</a>.",
+        text: "Plakater til den norske organisation <a class=\"external\" href=\"https://www.vfb.no/\">Voksne for Barn</a>.",
         items: [
             { image: "/www/work/plakat2.gif" },
             { image: "/www/work/plakat1.gif" }
@@ -33,7 +56,7 @@ Groups.groups = {
         float: false
     },
     q: {
-        text: "Illustrationer til damemagasinet <a href=\"javascript: Links.open('http://www.oestrogen.dk/');\">Q</a>.",
+        text: "Illustrationer til damemagasinet Q.",
         items: [
             { image: "/www/work/q1.gif" },
             { image: "/www/work/q2.gif" },
@@ -42,12 +65,12 @@ Groups.groups = {
         float: false
     },
     moobaa: {
-        text: "<a class=\"moobaa\" href=\"javascript: Links.open('http://www.moobaa.dk/');\">Moobaa</a> er en app til små børn.<br/>" +
+        text: "<a class=\"external\" href=\"http://www.moobaa.dk/\">Moobaa</a> er en app til små børn.<br/>" +
               "Den kan købes hos App Store eller hos Google Play.<br/><br/>" +
-              "<a href=\"javascript: Links.open('http://itunes.apple.com/us/app/moobaa/id495662890?ls=1&mt=8');\">" +
+              "<a href=\"https://itunes.apple.com/us/app/moobaa/id495662890?ls=1&mt=8\">" +
               "<img src='/www/images/appstore.png' alt='App Store'/>" +
               "</a> " +
-              "<a href=\"javascript: Links.open('https://play.google.com/store/apps/details?id=dk.reflx.moobaa');\">" +
+              "<a href=\"https://play.google.com/store/apps/details?id=dk.reflx.moobaa\">" +
               "<img src='/www/images/playstore.png' alt='Google Play'/>" +
               "</a>",
         items: [
@@ -60,9 +83,9 @@ Groups.groups = {
         float: false
     },
     appit: {
-        text: "<a class=\"appit\" href=\"javascript: Links.open('http://www.appit.dk/');\">Når jeg bliver stor</a> er en app til små børn.<br/>" +
+        text: "<a class=\"external\" href=\"https://www.appit.dk/\">Når jeg bliver stor</a> er en app til små børn.<br/>" +
               "Den kan købes hos App Store.<br/><br/>" +
-              "<a href=\"javascript: Links.open('https://itunes.apple.com/dk/app/nar-jeg-bliver-stor/id943442065?mt=8');\">" +
+              "<a class=\"external\" href=\"https://itunes.apple.com/dk/app/nar-jeg-bliver-stor/id943442065?mt=8\">" +
               "<img src='/www/images/appstore.png' alt='App Store'/>" +
               "</a>",
         items: [
@@ -75,7 +98,7 @@ Groups.groups = {
         float: false
     },
     glistrup: {
-        text: "Illustrationer til forfatter og terapeut <a href=\"javascript: Links.open('http://www.familiesamtaler.dk/');\">Karen Glistrup</a>s udgivelser.<br/>Du kan se og læse mere om udgivelserne på <a class=\"snakomdet\" href=\"javascript: Links.open('http://www.snakomdet.dk/');\">Snakomdet.dk</a>.",
+        text: "Illustrationer til forfatter og terapeut <a class=\"external\" href=\"http://www.familiesamtaler.dk/\">Karen Glistrup</a>s udgivelser.<br/>Du kan se og læse mere om udgivelserne på <a class=\"external\" href=\"https://www.snakomdet.dk/\">Snakomdet.dk</a>.",
         items: [
             { image: "/www/work/dep1.gif" },
             { image: "/www/work/dep2.gif" },
@@ -86,11 +109,17 @@ Groups.groups = {
         float: false
     },
     bupl: {
-        text: "Illustrationer til tema om børns seksualitet i fagbladet <a href=\"javascript: Links.open('http://www.boernogunge.dk/');\">Børn &amp; Unge</a>.",
+        text: "Illustrationer til tema om børns seksualitet i fagbladet <a class=\"external\" href=\"https://bupl.dk/boern-unge/\">Børn &amp; Unge</a>.",
         items: [
+            { image: "/www/work/bupl01.jpg" },
             { image: "/www/work/bupl1.gif" },
             { image: "/www/work/bupl2.gif" },
-            { image: "/www/work/bupl3.gif" }
+            { image: "/www/work/bupl3.gif" },
+            { image: "/www/work/naarkoennetrammerskaevt1.jpg" },
+            { image: "/www/work/naarkoennetrammerskaevt2.jpg" },
+            { image: "/www/work/naarkoennetrammerskaevt3.jpg" },
+            { image: "/www/work/bupl_graenser1.jpg" },
+            { image: "/www/work/bupl_graenser2.jpg" }
         ]
     },
     psyk: {
@@ -100,16 +129,31 @@ Groups.groups = {
             { image: "/www/work/psyk2.jpg" }
         ]
     },
+    moedrehjaelpen: {
+        text: "Illustrationer til <a class=\"external\" href=\"https://www.moedrehjaelpen.dk/\">Mødrehjælpen</a>.",
+        items: [
+            { image: "/www/work/moedrehjaelpen1.jpg" },
+            { image: "/www/work/moedrehjaelpen2.jpg" },
+            { image: "/www/work/moedrehjaelpen8.jpg" },
+            { image: "/www/work/moedrehjaelpen7.jpg" },
+            { image: "/www/work/moedrehjaelpen6.jpg" },
+            { image: "/www/work/moedrehjaelpen5.jpg" },
+            { image: "/www/work/moedrehjaelpen4.jpg" },
+            { image: "/www/work/moedrehjaelpen10.jpg" },
+            { image: "/www/work/moedrehjaelpen3.jpg" }
+        ]
+    },
     skoleboern: {
         text: "Illustrationer til Skolemagasinet. Til tema om trivsel i skolen.",
         items: [
+            { image: "/www/work/mistrivsel.jpg" },
             { image: "/www/work/skoleboern1.jpg" },
             { image: "/www/work/skoleboern2.jpg" },
             { image: "/www/work/skoleboern3.jpg" }
         ]
     },
     digogmig: {
-        text: "Illustrationer til parforholdsbogen Dig og Mig, <a href=\"javascript: Links.open('http://www.magnoliapress.dk/');\">Magnolia Press</a>.",
+        text: "Illustrationer til parforholdsbogen Dig og Mig, <a class=\"external\" href=\"https://mapress.com/\">Magnolia Press</a>.",
         items: [
             { image: "/www/work/digmig1.gif" },
             { image: "/www/work/digmig2.gif" },
@@ -118,7 +162,7 @@ Groups.groups = {
         float: false
     },
     syg: {
-        text: "Illustrationer til fagbladet <a href=\"http://www.sygeplejersken.dk/\">Sygeplejersken</a>.",
+        text: "Illustrationer til fagbladet <a class=\"external\" href=\"https://dsr.dk/sygeplejersken\">Sygeplejersken</a>.",
         items: [
             { image: "/www/work/syg1.gif" },
             { image: "/www/work/syg2.gif" },
@@ -127,7 +171,7 @@ Groups.groups = {
         ]
     },
     voresboern: {
-        text: "Illustrationer til magasinet <a href=\"javascript: Links.open('http://www.voresborn.dk/');\">Vores Børn</a>.",
+        text: "Illustrationer til magasinet <a class=\"external\" href=\"https://www.alt.dk/boern\">Vores Børn</a>.",
         items: [
             { image: "/www/work/voresboern1.gif", text: "Opdragelse og humor." },
             { image: "/www/work/voresboern2.gif", text: "Børn i sengen." },
@@ -138,7 +182,7 @@ Groups.groups = {
         float: false
     },
     fsb: {
-        text: "Illustrationer til <a href=\"javascript: Links.open('http://www.fsb.dk/');\">FSB</a>s hæfte om kurser og arrangementer.",
+        text: "Illustrationer til <a class=\"external\" href=\"https://www.fsb.dk/\">FSB</a>s hæfte om kurser og arrangementer.",
         items: [
             { image: "/www/work/fsb1.gif" },
             { image: "/www/work/fsb2.gif" },
@@ -155,19 +199,20 @@ Groups.groups = {
         ],
         float: false
     },
-    indenimig: {
-        text: "\"Indeni mig... og i de andre\" er en børnebog til de 2-9-årige om følelser og empati. <br/>Bogen udkom i maj 2015 og kan købes online hos <a class=\"gyldendal\" href=\"javascript: Links.open('http://www.gyldendal.dk/indeni-mig-og-i-de-andre-en-bog-om-boern-og-foelelser-id38722');\">Gyldendal</a> eller på <a class=\"snakomdet\" href=\"javascript: Links.open('http://www.snakomdet.dk/');\">Snakomdet.dk</a>.",
+    boeger: {
+        text: "Samtalebøger til børn om følelser og empati.<br/>" + 
+        "Bøgerne kan købes " + 
+        "i <a class=\"butik\" href=\"/butik/boerneboeger\">min butik</a>, " + 
+        "hos <a class=\"external\" href=\"https://www.gyldendal.dk/forfattere/pia-olsen-f120656\">Gyldendal</a> " + 
+        "eller på <a class=\"external\" href=\"https://www.snakomdet.dk/\">Snakomdet.dk</a>.",
         items: [
+            { image: "/www/work/indenimig0.jpg" },
             { image: "/www/work/indenimig1.gif" },
             { image: "/www/work/indenimig2.gif" },
             { image: "/www/work/indenimig3.gif" },
-            { image: "/www/work/indenimig4.gif" }
-        ],
-        float: false
-    },
-    farmorogboern: {
-        text: "\"Far, mor … og børn\" er en samtalebog til børn om liv i familien.<br/>Bogen udkom i februar 2018 og kan købes online hos <a class=\"gyldendal\" href=\"javascript: Links.open('http://www.gyldendal.dk/produkter/karen-glistrup/far-mor--og-brn-47602/indbundet-9788702261653');\">Gyldendal</a> eller på <a class=\"snakomdet\" href=\"javascript: Links.open('http://www.snakomdet.dk/');\">Snakomdet.dk</a>.",
-        items: [
+            { image: "/www/work/indenimig4.gif" },
+            
+            { image: "/www/work/farmorogboern0.jpg" },
             { image: "/www/work/farmorogboern1.jpg" },
             { image: "/www/work/farmorogboern2.jpg" },
             { image: "/www/work/farmorogboern3.jpg" },
@@ -178,12 +223,11 @@ Groups.groups = {
     akutmodtagelsen: {
         text: "Pjecer til børn. Lavet til Akutmodtagelsen i Region Hovedstaden.",
         items: [
+            { image: "/www/work/hosp1.jpg" },
             { image: "/www/work/hosp2.jpg" },
             { image: "/www/work/hosp3.jpg" },
             { image: "/www/work/hosp4.jpg" },
-            { image: "/www/work/hosp5.jpg" },
-            //{ image: "/www/work/hosp6.jpg" },
-            { image: "/www/work/hosp1.jpg" }
+            { image: "/www/work/hosp5.jpg" }
         ],
         float: false
     },

@@ -1,21 +1,52 @@
 Groups.groups = {
-    plakater: {
-    	text: "Plakater. De angivne mål og priser er uden ramme.",
+    collager: {
+    	text: "Collager monteret i sort A4-ramme (rammen er inkluderet i mål og pris).",
+        showTitles: false,
+        float: true,
+        items: [
+            { image: "/www/shop/c1.jpg", title: "Collage 1", size: "A4", priceText: "(med ramme)", price: 750 },
+            { image: "/www/shop/c2.jpg", title: "Collage 2", size: "A4", priceText: "(med ramme)", price: 750 },
+            { image: "/www/shop/c3.jpg", title: "Collage 3", size: "A4", priceText: "(med ramme)", price: 750 },
+            { image: "/www/shop/c4.jpg", title: "Collage 4", size: "A4", priceText: "(med ramme)", price: 750 },
+            { image: "/www/shop/c5.jpg", title: "Collage 5", size: "A4", priceText: "(med ramme)", price: 750 },
+            { image: "/www/shop/c6.jpg", title: "Collage 6", size: "A4", priceText: "(med ramme)", price: 750 },
+            { image: "/www/shop/c7.jpg", title: "Collage 7", size: "A4", priceText: "(med ramme)", price: 750 },
+            { image: "/www/shop/c9.jpg", title: "Collage 9", size: "A4", priceText: "(med ramme)", price: 750 },
+            { image: "/www/shop/c10.jpg", title: "Collage 10", size: "A4", priceText: "(med ramme)", price: 750 },
+            { image: "/www/shop/c11.jpg", title: "Collage 11", size: "A4", priceText: "(med ramme)", price: 750 },
+            { image: "/www/shop/c12.jpg", title: "Collage 12", size: "A4", priceText: "(med ramme)", price: 750 },
+            { image: "/www/shop/c13.jpg", title: "Collage 13", size: "A4", priceText: "(med ramme)", price: 750 },
+            { image: "/www/shop/c14.jpg", title: "Collage 14", size: "A4", priceText: "(med ramme)", price: 750 },
+            { image: "/www/shop/c15.jpg", title: "Collage 15", size: "A4", priceText: "(med ramme)", price: 750 },
+            { image: "/www/shop/c16.jpg", title: "Collage 16", size: "A4", priceText: "(med ramme)", price: 750 },
+            { image: "/www/shop/c17.jpg", title: "Collage 17", size: "A4", priceText: "(med ramme)", price: 750 }
+        ]
+    },
+    plakater_boern: {
+    	text: "Plakater til børn. De angivne mål og priser er uden ramme.",
         showTitles: true,
         items: [
-            { image: "/www/shop/plakat_yoga_a3.jpg", size: "A3", price: 250, priceText: "(uden ramme)", title: "Yoga &bull; Soløvelsen", text2: "Offsettryk på kraftigt papir.", basketTitle: "Soløvelsen (A3-plakat)", printed: true, pickup: false },
+            { image: "/www/shop/plakat_strandtur.jpg", size: "A3", price: 250, priceText: "(uden ramme)", title: "Strandtur", text2: "Printet på kraftigt papir.", basketTitle: "Strandtur (A3-plakat)", printed: true, pickup: false },
+            { image: "/www/shop/plakat_tivoli.jpg", size: "A3", price: 250, priceText: "(uden ramme)", title: "Tivoli", text2: "Printet på kraftigt papir.", basketTitle: "Tivoli (A3-plakat)", printed: true, pickup: false },
+           
+            { image: "/www/shop/plakat_linedanser.jpg", title: "Linedanser", size: "A3", sizeText: "(liggende)", price: 250, priceText: "(uden ramme)", text2: "Print på kraftigt papir.", basketTitle: "Linedanser (A3-plakat)", printed: true, pickup: false },
+            { image: "/www/shop/plakat_swimmingpool.jpg", title: "Svømmehal", size: "A3", sizeText: "(liggende)", price: 250, priceText: "(uden ramme)", text2: "Print på kraftigt papir.", basketTitle: "Swimmingpool (A3-plakat)", printed: true, pickup: false },
+            { image: "/www/shop/plakat_poelsevogn.jpg", title: "Pølsevogn", size: "A3", sizeText: "(liggende)", price: 250, priceText: "(uden ramme)", text2: "Print på kraftigt papir.", basketTitle: "Pølsevogn (A3-plakat)", printed: true, pickup: false }//,
+            
+             // abc points to this item as well using parent: { key: "plakater_boern", index: 3 }:
+            //{ image: "/www/shop/plakat_abc.jpg", title: "ABC", size: "A2", price: 200, priceText: "(uden ramme)", text2: "Printet plakat.", basketTitle: "ABC (A2-plakat)", printed: true, pickup: true }
+        ]
+    },
+    plakater_voksne: {
+    	text: "Plakater til voksne. De angivne mål og priser er uden ramme.",
+        showTitles: true,
+        items: [
+            { image: "/www/shop/plakat_yoga_a3.jpg", size: "A3", price: 250, priceText: "(uden ramme)", title: "Yoga &bull; Solhilsen", text2: "Offsettryk på kraftigt papir.", basketTitle: "Solhilsen (A3-plakat)", printed: true, pickup: false },
             { image: "/www/shop/plakat_crossfit_a3.jpg", size: "A3", price: 250, priceText: "(uden ramme)", title: "Crossfit &bull; WOD", text2: "Offsettryk på kraftigt papir.", basketTitle: "WOD (A3-plakat)", printed: true, pickup: false },
             { image: "/www/shop/plakat_baby_a3.jpg", size: "A3", price: 250, priceText: "(uden ramme)", title: "Homo Sapiens &bull; Baby", text2: "Offsettryk på kraftigt papir.", basketTitle: "Baby (A3-plakat)", printed: true, pickup: false },
 
             { image: "/www/shop/plakat_dame_a3.gif", size: "A3", price: 250, priceText: "(uden ramme)", title: "Dame", text2: "Offsettryk på kraftigt papir.", basketTitle: "Dame (A3-plakat)", printed: true, pickup: false },
-            { image: "/www/shop/plakat_pige_a3.gif", size: "A3", price: 250, priceText: "(uden ramme)", title: "Pige", text2: "Offsettryk på kraftigt papir.", basketTitle: "Pige (A3-plakat)", printed: true, pickup: false },
-
-            // abc points to this item as well using parent: { key: "plakater", index: 5 }:
-            { image: "/www/shop/plakat_abc.jpg", title: "ABC", size: "A2", price: 200, priceText: "(uden ramme)", text2: "Printet plakat.", basketTitle: "ABC (A2-plakat)", printed: true, pickup: true },
-
-            { image: "/www/shop/plakat_linedanser.jpg", title: "Linedanser", size: "A3", sizeText: "(liggende)", price: 250, priceText: "(uden ramme)", text2: "Print på kraftigt papir.", basketTitle: "Linedanser (A3-plakat)", printed: true, pickup: false },
-            { image: "/www/shop/plakat_swimmingpool.jpg", title: "Svømmehal", size: "A3", sizeText: "(liggende)", price: 250, priceText: "(uden ramme)", text2: "Print på kraftigt papir.", basketTitle: "Swimmingpool (A3-plakat)", printed: true, pickup: false },
-            { image: "/www/shop/plakat_poelsevogn.jpg", title: "Pølsevogn", size: "A3", sizeText: "(liggende)", price: 250, priceText: "(uden ramme)", text2: "Print på kraftigt papir.", basketTitle: "Pølsevogn (A3-plakat)", printed: true, pickup: false }
+            { image: "/www/shop/plakat_pige_a3.gif", size: "A3", price: 250, priceText: "(uden ramme)", title: "Pige", text2: "Offsettryk på kraftigt papir.", basketTitle: "Pige (A3-plakat)", printed: true, pickup: false }
         ]
     },
     navneplakater: {
@@ -71,78 +102,159 @@ Groups.groups = {
             { image: "/www/shop/abc_z.jpg", text2: "Et enkelt lamineret kort.", size: { height: 9, width: 9 }, price: 20, title: "Z for zebra", printed: true },
             { image: "/www/shop/abc_ae.jpg", text2: "Et enkelt lamineret kort.", size: { height: 9, width: 9 }, price: 20, title: "Æ for æble", printed: true },
             { image: "/www/shop/abc_oe.jpg", text2: "Et enkelt lamineret kort.", size: { height: 9, width: 9 }, price: 20, title: "Ø for ø", printed: true },
-            { image: "/www/shop/abc_aa.jpg", text2: "Et enkelt lamineret kort.", size: { height: 9, width: 9 }, price: 20, title: "Å for ål", printed: true },
+            { image: "/www/shop/abc_aa.jpg", text2: "Et enkelt lamineret kort.", size: { height: 9, width: 9 }, price: 20, title: "Å for ål", printed: true }//,
 
-            { parent: { key: "plakater", index: 5 } },
+            //{ parent: { key: "plakater_boern", index: 5 } }
         ]
     },
-    smaa_orig: {
-        text: "Mindre originaltegninger monteret i sort ramme (rammen er inkluderet i mål og pris).<br/>Tusch og akvarel på håndlavet offsetpapir.",
+    boerneboeger: {
+    	text: "Børnebøger.",
+    	showTitles: true,     
+        float: false,
+        items: [
+            { image: "/www/shop/boerneboeger3.jpg", title: "Arkitekten og den gule kat", text2: "Bog om arkitektur til de 3-5 årige.", price: 150, printed: true },
+            { image: "/www/shop/boerneboeger1.jpg", title: "Indeni mig ... og i de andre", text2: "Samtalebog til børn om følelser og empati.", price: 230, printed: true },
+            { image: "/www/shop/boerneboeger2.jpg", title: "Far, mor ... og børn", text2: "Samtalebog til børn om familier.", price: 230, printed: true }
+        ]
+    },
+    engel: {
+    	text: "<div class=\"paragraph\">Engel printet på kraftigt papir og med guldsnor til ophængning.<br/><br/>Engle forsendes i almindeligt brev (op til 3 engle per brev), hvis du ønsker det.</div>",
+    	//"<div class=\"paragraph\">Bemærk at ved køb i webbutikken for over 200 kroner får du en Engel gratis med! :)</div>",
+		showTitles: true,     
+        float: true,
+        items: [
+            { snailmail: true, images: ["/www/shop/engel1.jpg", "/www/shop/engel2.jpg", "/www/shop/engel3.jpg"], basketImage: "/www/shop/engel0.jpg", title: "Engel", price: 45, printed: true }
+        ]
+    },
+    snakkekort: {
+    	text: "<div class=\"paragraph\">" + 
+    	"40 snakkekort, som inviterer til en god snak med børn om det hele: Oplevelser, tanker og følelser.</div>" + 
+    	"<div class=\"paragraph\">" + 
+    	"Snakkekortene er i størrelsen 10,5 x 14,8 cm (A6).<br/>" +
+    	"Kortene er lagt i en hyggelig bomuldspose med et hjerte på.<br/>" + 
+    	"I posen ligger der også en lille vejledning med inspiration til brug af snakkekortene.<br/>" + 
+    	"</div>" + 
+    	"<div class=\"paragraph\">" + 
+    	"Du kan finde mere information om snakkekortene på <a class=\"snakomdet\" href=\"javascript:Links.open('http://www.snakomdet.dk/');\">Snakomdet.dk</a>." +
+    	"</div>" + 
+    	"<div class=\"paragraph\">" + 
+    	"1 pose snakkekort koster 500 kroner, 3 poser koster 1250 kroner, mens 5 poser kan købes for 2000 kroner (priserne er inklusive moms).</div>",
+		showTitles: true,     
+        float: true,
+        items: [
+            { image: "/www/shop/snakkekort1.jpg", title: "1 x 40 snakkekort", price: 500, printed: true },
+            { image: "/www/shop/snakkekort3.jpg", title: "3 x 40 snakkekort", price: 1250, printed: true },
+            { image: "/www/shop/snakkekort5.jpg", title: "5 x 40 snakkekort", price: 2000, printed: true }
+        ]
+    },
+    isfreaks: {
+    	text: "Originaltegninger monteret i sort A4-ramme (rammen er inkluderet i pris).<br/>Tusch og akvarel på håndlavet offsetpapir.",
         showTitles: true,
         float: true,
         items: [
-            { image: "/www/shop/mel1.jpg", price: 650, title: "Lilla Lotus", size: "A5", priceText: "(med ramme)", sold: false },
-            { image: "/www/shop/mel2.jpg", price: 650, title: "I love crossfit", size: "A5", priceText: "(med ramme)", sold: false },
-            { image: "/www/shop/mel11.jpg", price: 650, title: "Strandsild", size: "A5", sizeText: "(liggende)", priceText: "(med ramme)", sold: false },
-            { image: "/www/shop/mel5.jpg", price: 650, title: "Type i sprint", size: "A5", priceText: "(med ramme)", sold: false },
-            { image: "/www/shop/mel6.jpg", price: 650, title: "Yogababe", size: "A5", priceText: "(med ramme)", sold: false },
-            { image: "/www/shop/mel12.jpg", price: 650, title: "Stærk type", size: "A5", sizeText: "(liggende)", priceText: "(med ramme)", sold: false },
-            { image: "/www/shop/mel10.jpg", price: 650, title: "Squatter", size: "A5", sizeText: "(liggende)", priceText: "(med ramme)", sold: false },
-            { image: "/www/shop/mel9.jpg", price: 650, title: "Yogafreak", size: "A5", sizeText: "(liggende)", priceText: "(med ramme)", sold: false },
-            { image: "/www/shop/mel7.jpg", price: 650, title: "Yogi", size: "A5", priceText: "(med ramme)", sold: false },
-            { image: "/www/shop/mel3.jpg", price: 650, title: "Yogafreak", size: "A5", priceText: "(med ramme)", sold: false },
-            { image: "/www/shop/mel13.jpg", price: 650, title: "Zebrasild", size: "A5", sizeText: "(liggende)", priceText: "(med ramme)", sold: false },
-            { image: "/www/shop/mel14.jpg", price: 650, title: "Yogi", size: "A5", sizeText: "(liggende)", priceText: "(med ramme)", sold: false },
-            { image: "/www/shop/mel8.jpg", price: 650, title: "Lotus i stribede bukser", size: "A5", priceText: "(med ramme)", sold: false, newline: true },
-            
-            { image: "/www/shop/lille21.jpg", price: 650, title: "Batman", size: "A5", priceText: "(med ramme)", sold: false },
-            { image: "/www/shop/lille23.jpg", price: 650, title: "Snehvide", size: "A5", priceText: "(med ramme)", sold: false },
-            { image: "/www/shop/lille19.jpg", price: 650, title: "Spiderman", size: "A5", priceText: "(med ramme)", sold: false },
-            { image: "/www/shop/lille22.jpg", price: 650, title: "Pippi", size: "A5", priceText: "(med ramme)", sold: true },
-            { image: "/www/shop/lille20.jpg", price: 650, title: "Superman", size: "A5", priceText: "(med ramme)", sold: false },
-            { image: "/www/shop/lille24.jpg", price: 650, title: "Askepot", size: "A5", priceText: "(med ramme)", sold: false },
-            
-            { image: "/www/shop/lille3.jpg", price: 650, title: "Isfreaks", size: "A5", priceText: "(med ramme)", sold: false },
-            { image: "/www/shop/lille5.jpg", price: 650, title: "Feriefreaks", size: "A5", priceText: "(med ramme)", sold: false },
-            { image: "/www/shop/lille8.jpg", price: 650, title: "Diva i blåt", size: "A5", priceText: "(med ramme)", sold: false },
-            { image: "/www/shop/lille9.jpg", price: 650, title: "Hr. Sommer", size: "A5", priceText: "(med ramme)", sold: false },
-            { image: "/www/shop/lille12.jpg", price: 650, title: "Mutter med Nutter", size: "A5", priceText: "(med ramme)", sold: false, newline: true},
-            
-            { image: "/www/shop/lilbas3.jpg", title: "Lille bar basse", basketTitle: "Lille bar basse 1", size: "A6", priceText: "(med ramme)", price: 250, sold: false },
-            { image: "/www/shop/lilbas7.jpg", title: "Lille bar basse", basketTitle: "Lille bar basse 3", size: "A6", priceText: "(med ramme)", price: 250, sold: false },
-            { image: "/www/shop/lilbas6.jpg", title: "Lille bar basse", basketTitle: "Lille bar basse 2", size: "A6", priceText: "(med ramme)", price: 250, sold: false },
-            { image: "/www/shop/lilbas8.jpg", title: "Lille bar basse", basketTitle: "Lille bar basse 4", size: "A6", priceText: "(med ramme)", price: 250, sold: false },            
-            { image: "/www/shop/bas1.jpg", title: "To små bare basser", basketTitle: "To små bare basser 1", size: "A5", sizeText: "(liggende)", priceText: "(med ramme)", price: 550, sold: false },
-            { image: "/www/shop/bas2.jpg", title: "To små bare basser", basketTitle: "To små bare basser 2", size: "A5", sizeText: "(liggende)", priceText: "(med ramme)", price: 550, sold: false },
-            { image: "/www/shop/bas3.jpg", title: "To små bare basser", basketTitle: "To små bare basser 3", size: "A5", sizeText: "(liggende)", priceText: "(med ramme)", price: 550, sold: false },
-            { image: "/www/shop/bas5.jpg", title: "To små bare basser", basketTitle: "To små bare basser 4", size: "A5", sizeText: "(liggende)", priceText: "(med ramme)", price: 550, sold: false },
-            { image: "/www/shop/bas6.jpg", title: "To små bare basser", basketTitle: "To små bare basser 5", size: "A5", sizeText: "(liggende)", priceText: "(med ramme)", price: 550, sold: false },
-            { image: "/www/shop/bas7.jpg", title: "To små bare basser", basketTitle: "To små bare basser 6", size: "A5", sizeText: "(liggende)", priceText: "(med ramme)", price: 550, sold: false },
-            { image: "/www/shop/bas8.jpg", title: "To små bare basser", basketTitle: "To små bare basser 7", size: "A5", sizeText: "(liggende)", priceText: "(med ramme)", price: 550, sold: false },
-            { image: "/www/shop/bas9.jpg", title: "To små bare basser", basketTitle: "To små bare basser 8", size: "A5", sizeText: "(liggende)", priceText: "(med ramme)", price: 550, sold: false },
-            { image: "/www/shop/bas10.jpg", title: "To små bare basser", basketTitle: "To små bare basser 9", size: "A5", sizeText: "(liggende)", priceText: "(med ramme)", price: 550, sold: false },
-            { image: "/www/shop/basserpaastribe1.jpg", title: "Bare basser på stribe", size: { height: 17, width: 42 }, priceText: "(med ramme)", price: 1050, sold: false }
+             { image: "/www/shop/is1.jpg", title: "Isfreaks", basketTitle: "Isfreaks 1", size: "A4", sizeText: "(liggende)", priceText: "(med ramme)", price: 950, sold: false },
+             { image: "/www/shop/is2.jpg", title: "Isfreaks", basketTitle: "Isfreaks 2", size: "A4", sizeText: "(liggende)", priceText: "(med ramme)", price: 950, sold: false },
+             { image: "/www/shop/is3.jpg", title: "Isfreaks", basketTitle: "Isfreaks 3", size: "A4", sizeText: "(liggende)", priceText: "(med ramme)", price: 950, sold: true }
+        ]
+    },
+    bare_basser: {
+    	text: "Mindre originaltegninger monteret i sort ramme (rammen er inkluderet i mål og pris).<br/>Tusch og akvarel på håndlavet offsetpapir.",
+        showTitles: true,
+        float: true,
+        items: [
+             { image: "/www/shop/bas1.jpg", title: "Bar basse", basketTitle: "Bar basse 1", size: { height: 19.7, width: 14.7 }, priceText: "(med ramme)", price: 350, sold: false },
+             { image: "/www/shop/bas2.jpg", title: "Bar basse", basketTitle: "Bar basse 2", size: { height: 19.7, width: 14.7 }, priceText: "(med ramme)", price: 350, sold: false },
+             { image: "/www/shop/bas3.jpg", title: "Bar basse", basketTitle: "Bar basse 3", size: { height: 19.7, width: 14.7 }, priceText: "(med ramme)", price: 350, sold: true },
+             { image: "/www/shop/bas4.jpg", title: "Bar basse", basketTitle: "Bar basse 4", size: { height: 19.7, width: 14.7 }, priceText: "(med ramme)", price: 350, sold: true },
+             { image: "/www/shop/bas5.jpg", title: "Bar basse", basketTitle: "Bar basse 5", size: { height: 19.7, width: 14.7 }, priceText: "(med ramme)", price: 350, sold: false },
+             { image: "/www/shop/bas6.jpg", title: "Bar basse", basketTitle: "Bar basse 6", size: { height: 19.7, width: 14.7 }, priceText: "(med ramme)", price: 350, sold: true },
+             { image: "/www/shop/bas7.jpg", title: "Bar basse", basketTitle: "Bar basse 7", size: { height: 19.7, width: 14.7 }, priceText: "(med ramme)", price: 350, sold: false },
+             { image: "/www/shop/bas8.jpg", title: "Bar basse", basketTitle: "Bar basse 8", size: { height: 19.7, width: 14.7 }, priceText: "(med ramme)", price: 350, sold: false },
+             { image: "/www/shop/bas9.jpg", title: "Bar basse", basketTitle: "Bar basse 9", size: { height: 19.7, width: 14.7 }, priceText: "(med ramme)", price: 350, sold: false },
+             { image: "/www/shop/bas10.jpg", title: "Bar basse", basketTitle: "Bar basse 10", size: { height: 19.7, width: 14.7 }, priceText: "(med ramme)", price: 350, sold: false },
+             { image: "/www/shop/bas11.jpg", title: "Bar basse", basketTitle: "Bar basse 11", size: { height: 19.7, width: 14.7 }, priceText: "(med ramme)", price: 350, sold: false },
+             { image: "/www/shop/bas12.jpg", title: "Bar basse", basketTitle: "Bar basse 12", size: { height: 19.7, width: 14.7 }, priceText: "(med ramme)", price: 350, sold: false },
+             { image: "/www/shop/bas13.jpg", title: "Bar basse", basketTitle: "Bar basse 13", size: { height: 19.7, width: 14.7 }, priceText: "(med ramme)", price: 350, sold: false },
+             { image: "/www/shop/bas14.jpg", title: "Bar basse", basketTitle: "Bar basse 14", size: { height: 19.7, width: 14.7 }, priceText: "(med ramme)", price: 350, sold: false },
+             { image: "/www/shop/bas15.jpg", title: "Bar basse", basketTitle: "Bar basse 15", size: { height: 19.7, width: 14.7 }, priceText: "(med ramme)", price: 350, sold: false },
+             { image: "/www/shop/bas16.jpg", title: "Bar basse", basketTitle: "Bar basse 16", size: { height: 19.7, width: 14.7 }, priceText: "(med ramme)", price: 350, sold: false },
+             { image: "/www/shop/bas17.jpg", title: "Bar basse", basketTitle: "Bar basse 17", size: { height: 19.7, width: 14.7 }, priceText: "(med ramme)", price: 350, sold: false },
+             { image: "/www/shop/bas18.jpg", title: "Bar basse", basketTitle: "Bar basse 18", size: { height: 19.7, width: 14.7 }, priceText: "(med ramme)", price: 350, sold: false },
+             { image: "/www/shop/bas19.jpg", title: "Bar basse", basketTitle: "Bar basse 19", size: { height: 19.7, width: 14.7 }, priceText: "(med ramme)", price: 350, sold: false },
+             { image: "/www/shop/bas20.jpg", title: "Bar basse", basketTitle: "Bar basse 20", size: { height: 19.7, width: 14.7 }, priceText: "(med ramme)", price: 350, sold: false }
+        ]
+    },
+    smaa_orig: {
+        text: "Mindre originaltegninger monteret i sort A5-ramme (rammen er inkluderet i pris).<br/>Tusch og akvarel på håndlavet offsetpapir.",
+        showTitles: true,
+        float: true,
+        items: [
+            { image: "/www/shop/d2.jpg", price: 500, title: "Prikker og is", size: "A5", priceText: "(med ramme)", sold: true },
+            { image: "/www/shop/d3.jpg", price: 500, title: "Striber og is", size: "A5", priceText: "(med ramme)", sold: false },
+            { image: "/www/shop/d6.jpg", price: 500, title: "Bolcher og is", size: "A5", priceText: "(med ramme)", sold: false },
+            { image: "/www/shop/d7.jpg", price: 500, title: "Fodboldspiller", size: "A5", priceText: "(med ramme)", sold: false },
+            { image: "/www/shop/d10.jpg", price: 500, title: "Dribler", size: "A5", priceText: "(med ramme)", sold: false },
+            { image: "/www/shop/d12.jpg", price: 500, title: "Jordbæris", size: "A5", priceText: "(med ramme)", sold: false },
+        
+            { image: "/www/shop/lille21.jpg", price: 500, title: "Batman", size: "A5", priceText: "(med ramme)", sold: false },
+            { image: "/www/shop/lille23.jpg", price: 500, title: "Snehvide", size: "A5", priceText: "(med ramme)", sold: false },
+            { image: "/www/shop/lille19.jpg", price: 500, title: "Spiderman", size: "A5", priceText: "(med ramme)", sold: true },
+            { image: "/www/shop/lille22.jpg", price: 500, title: "Pippi", size: "A5", priceText: "(med ramme)", sold: true },
+            { image: "/www/shop/lille20.jpg", price: 500, title: "Superman", size: "A5", priceText: "(med ramme)", sold: true },
+            { image: "/www/shop/lille24.jpg", price: 500, title: "Askepot", size: "A5", priceText: "(med ramme)", sold: false }
     	]
     },
+    miniorig: {
+    	text: "Minioriginaler lige til at putte i ramme.<br/>Tusch og akvarel på håndlavet offsetpapir.", 
+        showTitles: false,
+        float: true,
+        teaser: "/www/shop/miniorig.jpg",
+        items: [
+            { snailmail: true, image: "/www/shop/miniorig1.jpg", title: "Minioriginal 1", size: { width: 8, height: 8 }, price: 250 },
+            { snailmail: true, image: "/www/shop/miniorig2.jpg", title: "Minioriginal 2", size: { width: 9.5, height: 12.5 }, price: 250 },
+            { snailmail: true, image: "/www/shop/miniorig3.jpg", title: "Minioriginal 3", size: { width: 6.5, height: 8.5 }, price: 250 },
+            { snailmail: true, image: "/www/shop/miniorig4.jpg", title: "Minioriginal 4", size: { width: 6, height: 8 }, price: 250 },
+            { snailmail: true, image: "/www/shop/miniorig5.jpg", title: "Minioriginal 5", size: { width: 9, height: 9 }, price: 250 },
+            { snailmail: true, image: "/www/shop/miniorig6.jpg", title: "Minioriginal 6", size: { width: 9, height: 10 }, price: 250 },
+            { snailmail: true, image: "/www/shop/miniorig7.jpg", title: "Minioriginal 7", size: { width: 5, height: 8.5 }, price: 250 },
+            //{ snailmail: true, image: "/www/shop/miniorig8.jpg", title: "Minioriginal 8", size: { width: 6, height: 8 }, price: 250 },
+            { snailmail: true, image: "/www/shop/miniorig9.jpg", title: "Minioriginal 9", size: { width: 5, height: 7.5 }, price: 250 },
+            { snailmail: true, image: "/www/shop/miniorig10.jpg", title: "Minioriginal 10", size: { width: 8.5, height: 7.5 }, price: 250 },
+            { snailmail: true, image: "/www/shop/miniorig11.jpg", title: "Minioriginal 11", size: { width: 6, height: 8 }, price: 250 },
+            { snailmail: true, image: "/www/shop/miniorig12.jpg", title: "Minioriginal 12", size: { width: 5.5, height: 10.5 }, price: 250 },
+            { snailmail: true, image: "/www/shop/miniorig13.jpg", title: "Minioriginal 13", size: { width: 6.5, height: 8 }, price: 250 },
+            { snailmail: true, image: "/www/shop/miniorig14.jpg", title: "Minioriginal 14", size: { width: 6, height: 8.5 }, price: 250 },
+            { snailmail: true, image: "/www/shop/miniorig15.jpg", title: "Minioriginal 15", size: { width: 10, height: 12.5 }, price: 250 },
+            { snailmail: true, image: "/www/shop/miniorig16.jpg", title: "Minioriginal 16", size: { width: 7, height: 7 }, price: 250 },
+            { snailmail: true, image: "/www/shop/miniorig17.jpg", title: "Minioriginal 17", size: { width: 4, height: 5 }, price: 250 },
+            { snailmail: true, image: "/www/shop/miniorig18.jpg", title: "Minioriginal 18", size: { width: 7, height: 9 }, price: 250 },
+            { snailmail: true, image: "/www/shop/miniorig19.jpg", title: "Minioriginal 19", size: { width: 6.5, height: 7.5 }, price: 250 },
+            { snailmail: true, image: "/www/shop/miniorig20.jpg", title: "Minioriginal 20", size: { width: 7, height: 8.5 }, price: 250 },
+            { snailmail: true, image: "/www/shop/miniorig21.jpg", title: "Minioriginal 21", size: { width: 7, height: 7 }, price: 250 }
+       ]
+    },    
     store_orig: {
-    	text: "Store malerier og originaltegninger.<br/>De angivne mål og priser er inklusive eventuel ramme.", 
+    	text: "Store originaltegninger. Tusch og akvarel på håndlavet offsetpapir.",
+    	  //"Sælges uden ramme for 1900 kr. Passer i ramme med målene 40 x 50 cm.<br/>" + 
+    	  //"Hvis du henter tegningen på tegnestuen, kan du få den monteret i en sort ramme for ekstra 300 kr.", 
+    	  //"Store originaltegninger.<br/>De angivne mål og priser er inklusive eventuel ramme.", 
         showTitles: true,
         items: [
-            { image: "/www/shop/stor11.jpg", title: "Mennesker i by", text2: "Flydende tusch og pen på håndlavet offsetpapir.", size: { height: 43, width: 52.5 }, priceText: "(med ramme)", price: 2500, sold: false, pickup: true },     
-            { image: "/www/shop/stor12.jpg", title: "Folk", text2: "Akryl på pap monteret i gammel træramme.", size: { height: 52, width: 42.5 }, priceText: "(med ramme)", price: 2500, sold: false, pickup: true },     
-            { image: "/www/shop/stor13.jpg", title: "Party", text2: "Flydende tusch og pen på håndlavet offsetpapir.", size: { height: 50, width: 70 }, priceText: "(med ramme)", price: 3500, sold: false, pickup: true },     
+            { image: "/www/shop/stororig1.jpg", title: "Mennesker I", size: "Passer i ramme med målene 40 x 50 cm", price: 2200, sold: false, frame: true, priceNoFrame: 1900, pickupIfFrame: true},
+            { image: "/www/shop/stororig2.jpg", title: "Mennesker i byen I", size: "Passer i ramme med målene 40 x 50 cm", price: 2200, sold: false, frame: true, priceNoFrame: 1900, pickupIfFrame: true},
+            { image: "/www/shop/stororig3.jpg", title: "Mennesker i byen II", size: "Passer i ramme med målene 40 x 50 cm", price: 2200, sold: false, frame: true, priceNoFrame: 1900, pickupIfFrame: true},
+            { image: "/www/shop/stororig4.jpg", title: "Mennesker II", size: "Passer i ramme med målene 40 x 50 cm", price: 2200, sold: false, frame: true, priceNoFrame: 1900, pickupIfFrame: true},
+            { image: "/www/shop/stororig5.jpg", title: "Mennesker på Torv", size: "Passer i ramme med målene 40 x 50 cm", price: 2200, sold: false, frame: true, priceNoFrame: 1900, pickupIfFrame: true}
+           
+            /*{ image: "/www/shop/stor12.jpg", title: "Folk", text2: "Akryl på pap monteret i gammel træramme.", size: { height: 52, width: 42.5 }, priceText: "(med ramme)", price: 2500, sold: true, pickup: true },     
             { image: "/www/shop/stor15.jpg", title: "Bare basser", text2: "Flydende tusch og pen på håndlavet offsetpapir.", size: { height: 50, width: 70 }, priceText: "(med ramme)", price: 3500, sold: false, pickup: true },     
-            { image: "/www/shop/stor16.jpg", title: "Mennesker", text2: "Akvarel, akryl og flydende tusch på papir.", size: { height: 31, width: 44 }, priceText: "(med ramme)", price: 2000, sold: false, pickup: true },     
-            { image: "/www/shop/stor17.jpg", title: "I parken", text2: "Flydende tusch og pen på håndlavet offsetpapir.", size: { height: 43, width: 52.5 }, priceText: "(med ramme)", price: 2500, sold: false, pickup: true },   
+            { image: "/www/shop/stor16.jpg", title: "Mennesker", text2: "Akvarel, akryl og flydende tusch på papir.", size: { height: 31, width: 44 }, priceText: "(med ramme)", price: 2000, sold: true, pickup: true },     
+            { image: "/www/shop/stor17.jpg", title: "I parken", text2: "Flydende tusch og pen på håndlavet offsetpapir.", size: { height: 43, width: 52.5 }, priceText: "(med ramme)", price: 2500, sold: false, pickup: true } */
 
-            { image: "/www/shop/orig_a4_7.jpg", title: "Yoga", text2: "Flydende tusch og pen på papir.", size: "A4", sizeText: "(liggende)", priceText: "(med ramme)", price: 950, sold: false },                
-
-            { image: "/www/shop/maleri3.gif", title: "Jordbærdrøm og sværmende bæst", text2: "Maleri. Akryl og flydende tusch på lærred.", size: { height: 120, width: 100 }, price: 9500, sold: true, pickup: true },
+            /* { image: "/www/shop/maleri3.gif", title: "Jordbærdrøm og sværmende bæst", text2: "Maleri. Akryl og flydende tusch på lærred.", size: { height: 120, width: 100 }, price: 9500, sold: true, pickup: true },
             { image: "/www/shop/maleri1.gif", title: "Næbet eremit med pool", text2: "Maleri. Akryl og flydende tusch på lærred.", size: { height: 100, width: 120 }, price: 6500, sold: true, pickup: true },
             { image: "/www/shop/maleri2.gif", title: "Hanen og ægget", text2: "Maleri. Akryl og flydende tusch på lærred.", size: { height: 100, width: 120 }, price: 6500, sold: true, pickup: true },
-            { image: "/www/shop/maleri4.gif", title: "Stjernekiggeren", text2: "Maleri. Akryl og flydende tusch på lærred.", size: { height: 100, width: 120 }, price: 6500, sold: true, pickup: true },
-            { image: "/www/shop/maleri5.gif", title: "Sværmer med tunge ben", text2: "Maleri. Akryl og flydende tusch på lærred.", size: { height: 120, width: 100 }, price: 15000, sold: true, pickup: true },
-            { image: "/www/shop/maleri6.gif", title: "Fugl og fugl imellem", text2: "Maleri. Akryl og flydende tusch på lærred.", size: { height: 120, width: 100 }, price: 15000, sold: true, pickup: true }
+            { image: "/www/shop/maleri5.gif", title: "Sværmer med tunge ben", text2: "Maleri. Akryl og flydende tusch på lærred.", size: { height: 120, width: 100 }, price: 15000, sold: true, pickup: true } */
         ]
     },
     litografier: {

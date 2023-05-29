@@ -3,9 +3,9 @@
 <head>
     <title>Pia Olsen</title>
     <meta charset="UTF-8"/>
-    <meta property="og:url" content="http://piaolsen.com/forhandlere"/>
+    <meta property="og:url" content="https://piaolsen.com/forhandlere"/>
     <meta property="og:title" content="Pia Olsen · Forhandlere"/>
-    <meta property="og:image" content="http://piaolsen.com/www/images/pia.jpg"/>
+    <meta property="og:image" content="https://piaolsen.com/www/images/pia.jpg"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0"/>
     <link rel="shortcut icon" type="image/ico" href="/www/images/favicon.ico"/>
     <link rel="apple-touch-icon" href="/www/images/appicon.png"/>
@@ -15,6 +15,7 @@
     <script language="javascript" type="text/javascript" src="/www/js/jquery-ui-1.12.1.min.js"></script>
     <script language="javascript" type="text/javascript" src="/www/js/jquery.cookie.js"></script>
     <script language="javascript" type="text/javascript" src="/www/js/script.js"></script>
+    <script language="javascript" type="text/javascript" src="/www/js/basket.js"></script>
 </head>
 <body>
 
@@ -65,7 +66,7 @@
                 </div>
             </div>
             <div class="dealer">
-                <div><a href="http://www.fred50cph.dk/" class="external">FRED50</a></div>
+                <div><a href="https://www.fred50cph.dk/" class="external">FRED50</a></div>
                 <div>
                     <a href="https://goo.gl/maps/v9ejS" class="external">Frederiksborggade 50<br/>1360 København K</a>
                 </div>

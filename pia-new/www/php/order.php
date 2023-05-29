@@ -1,4 +1,29 @@
 <?php
+
+// Test evt. med Curl:
+//curl -X "POST" "https://piaolsen.com/order?sid=0.5661673615662299%22" \
+//     -H 'Content-Type: application/json' \
+//     -d $'{
+//  "address": "Øster Søgade 108",
+//  "phone": "26243520",
+//  "payment": "bank",
+//  "price": 2200,
+//  "pictures": [
+//    {
+//      "amount": 1,
+//      "frame": true,
+//      "title": "Mennesker I",
+//      "frameItem": true,
+//      "image": "/www/shop/stororig1.jpg"
+//    }
+//  ],
+//  "check": true,
+//  "email": "post@stinesplace.com",
+//  "delivery": "pickup",
+//  "message": "Testing",
+//  "name": "Stine Søndergaard"
+//}'
+
 $data = json_decode(file_get_contents('php://input'), true);
 
 if (isset($data["check"])) {
@@ -12,7 +37,8 @@ if (isset($data["check"])) {
     
     $delivery = $data['delivery'];
     $deliveryText = $delivery;
-    if ($delivery == 'gls') $deliveryText = $data['glsShop'];
+    if ($delivery == 'snailmail') $deliveryText = "Per almindeligt brev";
+    else if ($delivery == 'gls') $deliveryText = $data['glsShop'];
     else if ($delivery == 'pickup') $deliveryText = "Afhentes";
     
     $payment = $data['payment'];
@@ -28,13 +54,13 @@ if (isset($data["check"])) {
     $urls = array();
     $titles = "";
     for ($i = 0; $i < sizeof($data["pictures"]); $i++) {
-        $posterNames = $data["pictures"][$i]["posterNames"];
-        $posterNames = $posterNames ? " (".str_replace(", "," og ", $posterNames).")" : "";
-        $amount = $data["pictures"][$i]["amount"];
-        $frame = $data["pictures"][$i]["frame"] ? "" : " (u. ramme)";
-        $urls[$i] = $amount." x http://www.piaolsen.com".$data["pictures"][$i]["image"].$frame.$posterNames;
+    	$picture = $data["pictures"][$i];
+        $posterNames = array_key_exists("posterNames", $picture) ? " (".str_replace(", "," og ", $picture["posterNames"]).")" : "";
+        $amount = $picture["amount"];
+        $frame = $picture["frameItem"] ? ($picture["frame"] ? " (med ramme)" : " (uden ramme)") : "";
+        $urls[$i] = $amount." x http://www.piaolsen.com".$picture["image"].$frame.$posterNames;
         if ($i > 0) $titles .= $i + 1 < sizeof($data["pictures"]) ? ", " : " og ";
-        $titles .= ($amount > 1 ? $amount." x " : "")."\"".$data["pictures"][$i]["title"]."\"".$frame.$posterNames;
+        $titles .= ($amount > 1 ? $amount." x " : "")."\"".$picture["title"]."\"".$frame.$posterNames;
     }
 
     // Ordre:

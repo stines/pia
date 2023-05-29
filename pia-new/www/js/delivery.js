@@ -11,8 +11,8 @@ var Delivery = {
   		});
   		
 		Delivery.showGlsShop();
-			
-		if (!Delivery.chosen()) Delivery.choosePickUp();
+		
+		if (!Delivery.chosen() || (Delivery.snailMailChosen() && !Basket.snailmailsOnly())) Delivery.choosePickUp();
 		else Delivery.showPrice();
 	},
 	
@@ -24,9 +24,11 @@ var Delivery = {
 	},
 	
 	toggleEditable: function(editable) {
-        Utils.toggleEnabledInput("#delivery .basket-form-input", editable);
+	    Utils.toggleEnabledInput("#delivery .basket-form-input", editable);
         Utils.toggleEnabledLink("#gls-shops-link", editable);
-        Utils.toggleOpaqueness(Delivery.glsChosen() ? ".delivery-pickup" : ".delivery-gls", editable);
+        if (!Delivery.pickupChosen()) Utils.toggleOpaqueness(".delivery-pickup", editable);
+        if (!Delivery.glsChosen()) Utils.toggleOpaqueness(".delivery-gls", editable);
+        if (!Delivery.snailMailChosen()) Utils.toggleOpaqueness(".delivery-snailmail", editable);
 	},
 	
 	removeGls: function(remove) {
@@ -38,6 +40,14 @@ var Delivery = {
         else $("#pickup-footnote-stars, #pickup-footnote").hide(0);
 	},
 	
+	removeSnailMail: function(remove) {
+        Utils.toggleEnabledInput("#delivery-snailmail", !remove);
+        Utils.toggleOpaqueness(".delivery-snailmail", !remove);
+        
+        //if (remove) $("#snailmail-footnote-stars, #snailmail-footnote").show(0);
+        //else $("#snailmail-footnote-stars, #snailmail-footnote").hide(0);
+	},
+	
 	choice: function() {
 		return $("input[name=delivery]:checked").val();
 	},
@@ -45,6 +55,11 @@ var Delivery = {
 	choosePickUp: function() {
 		console.log("Delivery.choosePickUp()");
 		$("input[name=delivery]").val(["pickup"]).trigger("change");
+	},
+	
+	chooseSnailMail: function() {	
+		console.log("Delivery.chooseSnailMail()");
+		$("input[name=delivery]").val(["snailmail"]).trigger("change");
 	},
 	
 	chooseGls: function() {	
@@ -60,20 +75,35 @@ var Delivery = {
 		return Delivery.choice() === "pickup";
 	},
 	
+	snailMailChosen: function() {
+		return Delivery.choice() === "snailmail";
+	},
+	
+	snailMailPrice: function() {
+		var snailmailCount = Basket.snailmailsCount();
+		return 12 * Math.ceil(snailmailCount / 3);
+	},
+	
 	glsChosen: function() {
 		return Delivery.choice() === "gls";
 	},
 	
-	glsPrice: 70,
+	glsPrice: 49,
 	
 	price: function() {
-		return Delivery.glsChosen() ? Delivery.glsPrice : 0;
+		if (Delivery.glsChosen()) {
+			return Delivery.glsPrice;
+		} 
+		if (Delivery.snailMailChosen()) {
+			return Delivery.snailMailPrice();
+		}
+		return 0;
 	},
 	
 	showPrice: function() {
-		var glsChosen = Delivery.glsChosen();
-		$(".delivery-gls .price").html(glsChosen ? Delivery.glsPrice + " kr." : "");
-    	$(".delivery-pickup .price").html(glsChosen ? "" : "0 kr.");
+		$(".delivery-gls .price").html(Delivery.glsChosen() ? Delivery.glsPrice + " kr." : "");
+    	$(".delivery-pickup .price").html(Delivery.pickupChosen() ? "0 kr." : "");
+    	$(".delivery-snailmail .price").html(Delivery.snailMailChosen() ? Delivery.snailMailPrice() + " kr." : "");
     	Basket.showTotalPrice();
     },
     
@@ -82,13 +112,25 @@ var Delivery = {
     	var glsSelector = ".delivery-gls, .delivery-gls a, .delivery-gls input";
     	if (pickUpOnly) {
     		$(glsSelector).addClass("removed");
-    		Delivery.choosePickUp();
+    		if (Delivery.glsChosen()) Delivery.choosePickUp();
     		
     	} else {
     		$(glsSelector).removeClass("removed");
     	}
     	Delivery.removeGls(pickUpOnly);
-    	return pickUpOnly;
+    },
+    
+    handleSnailMail: function() {
+    	var noSnailMail = Basket.pickUpOnly() || !Basket.snailmailsOnly();
+    	var snailMailSelector = ".delivery-snailmail, .delivery-snailmail input";
+    	if (noSnailMail) {
+    		$(snailMailSelector).addClass("removed");
+    		if (Delivery.snailMailChosen()) Delivery.choosePickUp();
+    		
+    	} else {
+    		$(snailMailSelector).removeClass("removed");
+    	}
+    	Delivery.removeSnailMail(noSnailMail);
     },
 	
 	pickGlsShop: function(zipCode) {
@@ -186,7 +228,7 @@ var Delivery = {
 	},
 	
 	validateGlsShop: function() {
-		if (Delivery.pickupChosen() || Basket.data.glsShop) {
+		if (Delivery.pickupChosen() || Delivery.snailMailChosen() || Basket.data.glsShop) {
 			Basket.fixError("error-gls");
     		$("#gls-shops-link").removeClass("error");
     		return true;
