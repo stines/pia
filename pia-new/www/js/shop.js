@@ -1,4 +1,90 @@
-Groups.groups = {
+Groups.groups = {    
+    melodibasser: {
+    	text: "Basser med melodi i 100% bomuld med serigrafisk tryk.<br/>" + 
+    	"Den indbyggede spilledåse spiller Brahms vuggevise og tåler fint vask.<br/>" + 
+    	"Kroppen er ca. 20 cm høj og ca. 15 cm bred.", 
+    	teaser: "/www/shop/melodibassertop.jpg",
+    	showTitles: true,
+        float: true,
+        items: [
+            { image: "/www/shop/melodibasser1.jpg", title: "Basse med melodi 1", price: 325 },
+            { image: "/www/shop/melodibasser2.jpg", title: "Basse med melodi 2", price: 325 },
+            { image: "/www/shop/melodibasser3.jpg", title: "Basse med melodi 3", price: 325 },
+            { image: "/www/shop/melodibasser4.jpg", title: "Basse med melodi 4", price: 325 },
+            { image: "/www/shop/melodibasser5.jpg", title: "Basse med melodi 5", price: 325 },
+            { image: "/www/shop/melodibasser6.jpg", title: "Basse med melodi 1", price: 325 }
+        ]
+    },
+	tehaetter: {
+    	text: "Tehætter.<br/>" + 
+    	"Hætterne er foret med termovat og holder derfor godt på varmen.<br/>" + 
+    	"Deres sorte tøj er syet i bomuld og dækker også hele indersiden.",
+    	teaser: "/www/shop/tehaettertop.jpg",
+        showTitles: true,
+        float: true,
+        items: [
+            { image: "/www/shop/tehaetter1.jpg", title: "Tehætte 1", size: "Bredde: 34,5 cm / Højde u. hår: 26 cm / Diameter: 22 cm", price: 400 },
+            { image: "/www/shop/tehaetter2.jpg", title: "Tehætte 2", size: "Bredde: 35 cm / Højde u. hår: 30 cm / Diameter: 25 cm", price: 400 },
+            { image: "/www/shop/tehaetter3.jpg", title: "Tehætte 3", size: "Bredde: 35 cm / Højde u. hår: 32 cm / Diameter: 23 cm", price: 400, sold: true },
+            { image: "/www/shop/tehaetter4.jpg", title: "Tehætte 4", size: "Bredde: 23 cm / Højde u. hår: 32 cm / Diameter: 24 cm", price: 400, sold: true },
+            { image: "/www/shop/tehaetter5.jpg", title: "Tehætte 5", price: 400, sold: true }
+        ]
+    },
+    aeggevarmere: {
+    	text: "Æggevarmere.<br/>" + 
+    	"Hætterne er foret med termovat og holder derfor godt på varmen.<br/>" + 
+    	"Deres sorte tøj er syet i enten bomuld eller polyester og dækker også hele indersiden.",
+    	teaser: "/www/shop/aeggevarmeretop.jpg",
+        showTitles: true,
+        float: true,
+        items: [
+            { image: "/www/shop/egg1.jpg", title: "Æggevarmer 1", price: 150, sold: false },
+            { image: "/www/shop/egg2.jpg", title: "Æggevarmer 2", price: 150, sold: false },
+            { image: "/www/shop/egg3.jpg", title: "Æggevarmer 3", price: 150, sold: false },
+            { image: "/www/shop/egg4.jpg", title: "Æggevarmer 4", price: 150, sold: false },
+            { image: "/www/shop/egg5.jpg", title: "Æggevarmer 5", price: 150, sold: false },
+            { image: "/www/shop/egg6.jpg", title: "Æggevarmer 6", price: 150, sold: false },
+            { image: "/www/shop/egg7.jpg", title: "Æggevarmer 7", price: 150, sold: false },
+            { image: "/www/shop/egg8.jpg", title: "Æggevarmer 8", price: 150, sold: false },
+            { image: "/www/shop/egg9.jpg", title: "Æggevarmer 9", price: 150, sold: false },
+            { image: "/www/shop/egg10.jpg", title: "Æggevarmer 10", price: 150, sold: false },
+            { image: "/www/shop/egg11.jpg", title: "Æggevarmer 11", price: 150, sold: false },
+            { image: "/www/shop/egg12.jpg", title: "Æggevarmer 12", price: 150, sold: false },
+            { image: "/www/shop/egg13.jpg", title: "Æggevarmer 13", price: 150, sold: false },
+            { image: "/www/shop/egg14.jpg", title: "Æggevarmer 14", price: 150, sold: false },
+            { image: "/www/shop/egg15.jpg", title: "Æggevarmer 15", price: 150, sold: false },
+            { image: "/www/shop/egg16.jpg", title: "Æggevarmer 16", price: 150, sold: false },
+            { image: "/www/shop/egg17.jpg", title: "Æggevarmer 17", price: 150, sold: false },
+            { image: "/www/shop/egg18.jpg", title: "Æggevarmer 18", price: 150, sold: false },
+            
+            { image: "/www/shop/aeggebaeger.jpg", title: "Æggebæger i bøgetræ", price: 25, printed: true }
+        ]
+    },
+    kaffehaetter: {
+    	text: "Kaffehætter, der passer over Bodums 1-liters stempelkande.<br/>" + 
+    	"Diameteren på hætterne er omkring 18,5 cm, og de er omkring 33 cm høje (uden hår).<br/>" +
+    	"Hætterne er foret med termovat og holder derfor godt på varmen.<br/>" + 
+    	"Deres sorte tøj er syet i enten bomuld eller polyester og dækker også hele indersiden.",
+    	teaser: "/www/shop/kaffehaettertop.jpg",
+        showTitles: true,
+        float: true,
+        items: [
+            { image: "/www/shop/kaffehaetter1.jpg", title: "Kaffehætte 1", price: 350 },
+            { image: "/www/shop/kaffehaetter2.jpg", title: "Kaffehætte 2", price: 350 },
+            { image: "/www/shop/kaffehaetter3.jpg", title: "Kaffehætte 3", price: 350 },
+            { image: "/www/shop/kaffehaetter4.jpg", title: "Kaffehætte 4", price: 350, sold: true },
+            { image: "/www/shop/kaffehaetter5.jpg", title: "Kaffehætte 5", price: 350 },
+            { image: "/www/shop/kaffehaetter6.jpg", title: "Kaffehætte 6", price: 350 },
+            { image: "/www/shop/kaffehaetter7.jpg", title: "Kaffehætte 7", price: 350 },
+            { image: "/www/shop/kaffehaetter8.jpg", title: "Kaffehætte 8", price: 350 },
+            { image: "/www/shop/kaffehaetter9.jpg", title: "Kaffehætte 9", price: 350 },
+            { image: "/www/shop/kaffehaetter10.jpg", title: "Kaffehætte 10", price: 350 },
+            { image: "/www/shop/kaffehaetter11.jpg", title: "Kaffehætte 11", price: 350, sold: true },
+            { image: "/www/shop/kaffehaetter12.jpg", title: "Kaffehætte 12", price: 350, sold: true },
+            { image: "/www/shop/kaffehaetter13.jpg", title: "Kaffehætte 13", price: 350 },
+            { image: "/www/shop/kaffehaetter14.jpg", title: "Kaffehætte 14", price: 350 }
+        ]
+    },
     collager: {
     	text: "Collager monteret i sort A4-ramme (rammen er inkluderet i mål og pris).",
         showTitles: false,
@@ -26,6 +112,9 @@ Groups.groups = {
     	text: "Plakater til børn. De angivne mål og priser er uden ramme.",
         showTitles: true,
         items: [
+            { image: "/www/shop/plakat_batman.jpg", size: "A3", price: 250, priceText: "(uden ramme)", title: "Batman", text2: "Printet på kraftigt papir.", basketTitle: "Batman (A3-plakat)", printed: true, pickup: false },
+            { image: "/www/shop/plakat_snehvide.jpg", size: "A3", price: 250, priceText: "(uden ramme)", title: "Snehvide", text2: "Printet på kraftigt papir.", basketTitle: "Snehvide (A3-plakat)", printed: true, pickup: false },
+            
             { image: "/www/shop/plakat_strandtur.jpg", size: "A3", price: 250, priceText: "(uden ramme)", title: "Strandtur", text2: "Printet på kraftigt papir.", basketTitle: "Strandtur (A3-plakat)", printed: true, pickup: false },
             { image: "/www/shop/plakat_tivoli.jpg", size: "A3", price: 250, priceText: "(uden ramme)", title: "Tivoli", text2: "Printet på kraftigt papir.", basketTitle: "Tivoli (A3-plakat)", printed: true, pickup: false },
            
@@ -71,8 +160,8 @@ Groups.groups = {
         showTitles: true,     
         float: true,
         items: [
-            { image: "/www/shop/abc1.jpg", text2: "29 laminerede kort.", title: "Enkelt alfabet", price: 350, printed: true },
-            { image: "/www/shop/abc2.jpg", text2: "58 laminerede kort.", title: "Dobbelt alfabet", price: 550, printed: true },
+            { image: "/www/shop/abc1.jpg", text2: "29 laminerede kort.", title: "Enkelt alfabet", price: 350, printed: true, sold: true, soldText: "Udsolgt" },
+            { image: "/www/shop/abc2.jpg", text2: "58 laminerede kort.", title: "Dobbelt alfabet", price: 550, printed: true, sold: true, soldText: "Udsolgt" },
 
             { image: "/www/shop/abc_a.jpg", text2: "Et enkelt lamineret kort.", size: { height: 9, width: 9 }, price: 20, title: "A for abe", printed: true },
             { image: "/www/shop/abc_b.jpg", text2: "Et enkelt lamineret kort.", size: { height: 9, width: 9 }, price: 20, title: "B for bål", printed: true },
@@ -135,7 +224,7 @@ Groups.groups = {
     	"I posen ligger der også en lille vejledning med inspiration til brug af snakkekortene.<br/>" + 
     	"</div>" + 
     	"<div class=\"paragraph\">" + 
-    	"Du kan finde mere information om snakkekortene på <a class=\"snakomdet\" href=\"javascript:Links.open('http://www.snakomdet.dk/');\">Snakomdet.dk</a>." +
+    	"Du kan finde mere information om snakkekortene på <a class=\"snakomdet\" href=\"javascript:Links.open(‘http://www.snakomdet.dk/‘);\">Snakomdet.dk</a>." +
     	"</div>" + 
     	"<div class=\"paragraph\">" + 
     	"1 pose snakkekort koster 500 kroner, 3 poser koster 1250 kroner, mens 5 poser kan købes for 2000 kroner (priserne er inklusive moms).</div>",
@@ -172,7 +261,7 @@ Groups.groups = {
              { image: "/www/shop/bas8.jpg", title: "Bar basse", basketTitle: "Bar basse 8", size: { height: 19.7, width: 14.7 }, priceText: "(med ramme)", price: 350, sold: false },
              { image: "/www/shop/bas9.jpg", title: "Bar basse", basketTitle: "Bar basse 9", size: { height: 19.7, width: 14.7 }, priceText: "(med ramme)", price: 350, sold: false },
              { image: "/www/shop/bas10.jpg", title: "Bar basse", basketTitle: "Bar basse 10", size: { height: 19.7, width: 14.7 }, priceText: "(med ramme)", price: 350, sold: false },
-             { image: "/www/shop/bas11.jpg", title: "Bar basse", basketTitle: "Bar basse 11", size: { height: 19.7, width: 14.7 }, priceText: "(med ramme)", price: 350, sold: false },
+             { image: "/www/shop/bas11.jpg", title: "Bar basse", basketTitle: "Bar basse 11", size: { height: 19.7, width: 14.7 }, priceText: "(med ramme)", price: 350, sold: true },
              { image: "/www/shop/bas12.jpg", title: "Bar basse", basketTitle: "Bar basse 12", size: { height: 19.7, width: 14.7 }, priceText: "(med ramme)", price: 350, sold: false },
              { image: "/www/shop/bas13.jpg", title: "Bar basse", basketTitle: "Bar basse 13", size: { height: 19.7, width: 14.7 }, priceText: "(med ramme)", price: 350, sold: false },
              { image: "/www/shop/bas14.jpg", title: "Bar basse", basketTitle: "Bar basse 14", size: { height: 19.7, width: 14.7 }, priceText: "(med ramme)", price: 350, sold: false },
@@ -210,23 +299,33 @@ Groups.groups = {
         float: true,
         teaser: "/www/shop/miniorig.jpg",
         items: [
+            { snailmail: true, image: "/www/shop/sol1.jpg", title: "Minisoloriginal 1", size: "Passer i A5-ramme", price: 250 },
+            { snailmail: true, image: "/www/shop/sol2.jpg", title: "Minisoloriginal 2", size: "Passer i A5-ramme", price: 250 },
+            { snailmail: true, image: "/www/shop/sol3.jpg", title: "Minisoloriginal 3", size: "Passer i A5-ramme", price: 250 },
+            { snailmail: true, image: "/www/shop/sol4.jpg", title: "Minisoloriginal 4", size: "Passer i A5-ramme", price: 250 },
+            { snailmail: true, image: "/www/shop/sol5.jpg", title: "Minisoloriginal 5", size: "Passer i A5-ramme", price: 250 },
+            { snailmail: true, image: "/www/shop/sol6.jpg", title: "Minisoloriginal 6", size: "Passer i A5-ramme", price: 250 },
+            { snailmail: true, image: "/www/shop/sol7.jpg", title: "Minisoloriginal 7", size: "Passer i A5-ramme", price: 250, sold: true },
+            { snailmail: true, image: "/www/shop/sol8.jpg", title: "Minisoloriginal 8", size: "Passer i A5-ramme", price: 250 },
+            { snailmail: true, image: "/www/shop/sol9.jpg", title: "Minisoloriginal 9", size: "Passer i A5-ramme", price: 250, sold: true },
+            { snailmail: true, image: "/www/shop/sol10.jpg", title: "Minisoloriginal 10", size: "Passer i A5-ramme", price: 250 },
             { snailmail: true, image: "/www/shop/miniorig1.jpg", title: "Minioriginal 1", size: { width: 8, height: 8 }, price: 250 },
             { snailmail: true, image: "/www/shop/miniorig2.jpg", title: "Minioriginal 2", size: { width: 9.5, height: 12.5 }, price: 250 },
             { snailmail: true, image: "/www/shop/miniorig3.jpg", title: "Minioriginal 3", size: { width: 6.5, height: 8.5 }, price: 250 },
             { snailmail: true, image: "/www/shop/miniorig4.jpg", title: "Minioriginal 4", size: { width: 6, height: 8 }, price: 250 },
             { snailmail: true, image: "/www/shop/miniorig5.jpg", title: "Minioriginal 5", size: { width: 9, height: 9 }, price: 250 },
             { snailmail: true, image: "/www/shop/miniorig6.jpg", title: "Minioriginal 6", size: { width: 9, height: 10 }, price: 250 },
-            { snailmail: true, image: "/www/shop/miniorig7.jpg", title: "Minioriginal 7", size: { width: 5, height: 8.5 }, price: 250 },
+            { snailmail: true, image: "/www/shop/miniorig7.jpg", title: "Minioriginal 7", size: { width: 5, height: 8.5 }, price: 250, sold: true },
             //{ snailmail: true, image: "/www/shop/miniorig8.jpg", title: "Minioriginal 8", size: { width: 6, height: 8 }, price: 250 },
-            { snailmail: true, image: "/www/shop/miniorig9.jpg", title: "Minioriginal 9", size: { width: 5, height: 7.5 }, price: 250 },
+            { snailmail: true, image: "/www/shop/miniorig9.jpg", title: "Minioriginal 9", size: { width: 5, height: 7.5 }, price: 250, sold: true },
             { snailmail: true, image: "/www/shop/miniorig10.jpg", title: "Minioriginal 10", size: { width: 8.5, height: 7.5 }, price: 250 },
             { snailmail: true, image: "/www/shop/miniorig11.jpg", title: "Minioriginal 11", size: { width: 6, height: 8 }, price: 250 },
             { snailmail: true, image: "/www/shop/miniorig12.jpg", title: "Minioriginal 12", size: { width: 5.5, height: 10.5 }, price: 250 },
             { snailmail: true, image: "/www/shop/miniorig13.jpg", title: "Minioriginal 13", size: { width: 6.5, height: 8 }, price: 250 },
             { snailmail: true, image: "/www/shop/miniorig14.jpg", title: "Minioriginal 14", size: { width: 6, height: 8.5 }, price: 250 },
-            { snailmail: true, image: "/www/shop/miniorig15.jpg", title: "Minioriginal 15", size: { width: 10, height: 12.5 }, price: 250 },
-            { snailmail: true, image: "/www/shop/miniorig16.jpg", title: "Minioriginal 16", size: { width: 7, height: 7 }, price: 250 },
-            { snailmail: true, image: "/www/shop/miniorig17.jpg", title: "Minioriginal 17", size: { width: 4, height: 5 }, price: 250 },
+            { snailmail: true, image: "/www/shop/miniorig15.jpg", title: "Minioriginal 15", size: { width: 10, height: 12.5 }, price: 250, sold: true },
+            { snailmail: true, image: "/www/shop/miniorig16.jpg", title: "Minioriginal 16", size: { width: 7, height: 7 }, price: 250, sold: true },
+            { snailmail: true, image: "/www/shop/miniorig17.jpg", title: "Minioriginal 17", size: { width: 4, height: 5 }, price: 250, sold: true },
             { snailmail: true, image: "/www/shop/miniorig18.jpg", title: "Minioriginal 18", size: { width: 7, height: 9 }, price: 250 },
             { snailmail: true, image: "/www/shop/miniorig19.jpg", title: "Minioriginal 19", size: { width: 6.5, height: 7.5 }, price: 250 },
             { snailmail: true, image: "/www/shop/miniorig20.jpg", title: "Minioriginal 20", size: { width: 7, height: 8.5 }, price: 250 },
@@ -244,7 +343,7 @@ Groups.groups = {
             { image: "/www/shop/stororig2.jpg", title: "Mennesker i byen I", size: "Passer i ramme med målene 40 x 50 cm", price: 2200, sold: false, frame: true, priceNoFrame: 1900, pickupIfFrame: true},
             { image: "/www/shop/stororig3.jpg", title: "Mennesker i byen II", size: "Passer i ramme med målene 40 x 50 cm", price: 2200, sold: false, frame: true, priceNoFrame: 1900, pickupIfFrame: true},
             { image: "/www/shop/stororig4.jpg", title: "Mennesker II", size: "Passer i ramme med målene 40 x 50 cm", price: 2200, sold: false, frame: true, priceNoFrame: 1900, pickupIfFrame: true},
-            { image: "/www/shop/stororig5.jpg", title: "Mennesker på Torv", size: "Passer i ramme med målene 40 x 50 cm", price: 2200, sold: false, frame: true, priceNoFrame: 1900, pickupIfFrame: true}
+            { image: "/www/shop/stororig5.jpg", title: "Mennesker på Torv", size: "Passer i ramme med målene 40 x 50 cm", price: 2200, sold: false, frame: true, priceNoFrame: 1900, pickupIfFrame: true, sold: true}
            
             /*{ image: "/www/shop/stor12.jpg", title: "Folk", text2: "Akryl på pap monteret i gammel træramme.", size: { height: 52, width: 42.5 }, priceText: "(med ramme)", price: 2500, sold: true, pickup: true },     
             { image: "/www/shop/stor15.jpg", title: "Bare basser", text2: "Flydende tusch og pen på håndlavet offsetpapir.", size: { height: 50, width: 70 }, priceText: "(med ramme)", price: 3500, sold: false, pickup: true },     
@@ -332,27 +431,27 @@ Groups.groups = {
         ]
     },
     gavekalaset: {
-        text: "Jeg er en del af <a class=\"gavekalaset\" href=\"javascript:Links.open('http://www.gavekalaset.dk/');\">Gavekalset</a>, som giver mulighed for at få Lisa Strøander, Mai-Britt Amsler og mig til at komme forbi med en pop-up-shop af fristende originalkunst til meget lave priser.<br/><br/><a href=\"javascript:Links.open('http://www.gavekalaset.dk/');\" title=\"Klik for at besøge Gavekalaset.dk\"><img src=\"/www/shop/gavekalaset1.jpg\"/></a>",
+        text: "Jeg er en del af <a class=\"gavekalaset\" href=\"javascript:Links.open(‘http://www.gavekalaset.dk/‘);\">Gavekalset</a>, som giver mulighed for at få Lisa Strøander, Mai-Britt Amsler og mig til at komme forbi med en pop-up-shop af fristende originalkunst til meget lave priser.<br/><br/><a href=\"javascript:Links.open(‘http://www.gavekalaset.dk/‘);\" title=\"Klik for at besøge Gavekalaset.dk\"><img src=\"/www/shop/gavekalaset1.jpg\"/></a>",
         showTitles: false,
         items: [
         ]
     },
     markeder: {
-        text: "Herunder finder du information om de markeder, jeg planlægger at deltage i i den nærmeste fremtid.<br/><br/>Jeg er også en del af <a class=\"gavekalaset\" href=\"javascript:Links.open('http://www.gavekalaset.dk/');\">Gavekalset</a>, som giver mulighed for at få Lisa Strøander, Mai-Britt Amsler og mig til at komme forbi med en pop-up-shop af fristende originalkunst til meget lave priser.",
+        text: "Herunder finder du information om de markeder, jeg planlægger at deltage i i den nærmeste fremtid.<br/><br/>Jeg er også en del af <a class=\"gavekalaset\" href=\"javascript:Links.open(‘http://www.gavekalaset.dk/‘);\">Gavekalset</a>, som giver mulighed for at få Lisa Strøander, Mai-Britt Amsler og mig til at komme forbi med en pop-up-shop af fristende originalkunst til meget lave priser.",
         items: [
-            //{ image: "/www/shop/marked2.jpg", text: "Lørdag den 3. september 2016 klokken 11-17.<br/><a href=\"javascript:Links.open('https://goo.gl/maps/VtrfN7XfbDU2');\"'>Øens Spisested, Holmbladsgade 71, 2300 København S</a>.<br/>Besøg Designmarkedet i Prismens Facebookside <a class=\"marked_prismen\" href=\"javascript:Links.open('https://www.facebook.com/events/200731060329866');\">her</a>." },
-            //{ image: "/www/shop/marked1.gif", text: "Søndag den 25. september 2016, klokken 10-16.<br/><a href=\"javascript:Links.open('https://goo.gl/maps/oLkV8gpXBKT2');\">Ravnsborggade 21B, 2200 Kbh. N</a>." }
-            //{ image: "/www/shop/marked4.jpg", text: "Søndag den 20. november 2016, klokken 10-16.<br/><a href=\"javascript:Links.open('https://goo.gl/maps/oLkV8gpXBKT2');\"'>Ravnsborggade 21B, 2200 Kbh. N</a>." },
-            //{ image: "/www/shop/marked7.png", text: "Søndag den 27. november 2016 holder Lisa Strøander og Pia Olsen åben tegnestue klokken 13.30 - 17. Det vil være muligt at købe originaltegninger, prints, tryk med meget mere. Du er naturligvis også velkommen til bare at komme og kigge.<br/><a class=\"baghuset21b\" href=\"javascript:Links.open('https://www.facebook.com/Baghuset21B-926410697505160');\">Tegnestuen BAGHUSET21B</a>.<br/><a href=\"javascript:Links.open('https://goo.gl/maps/oLkV8gpXBKT2');\">Ravnsborggade 21B, 2200 Kbh. N</a>.<br/>Hvis porten er lukket, så skal du bare ringe på dørtelefonen ude på gaden." },
-            //{ image: "/www/shop/marked3.jpg", text: "Lørdag den 3. og søndag den 4. december 2016, klokken 11-17.<br/><a href=\"javascript:Links.open('https://goo.gl/maps/vrgfT2oBbY82');\"'>Nørrebrohallen</a>.<br/>Besøg Flids Julemarkeds Facebookside <a class=\"marked\" href=\"javascript:Links.open('https://www.facebook.com/events/1761504077414259');\">her</a>." },
-            //{ image: "/www/shop/marked5.jpg", text: "Lørdag den 10. december 2016, klokken 10-17.<br/><a href=\"javascript:Links.open('https://goo.gl/maps/BeHgH4JLV2R2');\"'>Elmegade, 2200 Kbh. N</a>." },
-            //{ image: "/www/shop/marked7.jpg", text: "Søndag den 18. december 2016, klokken 10:30-17.<br/><a class=\"baghuset21b\" href=\"javascript:Links.open('https://www.facebook.com/Baghuset21B-926410697505160');\">Tegnestuen BAGHUSET21B</a>.<br/><a href=\"javascript:Links.open('https://goo.gl/maps/oLkV8gpXBKT2');\"'>Ravnsborggade 21B, 2200 Kbh. N</a>.<br/>Hvis porten er lukket, så skal du bare ringe på dørtelefonen ude på gaden." }
-            { image: "/www/shop/marked8.jpg", text: "Søndag den 11. juni 2017, klokken 10-16.<br/><a href=\"javascript:Links.open('https://goo.gl/maps/oLkV8gpXBKT2');\"'>Ravnsborggade, 2200 Kbh. N</a>." }
+            //{ image: "/www/shop/marked2.jpg", text: "Lørdag den 3. september 2016 klokken 11-17.<br/><a href=\"javascript:Links.open(‘https://goo.gl/maps/VtrfN7XfbDU2’);\"’>Øens Spisested, Holmbladsgade 71, 2300 København S</a>.<br/>Besøg Designmarkedet i Prismens Facebookside <a class=\"marked_prismen\" href=\"javascript:Links.open(‘https://www.facebook.com/events/200731060329866’);\">her</a>." },
+            //{ image: "/www/shop/marked1.gif", text: "Søndag den 25. september 2016, klokken 10-16.<br/><a href=\"javascript:Links.open(‘https://goo.gl/maps/oLkV8gpXBKT2’);\">Ravnsborggade 21B, 2200 Kbh. N</a>." }
+            //{ image: "/www/shop/marked4.jpg", text: "Søndag den 20. november 2016, klokken 10-16.<br/><a href=\"javascript:Links.open(‘https://goo.gl/maps/oLkV8gpXBKT2’);\"’>Ravnsborggade 21B, 2200 Kbh. N</a>." },
+            //{ image: "/www/shop/marked7.png", text: "Søndag den 27. november 2016 holder Lisa Strøander og Pia Olsen åben tegnestue klokken 13.30 - 17. Det vil være muligt at købe originaltegninger, prints, tryk med meget mere. Du er naturligvis også velkommen til bare at komme og kigge.<br/><a class=\"baghuset21b\" href=\"javascript:Links.open(‘https://www.facebook.com/Baghuset21B-926410697505160’);\">Tegnestuen BAGHUSET21B</a>.<br/><a href=\"javascript:Links.open(‘https://goo.gl/maps/oLkV8gpXBKT2’);\">Ravnsborggade 21B, 2200 Kbh. N</a>.<br/>Hvis porten er lukket, så skal du bare ringe på dørtelefonen ude på gaden." },
+            //{ image: "/www/shop/marked3.jpg", text: "Lørdag den 3. og søndag den 4. december 2016, klokken 11-17.<br/><a href=\"javascript:Links.open(‘https://goo.gl/maps/vrgfT2oBbY82’);\"’>Nørrebrohallen</a>.<br/>Besøg Flids Julemarkeds Facebookside <a class=\"marked\" href=\"javascript:Links.open(‘https://www.facebook.com/events/1761504077414259’);\">her</a>." },
+            //{ image: "/www/shop/marked5.jpg", text: "Lørdag den 10. december 2016, klokken 10-17.<br/><a href=\"javascript:Links.open(‘https://goo.gl/maps/BeHgH4JLV2R2’);\"’>Elmegade, 2200 Kbh. N</a>." },
+            //{ image: "/www/shop/marked7.jpg", text: "Søndag den 18. december 2016, klokken 10:30-17.<br/><a class=\"baghuset21b\" href=\"javascript:Links.open(‘https://www.facebook.com/Baghuset21B-926410697505160’);\">Tegnestuen BAGHUSET21B</a>.<br/><a href=\"javascript:Links.open(‘https://goo.gl/maps/oLkV8gpXBKT2’);\"’>Ravnsborggade 21B, 2200 Kbh. N</a>.<br/>Hvis porten er lukket, så skal du bare ringe på dørtelefonen ude på gaden." }
+            { image: "/www/shop/marked8.jpg", text: "Søndag den 11. juni 2017, klokken 10-16.<br/><a href=\"javascript:Links.open(‘https://goo.gl/maps/oLkV8gpXBKT2’);\"’>Ravnsborggade, 2200 Kbh. N</a>." }
         ]
     },
     stoette_tegninger: {
         text: "Køb en minioriginal og støt Red Barnet.<br/>" +
-            "Alle penge, der kommer ind for tegningerne, går til <a class=\"redbarnet\" href=\"javascript:Links.open('http://www.redbarnet.dk/');\">Red Barnets vigtige arbejde ude i verden</a>. Tegningerne koster 100 kroner stykket, men man må naturligvis meget gerne give mere, hvis man har lyst til det! :) Tegningerne måler cirka 4 x 6 cm og er monteret på et kraftigt, lækkert A6-papir - lige til at putte i en fin lille ramme.<br/>Jeg lægger 10 kroner oveni til porto.<br/>Husk at skrive din pris i bestillingsformularen.",
+            "Alle penge, der kommer ind for tegningerne, går til <a class=\"redbarnet\" href=\"javascript:Links.open(‘http://www.redbarnet.dk/‘);\">Red Barnets vigtige arbejde ude i verden</a>. Tegningerne koster 100 kroner stykket, men man må naturligvis meget gerne give mere, hvis man har lyst til det! :) Tegningerne måler cirka 4 x 6 cm og er monteret på et kraftigt, lækkert A6-papir - lige til at putte i en fin lille ramme.<br/>Jeg lægger 10 kroner oveni til porto.<br/>Husk at skrive din pris i bestillingsformularen.",
         showTitles: true,
         items: [
             { image: "/www/shop/rb1.jpg", price: 100, title: "Lille frøken", sold: true },

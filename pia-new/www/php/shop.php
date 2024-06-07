@@ -191,11 +191,26 @@
     </div> */ ?>
 
     <div id="categories" class="float">
-        <div class="item" onclick="Groups.show(true, 'butik', 'store-orig', -1, false);">
-            <!--div class="link"><img src="/www/shop/farver0.jpg" alt=""/></div-->
-            <div class="link"><img src="/www/shop/stororig0.jpg" alt=""/></div>
-            <div class="text link">Store originaler</div>
-        </div>  
+        <div class="item" onclick="Groups.show(true, 'butik', 'melodibasser', -1, false);">
+            <div class="link"><img src="/www/shop/melodibasser0.jpg" alt=""/></div>
+            <div class="text link">Basser med melodi</div>
+        </div> 
+        <div class="item" onclick="Groups.show(true, 'butik', 'kaffehaetter', -1, false);">
+            <div class="link"><img src="/www/shop/kaffehaetter0.jpg" alt=""/></div>
+            <div class="text link">Kaffehætter</div>
+        </div> 
+        <div class="item" onclick="Groups.show(true, 'butik', 'tehaetter', -1, false);">
+            <div class="link"><img src="/www/shop/tehaetter0.jpg" alt=""/></div>
+            <div class="text link">Tehætter</div>
+        </div>          
+        <div class="item" onclick="Groups.show(true, 'butik', 'aeggevarmere', -1, false);">
+            <div class="link"><img src="/www/shop/aeggevarmere0.jpg" alt=""/></div>
+            <div class="text link">Æggevarmere</div>
+        </div>             
+        <div class="item" onclick="Groups.show(true, 'butik', 'boerneboeger', -1, false);">
+            <div class="link"><img src="/www/shop/boerneboeger0.jpg" alt=""/></div>
+            <div class="text link">Børnebøger</div>
+        </div>
         <br/>
         <div class="item" onclick="Groups.show(true, 'butik', 'miniorig', -1, false);">
             <div class="link"><img src="/www/shop/miniorig0.jpg" alt=""/></div>
@@ -205,11 +220,11 @@
             <div class="link"><img src="/www/shop/collager0.jpg" alt=""/></div>
             <div class="text link">Collager</div>
         </div>    
-        <div class="item" onclick="Groups.show(true, 'butik', 'boerneboeger', -1, false);">
-            <div class="link"><img src="/www/shop/boerneboeger0.jpg" alt=""/></div>
-            <div class="text link">Børnebøger</div>
-        </div>
-        <br/>
+        <div class="item" onclick="Groups.show(true, 'butik', 'store-orig', -1, false);">
+            <!--div class="link"><img src="/www/shop/farver0.jpg" alt=""/></div-->
+            <div class="link"><img src="/www/shop/stororig0.jpg" alt=""/></div>
+            <div class="text link">Store originaler</div>
+        </div>  
         <div class="item" onclick="Groups.show(true, 'butik', 'plakater-boern', -1, false);">
             <div class="link"><img src="/www/shop/boerneplakater0.jpg" alt=""/></div>
             <div class="text link">Plakater til børn</div>
