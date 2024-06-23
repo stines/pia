@@ -191,6 +191,10 @@
     </div> */ ?>
 
     <div id="categories" class="float">
+        <div class="item" onclick="Groups.show(true, 'butik', 'klangbasser', -1, false);">
+            <div class="link"><img src="/www/shop/klangbasser0.jpg" alt=""/></div>
+            <div class="text link">Basser med klang</div>
+        </div>     
         <div class="item" onclick="Groups.show(true, 'butik', 'melodibasser', -1, false);">
             <div class="link"><img src="/www/shop/melodibasser0.jpg" alt=""/></div>
             <div class="text link">Basser med melodi</div>

@@ -1,8 +1,23 @@
 Groups.groups = {    
+    klangbasser: {
+    	text: "Basser med klang i 100% bomuld med serigrafisk tryk.<br/>" + 
+    	"Indeholder små bjælder og tåler fint vask. Kan stryges med forsigtighed.<br/>" + 
+    	"Kroppen måler ca. 13 cm i højden og ca. 9 cm i bredden.<br/><br/>" +
+    	"<i>De håndtrykte basser er alle unikke, så skriv endelig til mig (<a href=\"mailto:po@piaolsen.com\">po@piaolsen.com</a>), hvis du gerne vil se præcis, hvordan den basse, du vil få tilsendt, ser ud.</i>", 
+    	teaser: "/www/shop/klangbassertop.jpg",
+    	showTitles: true,
+        float: true,
+        items: [
+            { image: "/www/shop/klangbasser1.jpg", title: "Basse med klang", basketTitle: "Basse med klang (lyserød+blonde)", printed: true, price: 165 },
+            { image: "/www/shop/klangbasser2.jpg", title: "Basse med klang", basketTitle: "Basse med klang (blå+sløjfe)", printed: true, price: 165 },
+            { image: "/www/shop/klangbasser3.jpg", title: "Basse med klang", basketTitle: "Basse med klang (lyserød+sløjfe)", printed: true, price: 165 },
+            { image: "/www/shop/klangbasser4.jpg", title: "Basse med klang", basketTitle: "Basse med klang (blå+blonde)", printed: true, price: 165 }
+        ]
+    },
     melodibasser: {
     	text: "Basser med melodi i 100% bomuld med serigrafisk tryk.<br/>" + 
     	"Den indbyggede spilledåse spiller Brahms vuggevise og tåler fint vask.<br/>" + 
-    	"Kroppen er ca. 20 cm høj og ca. 15 cm bred.", 
+    	"Kroppen måler ca. 20 cm i højden og ca. 15 cm i bredden.", 
     	teaser: "/www/shop/melodibassertop.jpg",
     	showTitles: true,
         float: true,
@@ -12,7 +27,7 @@ Groups.groups = {
             { image: "/www/shop/melodibasser3.jpg", title: "Basse med melodi 3", price: 325 },
             { image: "/www/shop/melodibasser4.jpg", title: "Basse med melodi 4", price: 325 },
             { image: "/www/shop/melodibasser5.jpg", title: "Basse med melodi 5", price: 325 },
-            { image: "/www/shop/melodibasser6.jpg", title: "Basse med melodi 1", price: 325 }
+            { image: "/www/shop/melodibasser6.jpg", title: "Basse med melodi 6", price: 325 }
         ]
     },
 	tehaetter: {
