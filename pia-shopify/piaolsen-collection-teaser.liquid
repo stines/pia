@@ -18,14 +18,17 @@
 
 {%- style -%}
   /* Desktop & Mobile **************************************************************************************/
-  
+  /* Global header: */
+  .section-header .header-wrapper--border-bottom {
+    border-bottom: none !important;
+  }
+
   /* Section: */
   .section-{{ section.id }} .the-top {
     border-top: 1px solid #eee;
     padding-top: {{ section_padding_top | times: 0.75 | round: 0 }}px;
   } 
   #MainContent > div:first-of-type .the-top {
-    border-top: none;
   }
   .section-{{ section.id }} .the-bottom {
     padding-bottom: {{ section_padding_bottom | times: 0.75 | round: 0 }}px;
