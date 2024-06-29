@@ -84,13 +84,11 @@
     
     /* Produktthumbnail: */
     .section-{{ section.id }} ul > li .card {
-      margin: 0 {{ desktop_thumbnail_padding_horizontal | divided_by: 2 }}px;
-    }
-    .section-{{ section.id }} ul > li:first-child .card {
       margin: 0 {{ desktop_thumbnail_padding_horizontal }}px 0 0;
     }
+    .section-{{ section.id }} ul > li:first-child .card {
+    }
     .section-{{ section.id }} ul > li:last-child .card {
-      margin: 0 0 0 {{ desktop_thumbnail_padding_horizontal }}px;
     }
   }  
 {%- endstyle -%}
