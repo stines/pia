@@ -10,7 +10,10 @@
   assign section_padding_bottom = 108
   assign desktop_grid_padding_top = 48
   assign desktop_grid_padding_bottom = 24
+  assign mobile_grid_padding_bottom = 24
   assign desktop_thumbnail_padding_horizontal = 12
+  assign desktop_description_padding_bottom = 0
+  assign mobile_description_padding_bottom = 24
 %}
 
 {%- style -%}
@@ -28,6 +31,7 @@
   /* Overskrift + Beskrivelse: */
   .section-{{ section.id }} .image-with-text__content {
     padding-left: 0;
+    padding-bottom: {{ mobile_description_padding_bottom }}px;
   }
   
   /* Overskriftsbillede: */
@@ -37,6 +41,7 @@
   
   /* Produktgrid: */
   .section-{{ section.id }} .collection {
+    padding-bottom: {{ mobile_grid_padding_bottom }}px;
   }
   
   /* Produktthumbnail: */
@@ -59,7 +64,7 @@
     
     /* Overskrift + Beskrivelse: */
     .section-{{ section.id }} .image-with-text__content {
-      padding-bottom: 0;
+      padding-bottom: {{ desktop_description_padding_bottom }}px;
     }
     
     /* Overskriftsbillede: */
