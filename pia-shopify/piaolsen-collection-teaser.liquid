@@ -6,39 +6,82 @@
 {{ 'template-collection.css' | asset_url | stylesheet_tag }}
 
 {%- liquid
-  assign section_padding_vertical = 72
+  assign section_padding_top = 72
+  assign section_padding_bottom = 108
+  assign desktop_grid_padding_top = 48
+  assign desktop_grid_padding_bottom = 24
+  assign desktop_thumbnail_padding_horizontal = 12
 %}
 
 {%- style -%}
+  /* Desktop & Mobile **************************************************************************************/
+  
   /* Section: */
-  .section-{{ section.id }} {
+  .section-{{ section.id }} .the-top {
     border-top: 1px solid #bbb;
-    padding: {{ section_padding_vertical | times: 0.75 | round: 0 }}px 0;
+    padding-top: {{ section_padding_top | times: 0.75 | round: 0 }}px;
   }
+  .section-{{ section.id }} .the-bottom {
+    padding-bottom: {{ section_padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+  
   /* Overskrift + Beskrivelse: */
   .section-{{ section.id }} .image-with-text__content {
-    padding: 0 24px 0 0;
+    padding-left: 0;
   }
+  
   /* Overskriftsbillede: */
   .section-{{ section.id }} .image-with-text__media {
     border: none;
   }
+  
   /* Produktgrid: */
   .section-{{ section.id }} .collection {
-    padding: 48px 0;
-  }
-  /* Produktthumbnail: */
-  .section-{{ section.id }} .card {
-    margin: 12px;
   }
   
+  /* Produktthumbnail: */
+  .section-{{ section.id }} ul > li .card {
+  }
+  .section-{{ section.id }} ul > li:first-child .card {
+  }
+  .section-{{ section.id }} ul > li:last-child .card {
+  }  
+  
+  /* Desktop **************************************************************************************/
   @media screen and (min-width: 750px) {
     /* Section: */
-    .section-{{ section.id }} {
-      border-top: 1px solid #bbb;
-      padding: {{ section_padding_vertical }}px 0;
+    .section-{{ section.id }} .the-top {
+      padding-top: {{ section_padding_top }}px;
     }
-  }
+    .section-{{ section.id }} .the-bottom {
+      padding-bottom: {{ section_padding_bottom }}px;
+    }
+    
+    /* Overskrift + Beskrivelse: */
+    .section-{{ section.id }} .image-with-text__content {
+      padding-bottom: 0;
+    }
+    
+    /* Overskriftsbillede: */
+    .section-{{ section.id }} .image-with-text__media {
+    }
+    
+    /* Produktgrid: */
+    .section-{{ section.id }} .collection {
+      padding: {{ desktop_grid_padding_top }}px 0 {{ desktop_grid_padding_bottom }}px 0;
+    }
+    
+    /* Produktthumbnail: */
+    .section-{{ section.id }} ul > li .card {
+      margin: 0 {{ desktop_thumbnail_padding_horizontal | divided_by: 2 }}px;
+    }
+    .section-{{ section.id }} ul > li:first-child .card {
+      margin: 0 {{ desktop_thumbnail_padding_horizontal }}px 0 0;
+    }
+    .section-{{ section.id }} ul > li:last-child .card {
+      margin: 0 0 0 {{ desktop_thumbnail_padding_horizontal }}px;
+    }
+  }  
 {%- endstyle -%}
 
 {%- liquid
@@ -63,9 +106,9 @@
   endif
 -%}
 
-<div class="piaolsen-collection-teaser section-{{ section.id }} gradient isolate color-{{ section.settings.color_scheme }}">
+<div class="section-{{ section.id }} gradient isolate color-{{ section.settings.color_scheme }}">
   <!-- image-with-text.liquid.liquid begin -->  
-  <div class="page-width">
+  <div class="the-top page-width">
     <div class="image-with-text image-with-text--no-overlap isolate{% if settings.text_boxes_border_thickness > 0 and settings.text_boxes_border_opacity > 0 and settings.media_border_thickness > 0 and settings.media_border_opacity > 0 %} collapse-borders{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
       <div class="image-with-text__grid grid grid--gapless grid--1-col grid--{% if section.settings.desktop_image_width == 'medium' %}2-col-tablet{% else %}3-col-tablet{% endif %} image-with-text__grid--reverse">
         <div class="image-with-text__media-item image-with-text__media-item--{{ section.settings.desktop_image_width }} image-with-text__media-item--bottom grid__item">
@@ -204,7 +247,7 @@
   <!-- featured-collection.liquid end -->
 
   <!-- rich-text.liquid begin -->
-  <div class="rich-text content-container rich-text--full-width content-container--full-width">
+  <div class="the-bottom rich-text content-container rich-text--full-width content-container--full-width">
     <div class="rich-text__wrapper rich-text__wrapper--center page-width">
       <div class="rich-text__blocks center">
               <div
