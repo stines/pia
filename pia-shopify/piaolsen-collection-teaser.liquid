@@ -21,8 +21,11 @@
   
   /* Section: */
   .section-{{ section.id }} .the-top {
-    border-top: 1px solid #bbb;
+    border-top: 1px solid #eee;
     padding-top: {{ section_padding_top | times: 0.75 | round: 0 }}px;
+  } 
+  #MainContent > div:first-of-type .the-top {
+    border-top: none;
   }
   .section-{{ section.id }} .the-bottom {
     padding-bottom: {{ section_padding_bottom | times: 0.75 | round: 0 }}px;
@@ -112,7 +115,6 @@
 -%}
 
 <div class="section-{{ section.id }} gradient isolate color-{{ section.settings.color_scheme }}">
-  <!-- image-with-text.liquid.liquid begin -->  
   <div class="the-top page-width">
     <div class="image-with-text image-with-text--no-overlap isolate{% if settings.text_boxes_border_thickness > 0 and settings.text_boxes_border_opacity > 0 and settings.media_border_thickness > 0 and settings.media_border_opacity > 0 %} collapse-borders{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
       <div class="image-with-text__grid grid grid--gapless grid--1-col grid--{% if section.settings.desktop_image_width == 'medium' %}2-col-tablet{% else %}3-col-tablet{% endif %} image-with-text__grid--reverse">
@@ -150,10 +152,8 @@
       </div>
     </div>
   </div>
-  <!-- image-with-text.liquid.liquid end -->
 
   {% if section.settings.hide-collection == false %}
-  <!-- featured-collection.liquid begin -->
   <div class="collection" id="collection-{{ section.id }}" data-id="{{ section.id }}">
     <slider-component class="slider-mobile-gutter{% if show_mobile_slider == false %} page-width{% endif %}{% if show_desktop_slider == false %} page-width-desktop{% endif %}{% if show_desktop_slider %} slider-component-desktop{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
       <ul
@@ -249,9 +249,7 @@
       {% render 'mask-arch' %}
     {%- endif -%}
   </div>
-  <!-- featured-collection.liquid end -->
 
-  <!-- rich-text.liquid begin -->
   <div class="the-bottom rich-text content-container rich-text--full-width content-container--full-width">
     <div class="rich-text__wrapper rich-text__wrapper--center page-width">
       <div class="rich-text__blocks center">
@@ -279,7 +277,6 @@
       </div>
     </div>
   </div>
-  <!-- rich-text.liquid end -->   
   {% endif %}
 </div>
 
