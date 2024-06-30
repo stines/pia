@@ -4,6 +4,14 @@
   border-bottom: none !important;
 }
 
+.image-with-text__media {
+  border: none;
+}
+
+.piaolsen-section-top {
+  border-top: 1px solid #bbb;
+}  
+
 /* Desktop **************************************************************************************/
 
 @media screen and (min-width: 750px) {

@@ -25,7 +25,6 @@
 
   /* Section: */
   .section-{{ section.id }} .piaolsen-section-top {
-    border-top: 1px solid #bbb;
     padding-top: {{ section_padding_top | times: 0.75 | round: 0 }}px;
   } 
   .section-{{ section.id }} .piaolsen-section-bottom {
@@ -38,11 +37,6 @@
     padding-bottom: {{ mobile_description_padding_bottom }}px;
   }
   
-  /* Topbillede: */
-  .section-{{ section.id }} .image-with-text__media {
-    border: none;
-  }
-
   /* Overskrift + Beskrivelse + Topbillede */
   .section-{{ section.id }} .image-with-text__grid {
     padding-bottom: {{ top_padding_bottom | times: 0.75 | round: 0 }}px;
@@ -75,10 +69,6 @@
     /* Overskrift + Beskrivelse: */
     .section-{{ section.id }} .image-with-text__content {
       padding-bottom: {{ desktop_description_padding_bottom }}px;
-    }
-    
-    /* Topbillede: */
-    .section-{{ section.id }} .image-with-text__media {
     }
 
     /* Overskrift + Beskrivelse + Topbillede */

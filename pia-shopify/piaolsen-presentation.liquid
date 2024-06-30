@@ -1,0 +1,205 @@
+{{ 'piaolsen.css' | asset_url | stylesheet_tag }}
+{{ 'component-image-with-text.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign section_padding_top = 72
+  assign section_padding_bottom = 96
+  assign desktop_description_padding_bottom = 48
+  assign mobile_description_padding_bottom = 48
+%}
+
+{%- style -%}
+  /* Desktop & Mobile *****************************************************************************/
+
+  /* Section: */
+  .section-{{ section.id }} .piaolsen-section-top {
+    padding-top: {{ section_padding_top | times: 0.75 | round: 0 }}px;
+  } 
+  .section-{{ section.id }} .piaolsen-section-bottom {
+    padding-bottom: {{ section_padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+  
+  /* Overskrift + Beskrivelse: */
+  .section-{{ section.id }} .image-with-text__content {
+    padding-bottom: {{ mobile_description_padding_bottom }}px;
+  }
+
+  /* Overskrift + Beskrivelse + Topbillede */
+  .section-{{ section.id }} .image-with-text__grid {
+  }
+
+  .section-{{ section.id }} .piaolsen-presentation img {
+    max-width: 100%;
+    height: auto;
+    width: auto\9; /* ie8 */
+  }
+  
+  /* Desktop **************************************************************************************/
+  
+  @media screen and (min-width: 750px) {
+    /* Section: */
+    .section-{{ section.id }} .piaolsen-section-top {
+      padding-top: {{ section_padding_top }}px;
+    }
+    .section-{{ section.id }} .piaolsen-section-bottom {
+      padding-bottom: {{ section_padding_bottom }}px;
+    }
+    
+    /* Overskrift + Beskrivelse: */
+    .section-{{ section.id }} .image-with-text__content {
+      padding-bottom: {{ desktop_description_padding_bottom }}px;
+    }
+
+    /* Overskrift + Beskrivelse + Topbillede */
+    .section-{{ section.id }} .image-with-text__grid {
+    }
+  }  
+{%- endstyle -%}
+
+{%- liquid
+  assign fetch_priority = 'auto'
+  if section.index == 1
+    assign fetch_priority = 'high'
+  endif
+-%}
+
+<div class="section-{{ section.id }}">
+  <div class="piaolsen-section-top piaolsen-section-bottom page-width">
+    <div class="image-with-text image-with-text--no-overlap isolate{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+      <div class="image-with-text__grid grid grid--gapless grid--1-col grid--{% if section.settings.desktop_image_width == 'medium' %}2-col-tablet{% else %}3-col-tablet{% endif %}">
+        <div class="image-with-text__media-item image-with-text__media-item--{{ section.settings.desktop_image_width }} image-with-text__media-item--bottom grid__item">
+          <div
+            class="image-with-text__media image-with-text__media--adapt global-media-settings background-transparent{% if section.settings.pia != blank %} media{% else %} image-with-text__media--placeholder placeholder{% endif %}"
+            {% if section.settings.pia != blank %}
+              style="padding-bottom: {{ 1 | divided_by: section.settings.pia.aspect_ratio | times: 100 }}%;"
+            {% endif %}
+          >
+            {%- if section.settings.pia != blank -%}
+              {%- assign widths = '165, 360, 535, 750, 1070, 1500' -%}
+              {%- capture sizes -%}
+                (min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px,
+                (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)
+              {%- endcapture -%}
+              {{
+                section.settings.pia
+                | image_url: width: 1500
+                | image_tag: sizes: sizes, widths: widths, fetchpriority: fetch_priority
+              }}
+            {%- else -%}
+              {{ 'detailed-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
+            {%- endif -%}
+          </div>
+        </div>                
+        <div class="image-with-text__text-item grid__item color-{{ section.settings.color_scheme }}">
+          <div id="ImageWithText--{{ section.id }}"
+            class="image-with-text__content image-with-text__content--bottom image-with-text__content--desktop-left image-with-text__content--mobile-left image-with-text__content--adapt content-container background-transparent"
+          >
+            <h2 class="image-with-text__heading inline-richtext h1" {{ section.shopify_attributes }}>{{ section.settings.heading }}</h2>      
+            <div class="image-with-text__text rte body" {{ section.shopify_attributes }}>{{ section.settings.text }}</div>
+
+            {%- if section.settings.button_label != blank -%}
+              <a href="https://piaolsen.com/" class="button button--primary" target = "_blank" {{ section.shopify_attributes }}>
+                {{- section.settings.button_label | escape -}}
+              </a>
+            {%- endif -%}
+          </div>
+        </div>
+        {%  if section.settings.environment != blank %}
+        <div class="piaolsen-presentation gradient isolate">
+          {{
+                section.settings.environment
+                | image_url: width: 1500
+                | image_tag: sizes: sizes, widths: widths, fetchpriority: fetch_priority
+              }}
+        </div>
+        {%  endif %}
+      </div>
+    </div>
+    {%  if false %}
+    <div class="rich-text content-container rich-text--full-width content-container--full-width">
+    <div class="rich-text__wrapper rich-text__wrapper--center page-width">
+      <div class="rich-text__blocks center">
+              <div class="rich-text__buttons{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}" {{ section.shopify_attributes }}>
+                {%- if section.settings.button_label != blank -%}
+                  <a href="https://piaolsen.com/" class="button button--primary" target = "_blank">
+                    {{- section.settings.button_label | escape -}}
+                  </a>
+                {%- endif -%}
+              </div>
+      </div>
+    </div>
+    </div>
+    {% endif %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Pia · Præsentation",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [      
+    {
+      "type": "image_picker",
+      "id": "pia",
+      "label": "Pia"
+    },
+    {
+      "type": "select",
+      "id": "desktop_image_width",
+      "options": [
+        {
+          "value": "small",
+          "label": "Lille"
+        },
+        {
+          "value": "medium",
+          "label": "Mellem"
+        },
+        {
+          "value": "large",
+          "label": "Stor"
+        }
+      ],
+      "default": "medium",
+      "label": "... vises i denne størrelse (på computeren)"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Overskrift",
+      "default": "Overskrift"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Beskrivelse",
+      "default": "<p>Blah, blah, blah, blah, blah, blah, blah, blah, blah, blah, blah, blah, blah, blah, blah, blah, blah, blah, blah, blah, blah, blah, blah, blah, blah.</p>"
+    },  
+    {
+      "type": "image_picker",
+      "id": "environment",
+      "label": "Miljø"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "default": "Besøg piaolsen.com >",
+      "label": "Tekst på 'piaolsen.com'-knappen"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Farvepalette i brug:",
+      "default": "scheme-1"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Pia · Præsentation"
+    }
+  ]
+}
+{% endschema %}
