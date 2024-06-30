@@ -1,0 +1,110 @@
+{{ 'piaolsen.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign section_padding_top = 0
+  assign section_padding_bottom = 36
+-%}
+
+{%- style -%}
+  /* Desktop & Mobile *****************************************************************************/
+
+  .section-{{ section.id }} {
+    padding-top: {{ section_padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section_padding_bottom | times: 0.75 | round: 0 }}px;
+    text-align: center;
+    border: none;
+  }
+
+  .section-{{ section.id }} .piaolsen-logo {
+    width: {{ settings.page_width | divided_by: 5 }}px; 
+    display: inline-block;
+  }
+
+  .section-{{ section.id }} .piaolsen-logo img {
+    max-width: 100%;
+    height: auto;
+    width: auto\9; /* ie8 */
+  }
+
+  /* Desktop **************************************************************************************/
+  
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }} {
+      padding-top: {{ section_padding_top }}px;
+      padding-bottom: {{ section_padding_bottom }}px;
+    }
+
+    .section-{{ section.id }} .piaolsen-logo {
+      width: {{ settings.page_width | divided_by: 4 }}px; 
+    }
+  }    
+{%- endstyle -%}
+
+<div class="section-{{ section.id }} isolate global-media-settings{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
+  <div class="piaolsen-logo">
+    <div>
+      {%- if section.settings.eyecatcher != blank -%}
+        {{
+          section.settings.eyecatcher
+          | image_url: width: section.settings.eyecatcher.width
+          | image_tag:
+            width: section.settings.eyecatcher.width,
+            height: section.settings.eyecatcher.height,
+            fetchpriority: "high"
+        }}
+      {%- else -%}
+        {{ 'hero-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
+      {%- endif -%}
+    </div>
+
+    {%- if section.settings.logo != blank -%}
+      <div>
+         {{
+          section.settings.logo
+          | image_url: width: section.settings.logo.width
+          | image_tag:
+            width: section.settings.logo.width,
+            height: section.settings.logo.height,
+            fetchpriority: "high"
+        }}
+      </div>
+    {%- endif -%}  
+  </div>
+  {%- if section.settings.text != blank -%}
+    <div {{ section.shopify_attributes }}>{{ section.settings.text }}</div>
+  {%- endif -%}  
+</div>
+
+{% schema %}
+{
+  "name": "Pia · Logo",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header","footer"]
+  },
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "eyecatcher",
+      "label": "Blikfang:"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo:"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Undertekst:",
+      "default": "<p>Blah, blah, blah, blah, blah</p>"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Pia · Logo"
+    }
+  ]
+}
+{% endschema %}

@@ -1,5 +1,5 @@
+{{ 'piaolsen.css' | asset_url | stylesheet_tag }}
 {{ 'component-image-with-text.css' | asset_url | stylesheet_tag }}
-
 {{ 'component-card.css' | asset_url | stylesheet_tag }}
 {{ 'component-price.css' | asset_url | stylesheet_tag }}
 {{ 'component-slider.css' | asset_url | stylesheet_tag }}
@@ -7,7 +7,11 @@
 
 {%- liquid
   assign section_padding_top = 72
-  assign section_padding_bottom = 108
+  assign section_padding_bottom = 96
+  assign top_padding_bottom = 0
+  if section.settings.hide-collection
+    assign top_padding_bottom = section_padding_bottom
+  endif
   assign desktop_grid_padding_top = 48
   assign desktop_grid_padding_bottom = 24
   assign mobile_grid_padding_bottom = 24
@@ -17,20 +21,14 @@
 %}
 
 {%- style -%}
-  /* Desktop & Mobile **************************************************************************************/
-  /* Global header: */
-  .section-header .header-wrapper--border-bottom {
-    border-bottom: none !important;
-  }
+  /* Desktop & Mobile *****************************************************************************/
 
   /* Section: */
-  .section-{{ section.id }} .the-top {
+  .section-{{ section.id }} .piaolsen-section-top {
     border-top: 1px solid #bbb;
     padding-top: {{ section_padding_top | times: 0.75 | round: 0 }}px;
   } 
-  #MainContent > div:first-of-type .the-top {
-  }
-  .section-{{ section.id }} .the-bottom {
+  .section-{{ section.id }} .piaolsen-section-bottom {
     padding-bottom: {{ section_padding_bottom | times: 0.75 | round: 0 }}px;
   }
   
@@ -40,17 +38,22 @@
     padding-bottom: {{ mobile_description_padding_bottom }}px;
   }
   
-  /* Overskriftsbillede: */
+  /* Topbillede: */
   .section-{{ section.id }} .image-with-text__media {
     border: none;
   }
+
+  /* Overskrift + Beskrivelse + Topbillede */
+  .section-{{ section.id }} .image-with-text__grid {
+    padding-bottom: {{ top_padding_bottom | times: 0.75 | round: 0 }}px;
+  }
   
-  /* Produktgrid: */
+  /* Produkter: */
   .section-{{ section.id }} .collection {
     padding-bottom: {{ mobile_grid_padding_bottom }}px;
   }
   
-  /* Produktthumbnail: */
+  /* Produkt-thumbnail: */
   .section-{{ section.id }} ul > li .card {
   }
   .section-{{ section.id }} ul > li:first-child .card {
@@ -59,12 +62,13 @@
   }  
   
   /* Desktop **************************************************************************************/
+  
   @media screen and (min-width: 750px) {
     /* Section: */
-    .section-{{ section.id }} .the-top {
+    .section-{{ section.id }} .piaolsen-section-top {
       padding-top: {{ section_padding_top }}px;
     }
-    .section-{{ section.id }} .the-bottom {
+    .section-{{ section.id }} .piaolsen-section-bottom {
       padding-bottom: {{ section_padding_bottom }}px;
     }
     
@@ -73,16 +77,21 @@
       padding-bottom: {{ desktop_description_padding_bottom }}px;
     }
     
-    /* Overskriftsbillede: */
+    /* Topbillede: */
     .section-{{ section.id }} .image-with-text__media {
     }
+
+    /* Overskrift + Beskrivelse + Topbillede */
+    .section-{{ section.id }} .image-with-text__grid {
+      padding-bottom: {{ top_padding_bottom }}px;
+    }
     
-    /* Produktgrid: */
+    /* Produkter: */
     .section-{{ section.id }} .collection {
       padding: {{ desktop_grid_padding_top }}px 0 {{ desktop_grid_padding_bottom }}px 0;
     }
     
-    /* Produktthumbnail: */
+    /* Produkt-thumbnail: */
     .section-{{ section.id }} ul > li .card {
       margin: 0 {{ desktop_thumbnail_padding_horizontal }}px 0 0;
     }
@@ -99,41 +108,54 @@
     assign fetch_priority = 'high'
   endif
 
-  assign products_to_display = section.settings.collection.all_products_count
-  if section.settings.collection.all_products_count > section.settings.products_to_show
-    assign products_to_display = section.settings.products_to_show
+  assign teaser_image = section.settings.image
+  if teaser_image == blank
+    assign teaser_image = section.settings.collection.image
   endif
 
-  assign columns_mobile_int = section.settings.columns_mobile | plus: 0
-  assign show_mobile_slider = false
-  if false and products_to_display > columns_mobile_int
+  unless section.settings.hide-collection 
+    assign collection = section.settings.collection
+    assign handle = collection.handle | append: "-teaser"
+    if collections[handle] and collections[handle].all_products_count > 0
+      assign collection = collections[handle]
+    endif
+
+    assign products_to_display = collection.all_products_count
+    if collection.all_products_count > section.settings.products_to_show
+      assign products_to_display = section.settings.products_to_show
+    endif
+
+    assign columns_mobile_int = section.settings.columns_mobile | plus: 0
     assign show_mobile_slider = true
-  endif
-  assign show_desktop_slider = false
-  if false and products_to_display > section.settings.columns_desktop
-    assign show_desktop_slider = true
-  endif
+    if false and products_to_display > columns_mobile_int
+      assign show_mobile_slider = true
+    endif
+    assign show_desktop_slider = false
+    if false and products_to_display > section.settings.columns_desktop
+      assign show_desktop_slider = true
+    endif
+  endunless
 -%}
 
 <div class="section-{{ section.id }} gradient isolate color-{{ section.settings.color_scheme }}">
-  <div class="the-top page-width">
+  <div class="piaolsen-section-top page-width">
     <div class="image-with-text image-with-text--no-overlap isolate{% if settings.text_boxes_border_thickness > 0 and settings.text_boxes_border_opacity > 0 and settings.media_border_thickness > 0 and settings.media_border_opacity > 0 %} collapse-borders{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
       <div class="image-with-text__grid grid grid--gapless grid--1-col grid--{% if section.settings.desktop_image_width == 'medium' %}2-col-tablet{% else %}3-col-tablet{% endif %} image-with-text__grid--reverse">
         <div class="image-with-text__media-item image-with-text__media-item--{{ section.settings.desktop_image_width }} image-with-text__media-item--bottom grid__item">
           <div
-            class="image-with-text__media image-with-text__media--adapt global-media-settings background-transparent{% if section.settings.image != blank %} media{% else %} image-with-text__media--placeholder placeholder{% endif %}"
-            {% if section.settings.image != blank %}
-              style="padding-bottom: {{ 1 | divided_by: section.settings.image.aspect_ratio | times: 100 }}%;"
+            class="image-with-text__media image-with-text__media--adapt global-media-settings background-transparent{% if teaser_image != blank %} media{% else %} image-with-text__media--placeholder placeholder{% endif %}"
+            {% if teaser_image != blank %}
+              style="padding-bottom: {{ 1 | divided_by: teaser_image.aspect_ratio | times: 100 }}%;"
             {% endif %}
           >
-            {%- if section.settings.image != blank -%}
+            {%- if teaser_image != blank -%}
               {%- assign widths = '165, 360, 535, 750, 1070, 1500' -%}
-                {%- capture sizes -%}
-              (min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px,
-              (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)
-                {%- endcapture -%}
-                {{
-                section.settings.image
+              {%- capture sizes -%}
+                (min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px,
+                (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)
+              {%- endcapture -%}
+              {{
+                teaser_image
                 | image_url: width: 1500
                 | image_tag: sizes: sizes, widths: widths, fetchpriority: fetch_priority
               }}
@@ -154,7 +176,7 @@
     </div>
   </div>
 
-  {% if section.settings.hide-collection == false %}
+{% unless section.settings.hide-collection %}
   <div class="collection" id="collection-{{ section.id }}" data-id="{{ section.id }}">
     <slider-component class="slider-mobile-gutter{% if show_mobile_slider == false %} page-width{% endif %}{% if show_desktop_slider == false %} page-width-desktop{% endif %}{% if show_desktop_slider %} slider-component-desktop{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
       <ul
@@ -163,9 +185,9 @@
         class="grid product-grid contains-card contains-card--product{% if settings.card_style == 'standard' %} contains-card--standard{% endif %} grid--{{ section.settings.columns_desktop }}-col-desktop{% if section.settings.collection == blank %} grid--2-col-tablet-down{% else %} grid--{{ section.settings.columns_mobile }}-col-tablet-down{% endif %}{% if show_mobile_slider or show_desktop_slider %} slider{% if show_desktop_slider %} slider--desktop{% endif %}{% if show_mobile_slider %} slider--tablet grid--peek{% endif %}{% endif %}"
         role="list"
         aria-label="{{ 'general.slider.name' | t }}"
-      >
+      > 
         {% assign skip_card_product_styles = false %}
-        {%- for product in section.settings.collection.products limit: section.settings.products_to_show -%}
+        {%- for product in collection.products limit: section.settings.products_to_show -%}
           <li
             id="Slide-{{ section.id }}-{{ forloop.index }}"
             class="grid__item{% if show_mobile_slider or show_desktop_slider %} slider__slide{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
@@ -245,13 +267,9 @@
         </div>
       {%- endif -%}
     </slider-component>
-
-    {% if section.settings.image_shape == 'arch' %}
-      {% render 'mask-arch' %}
-    {%- endif -%}
   </div>
 
-  <div class="the-bottom rich-text content-container rich-text--full-width content-container--full-width">
+  <div class="piaolsen-section-bottom rich-text content-container rich-text--full-width content-container--full-width">
     <div class="rich-text__wrapper rich-text__wrapper--center page-width">
       <div class="rich-text__blocks center">
               <div
@@ -278,7 +296,7 @@
       </div>
     </div>
   </div>
-  {% endif %}
+{% endunless %}
 </div>
 
 {% schema %}
@@ -290,9 +308,15 @@
   },
   "settings": [ 
     {
+      "type": "collection",
+      "id": "collection",
+      "label": "Kollektion:"
+    },      
+    {
       "type": "image_picker",
       "id": "image",
-      "label": "I toppen vises billedet:"
+      "label": "Topbillede:",
+      "info": "(Hvis du ikke vælger et billede her, så vises blot billedet fra kollektionen)"
     },
     {
       "type": "select",
@@ -312,25 +336,20 @@
         }
       ],
       "default": "medium",
-      "label": "... i denne her størrelse (på computeren):"
+      "label": "... vises i denne størrelse (på computeren):"
     },
     {
       "type": "inline_richtext",
       "id": "heading",
-      "label": "I overskriften står der:",
+      "label": "Overskrift:",
       "default": "Overskrift"
     },
     {
       "type": "richtext",
       "id": "text",
-      "label": "Kollektionen beskrives med:",
+      "label": "Beskrivelse:",
       "default": "<p>Blah, blah, blah, blah, blah, blah, blah, blah, blah, blah, blah, blah, blah, blah, blah, blah, blah, blah, blah, blah, blah, blah, blah, blah, blah.</p>"
-    },
-    {
-      "type": "collection",
-      "id": "collection",
-      "label": "Kollektionen det hele handler om:"
-    },    
+    },  
     {
       "type": "range",
       "id": "products_to_show",

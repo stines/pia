@@ -1,0 +1,11 @@
+/* Desktop & Mobile *****************************************************************************/
+
+.section-header .header-wrapper--border-bottom {
+  border-bottom: none !important;
+}
+
+/* Desktop **************************************************************************************/
+
+@media screen and (min-width: 750px) {
+
+}
