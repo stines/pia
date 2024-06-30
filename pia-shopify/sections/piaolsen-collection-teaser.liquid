@@ -15,7 +15,7 @@
   assign desktop_grid_padding_top = 48
   assign desktop_grid_padding_bottom = 24
   assign mobile_grid_padding_bottom = 24
-  assign desktop_thumbnail_padding_horizontal = 12
+  assign desktop_thumbnail_padding_horizontal = 24
   assign desktop_description_padding_bottom = 0
   assign mobile_description_padding_bottom = 24
 %}
@@ -356,13 +356,13 @@
       "min": 2,
       "max": 8,
       "step": 1,
-      "default": 4,
+      "default": 3,
       "label": "Der vises ikke flere thumbnails end"
     },
     {
       "type": "select",
       "id": "columns_desktop",
-      "default": "4",
+      "default": "3",
       "label": "# kolonner på computer",
       "options": [
         {
