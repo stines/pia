@@ -11,8 +11,8 @@
   --piaolsen-spacing__section--bottom: 80px;
 
   --piaolsen-spacing__section__collection-teaser__title--bottom: 8px;
-  --piaolsen-spacing__section__collection-teaser__product-grid__product_info--top: 4px;
-  --piaolsen-spacing__section__collection-teaser__product-grid__product_info--vertical: 4px;
+  --piaolsen-spacing__section__collection-teaser__product-grid__product_info--top: 10px;
+  --piaolsen-spacing__section__collection-teaser__product-grid__product_info--vertical: 2px;
 
   --piaolsen-spacing__footer--top: 36px;
 }
