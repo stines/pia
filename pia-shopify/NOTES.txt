@@ -1,3 +1,37 @@
 Forsiden: routes.root_url
 
 Hus-ikon: https://www.svgrepo.com/svg/504478/ikea-home-smart
+
+----
+
+Kollektioner:
+
+* Til børn: 
+
+Sager til børn
+Rangler, melodibamser, plakater, bøger, snakkekort, bogstaver.
+
+* Originaltegninger:
+
+Originaler til væggen
+Sort tusch og akvarel på håndlavet offsetpapir.
+
+* Kollager:
+
+Portrætter i kollage
+Småknotne men cool kollager.
+
+* Yoga:
+
+Krop og sjæl
+Begynd dagen med en solhilsen?
+
+* Hætter:
+
+Syede hætter
+Tehætter, kaffehætter og æggevarmere med personlighed.
+
+
+Pia Olsen:
+
+Pia Olsen illustrerer til magasiner, bøger, web, kampagner, animation.
