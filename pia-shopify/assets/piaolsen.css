@@ -6,38 +6,39 @@
 
   --piaolsen-spacing__page_width: 1.5rem;
 
-  --piaolsen-spacing__section--top: 140px;
-  --piaolsen-spacing__section--bottom: 140px;
+  --piaolsen-spacing__section--top: 40px;
+  --piaolsen-spacing__section--bottom: 80px;
 
-  --piaolsen-spacing__section__collection-teaser__title--bottom: 4px;
+  --piaolsen-spacing__section__collection-teaser__title--bottom: 8px;
   --piaolsen-spacing__section__collection-teaser__product-grid__product_info--top: 4px;
+  --piaolsen-spacing__section__collection-teaser__product-grid__product_info--vertical: 4px;
 
-  --piaolsen-spacing__footer--top: 44px;
+  --piaolsen-spacing__footer--top: 36px;
 }
 
 /* Mobile **/
 @media screen and (max-width: 750px) {
   :root {
-    --piaolsen-spacing__section__collection-teaser__body--top: 12px;
-    --piaolsen-spacing__section__collection-teaser__body--bottom: 18px;
+    --piaolsen-spacing__section__collection-teaser__body--top: 20px;
+    --piaolsen-spacing__section__collection-teaser__body--bottom: 28px;
 
-    --piaolsen-spacing__section__collection-teaser__product-grid--top: 12px;
+    --piaolsen-spacing__section__collection-teaser__product-grid--top: 16px;
     --piaolsen-spacing__section__collection-teaser__product-grid--left: 0;
-    --piaolsen-spacing__section__collection-teaser__product-grid--horizontal: 12px;
-    --piaolsen-spacing__section__collection-teaser__product-grid--vertical: 12px;
+    --piaolsen-spacing__section__collection-teaser__product-grid--horizontal: 16px;
+    --piaolsen-spacing__section__collection-teaser__product-grid--vertical: 16px;
   }
 }
 
 /* Desktop **/
 @media screen and (min-width: 750px) {
   :root {
-    --piaolsen-spacing__section__collection-teaser__body--top: 12px;
-    --piaolsen-spacing__section__collection-teaser__body--bottom: 24px;
+    --piaolsen-spacing__section__collection-teaser__body--top: 20px;
+    --piaolsen-spacing__section__collection-teaser__body--bottom: 36px;
 
     --piaolsen-spacing__section__collection-teaser__product-grid--top: 0;
-    --piaolsen-spacing__section__collection-teaser__product-grid--left: 12px;
-    --piaolsen-spacing__section__collection-teaser__product-grid--horizontal: 12px;
-    --piaolsen-spacing__section__collection-teaser__product-grid--vertical: 12px;
+    --piaolsen-spacing__section__collection-teaser__product-grid--left: 16px;
+    --piaolsen-spacing__section__collection-teaser__product-grid--horizontal: 16px;
+    --piaolsen-spacing__section__collection-teaser__product-grid--vertical: 16px;
   }
 }
 
