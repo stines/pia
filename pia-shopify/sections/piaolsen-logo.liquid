@@ -1,78 +1,79 @@
 {{ 'piaolsen.css' | asset_url | stylesheet_tag }}
 
-{%- liquid
-  assign section_padding_top = 0
-  assign section_padding_bottom = 36
--%}
-
 {%- style -%}
-  /* Desktop & Mobile *****************************************************************************/
+  /* Desktop & Mobile **/
 
   .section-{{ section.id }} {
-    padding-top: {{ section_padding_top | times: 0.75 | round: 0 }}px;
-    padding-bottom: {{ section_padding_bottom | times: 0.75 | round: 0 }}px;
     text-align: center;
     border: none;
   }
 
-  .section-{{ section.id }} .piaolsen-logo {
-    width: {{ settings.page_width | divided_by: 5 }}px; 
+  .piaolsen-section-logo {
     display: inline-block;
   }
 
-  .section-{{ section.id }} .piaolsen-logo img {
+  .piaolsen-section-logo img {
     max-width: 100%;
     height: auto;
     width: auto\9; /* ie8 */
   }
 
-  /* Desktop **************************************************************************************/
-  
-  @media screen and (min-width: 750px) {
-    .section-{{ section.id }} {
-      padding-top: {{ section_padding_top }}px;
-      padding-bottom: {{ section_padding_bottom }}px;
-    }
+  .piaolsen-section-logo__eyecatcher {
+    display: inline-block;
+    width: 80%;
+  }
 
-    .section-{{ section.id }} .piaolsen-logo {
-      width: {{ settings.page_width | divided_by: 4 }}px; 
+  /* Mobile **/
+
+  @media screen and (max-width: 749px) {
+    .piaolsen-section-logo {
+      width: {{ settings.page_width | divided_by: 4.5 }}px;
     }
-  }    
+  }
+
+  /* Desktop **/
+
+  @media screen and (min-width: 750px) {
+    .piaolsen-section-logo {
+      width: {{ settings.page_width | divided_by: 3.75 }}px;
+    }
+  }
 {%- endstyle -%}
 
 <div class="section-{{ section.id }} isolate global-media-settings{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
-  <div class="piaolsen-logo">
-    <div>
-      {%- if section.settings.eyecatcher != blank -%}
-        {{
-          section.settings.eyecatcher
-          | image_url: width: section.settings.eyecatcher.width
-          | image_tag:
-            width: section.settings.eyecatcher.width,
-            height: section.settings.eyecatcher.height,
-            fetchpriority: "high"
-        }}
-      {%- else -%}
-        {{ 'hero-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
-      {%- endif -%}
-    </div>
+  <div class="page-width">
+    <div class="piaolsen-section piaolsen-section--no-top-space">
+      <div class="piaolsen-section-logo">
+        {%- if section.settings.eyecatcher != blank -%}
+          <div class="piaolsen-section-logo__eyecatcher">
+            {%- liquid
+              assign eyecatcher_width = section.settings.eyecatcher.width
+              assign eyecatcher_height = section.settings.eyecatcher.width
+            -%}
+            {{
+              section.settings.eyecatcher
+              | image_url: width: eyecatcher_width
+              | image_tag: width: eyecatcher_width, height: eyecatcher_height, fetchpriority: 'high'
+            }}
+          </div>
+        {%- endif -%}
 
-    {%- if section.settings.logo != blank -%}
-      <div>
-         {{
-          section.settings.logo
-          | image_url: width: section.settings.logo.width
-          | image_tag:
-            width: section.settings.logo.width,
-            height: section.settings.logo.height,
-            fetchpriority: "high"
-        }}
+        {%- if section.settings.logo != blank -%}
+          {{
+            section.settings.logo
+            | image_url: width: section.settings.logo.width
+            | image_tag: width: section.settings.logo.width, height: section.settings.logo.height, fetchpriority: 'high'
+          }}
+        {%- endif -%}
+
+        {%- if section.settings.show_text and section.settings.text != blank -%}
+          <div class="rte {{ section.settings.text_style }}" {{ settings.shopify_attributes }}>
+            {{ section.settings.text }}
+          </div>
+        {%- endif -%}
       </div>
-    {%- endif -%}  
+    </div>
   </div>
-  {%- if section.settings.text != blank -%}
-    <div {{ section.shopify_attributes }}>{{ section.settings.text }}</div>
-  {%- endif -%}  
 </div>
 
 {% schema %}
@@ -95,10 +96,36 @@
       "label": "Logo"
     },
     {
-      "type": "richtext",
+      "type": "text",
       "id": "text",
       "label": "Undertekst",
-      "default": "<p>Blah, blah, blah, blah, blah</p>"
+      "default": "Blah, blah, blah, blah, blah"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_text",
+      "label": "Vis undertekst",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "text_style",
+      "label": "Undertekststil",
+      "options": [
+        {
+          "value": "body",
+          "label": "t:sections.featured-collection.settings.description_style.options__1.label"
+        },
+        {
+          "value": "subtitle",
+          "label": "t:sections.featured-collection.settings.description_style.options__2.label"
+        },
+        {
+          "value": "uppercase",
+          "label": "t:sections.featured-collection.settings.description_style.options__3.label"
+        }
+      ],
+      "default": "subtitle"
     }
   ],
   "presets": [

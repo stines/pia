@@ -1,19 +1,74 @@
-/* Desktop & Mobile *****************************************************************************/
+/* Desktop & Mobile **/
+:root {
+  --piaolsen-separator__width: 1px;
+  --piaolsen-separator__color: black;
+  --piaolsen-separator__style: solid;
 
-.section-header .header-wrapper--border-bottom {
-  border-bottom: none !important;
+  --piaolsen-spacing__page_width: 1.5rem;
+
+  --piaolsen-spacing__section--top: 140px;
+  --piaolsen-spacing__section--bottom: 140px;
+
+  --piaolsen-spacing__section__collection-teaser__title--bottom: 4px;
+  --piaolsen-spacing__section__collection-teaser__product-grid__product_info--top: 4px;
+
+  --piaolsen-spacing__footer--top: 44px;
+}
+
+/* Mobile **/
+@media screen and (max-width: 750px) {
+  :root {
+    --piaolsen-spacing__section__collection-teaser__body--top: 12px;
+    --piaolsen-spacing__section__collection-teaser__body--bottom: 18px;
+
+    --piaolsen-spacing__section__collection-teaser__product-grid--top: 12px;
+    --piaolsen-spacing__section__collection-teaser__product-grid--left: 0;
+    --piaolsen-spacing__section__collection-teaser__product-grid--horizontal: 12px;
+    --piaolsen-spacing__section__collection-teaser__product-grid--vertical: 12px;
+  }
+}
+
+/* Desktop **/
+@media screen and (min-width: 750px) {
+  :root {
+    --piaolsen-spacing__section__collection-teaser__body--top: 12px;
+    --piaolsen-spacing__section__collection-teaser__body--bottom: 24px;
+
+    --piaolsen-spacing__section__collection-teaser__product-grid--top: 0;
+    --piaolsen-spacing__section__collection-teaser__product-grid--left: 12px;
+    --piaolsen-spacing__section__collection-teaser__product-grid--horizontal: 12px;
+    --piaolsen-spacing__section__collection-teaser__product-grid--vertical: 12px;
+  }
+}
+
+/** ---- */
+
+/* Desktop & Mobile **/
+.piaolsen-section {
+  border-width: var(--piaolsen-separator__width);
+  border-style: hidden hidden var(--piaolsen-separator__style) hidden;
+  border-color: var(--piaolsen-separator__color);
+
+  padding-top: var(--piaolsen-spacing__section--top);
+  padding-bottom: var(--piaolsen-spacing__section--bottom);
+}
+
+.piaolsen-section--no-top-space {
+  padding-top: 0 !important;
+}
+
+.piaolsen-section--no-bottom-border {
+  border-style: hidden !important;
 }
 
 .image-with-text__media {
   border: none;
 }
 
-.piaolsen-section-top {
-  border-top: 1px solid #bbb;
-}  
+/* Mobile **/
+@media screen and (max-width: 750px) {
+}
 
-/* Desktop **************************************************************************************/
-
+/* Desktop **/
 @media screen and (min-width: 750px) {
-
 }
