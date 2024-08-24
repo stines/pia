@@ -2,10 +2,10 @@
 
 {%- style -%}
   /* Desktop & Mobile **/
-
   .section-{{ section.id }} {
     text-align: center;
     border: none;
+    overflow: hidden !important;
   }
 
   .piaolsen-section-logo {
@@ -16,11 +16,16 @@
     max-width: 100%;
     height: auto;
     width: auto\9; /* ie8 */
-  }
+  } 
 
   .piaolsen-section-logo__eyecatcher {
     display: inline-block;
     width: 80%;
+  }
+
+  .piaolsen-section-logo__logo {
+    display: inline-block;
+    width: 100%;
   }
 
   /* Mobile **/
@@ -59,11 +64,16 @@
         {%- endif -%}
 
         {%- if section.settings.logo != blank -%}
-          {{
-            section.settings.logo
-            | image_url: width: section.settings.logo.width
-            | image_tag: width: section.settings.logo.width, height: section.settings.logo.height, fetchpriority: 'high'
-          }}
+          <div class="piaolsen-section-logo__logo">
+            {{
+              section.settings.logo
+              | image_url: width: section.settings.logo.width
+              | image_tag:
+                width: section.settings.logo.width,
+                height: section.settings.logo.height,
+                fetchpriority: 'high'
+            }}
+          </div>
         {%- endif -%}
 
         {%- if section.settings.show_text and section.settings.text != blank -%}
