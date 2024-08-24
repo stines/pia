@@ -1,4 +1,5 @@
 /* Desktop & Mobile **/
+
 :root {
   --piaolsen-separator__width: 1px;
   --piaolsen-separator__color: black;
@@ -36,7 +37,7 @@
     --piaolsen-spacing__section__collection-teaser__body--bottom: 36px;
 
     --piaolsen-spacing__section__collection-teaser__product-grid--top: 0;
-    --piaolsen-spacing__section__collection-teaser__product-grid--left: 16px;
+    --piaolsen-spacing__section__collection-teaser__product-grid--left: 20px;
     --piaolsen-spacing__section__collection-teaser__product-grid--horizontal: 16px;
     --piaolsen-spacing__section__collection-teaser__product-grid--vertical: 16px;
   }
