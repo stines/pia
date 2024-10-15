@@ -28,7 +28,7 @@
 
 <div class="section-{{ section.id }} {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
   <div class="page-width">
-    <div class="piaolsen-section piaolsen-section--no-bottom-border">
+    <div class="piaolsen-section piaolsen-section--no-bottom-border piaolsen-section--no-bottom-space">
       <div class="image-with-text image-with-text--no-overlap isolate{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
         <div class="image-with-text__grid grid grid--gapless grid--1-col grid--{% if section.settings.desktop_image_width == 'medium' %}2-col-tablet{% else %}3-col-tablet{% endif %}">
           <div class="image-with-text__media-item image-with-text__media-item--{{ section.settings.desktop_image_width }} image-with-text__media-item--bottom grid__item">

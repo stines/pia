@@ -1,0 +1,72 @@
+{{ 'piaolsen.css' | asset_url | stylesheet_tag }}
+
+{% comment %}theme-check-disable UndefinedObject{% endcomment %}
+{{ 'component-list-social.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .piaolsen-footer-info .rte {
+    text-align: center;
+  }
+  
+  .piaolsen-footer-info .footer__list-social.list-social {
+    display: flex;
+    justify-content: center;
+  }
+
+  .piaolsen-footer-info .footer__list-social {
+    margin-top: var(--piaolsen-spacing__footer__info__social--top);
+  }
+{%- endstyle -%}
+
+{%- liquid
+  assign show_social = section.settings.show_social
+  if settings.social_facebook_link == blank and settings.social_instagram_link == blank and settings.social_youtube_link == blank and settings.social_tiktok_link == blank and settings.social_twitter_link == blank and settings.social_pinterest_link == blank and settings.social_snapchat_link == blank and settings.social_tumblr_link == blank and settings.social_vimeo_link == blank
+    assign show_social = false
+  endif
+-%}
+
+<footer class="footer">
+  <div class="page-width"><div class="piaolsen-footer piaolsen-footer-info color-{{ section.settings.color_scheme }} gradient">
+      <div class="rte">{{ section.settings.info }}</div>
+
+      {%- if show_social -%}
+        {%- render 'social-icons', class: 'footer__list-social' -%}
+      {%- endif -%}
+    </div>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Pia · Kontaktinfo",
+  "class": "section-footer",
+  "disabled_on": {
+    "groups": ["header"]
+  },
+  "settings": [
+    {
+      "type": "richtext",
+      "id": "info",
+      "default": "<p>Skriv og formatér kontaktinfo her</p>",
+      "label": "Kontaktinfo"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_social",
+      "default": true,
+      "label": "t:sections.footer.settings.show_social.label"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-1"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Pia · Kontaktinfo"
+    }
+  ]
+}
+{% endschema %}

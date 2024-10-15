@@ -117,8 +117,8 @@
   endif
 -%}
 
-<div class="section-{{ section.id }} isolate {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
-  <div class="page-width"><div class="piaolsen-section">
+<div class="section-{{ section.id }} isolate {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}" style="overflow: hidden;">
+  <div class="page-width"><div class="piaolsen-section piaolsen-section--no-top-border">
     {% assign make_title_page_width = false %}
     <div class="{% unless make_title_page_width %}title-wrapper--self-padded-mobile {% endunless %}title-wrapper--no-top-margin">
       {%- # Title: -%}

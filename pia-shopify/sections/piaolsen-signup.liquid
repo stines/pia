@@ -1,0 +1,193 @@
+{{ 'piaolsen.css' | asset_url | stylesheet_tag }}
+
+{% comment %}theme-check-disable UndefinedObject{% endcomment %}
+{{ 'section-footer.css' | asset_url | stylesheet_tag }}
+{{ 'component-newsletter.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign vignette_width = section.settings.vignette.width | divided_by: 2
+  assign vignette_height = section.settings.vignette.height | divided_by: 2
+  assign vignette_mobile_factor = 1
+-%}
+
+{%- style -%}
+  /* Desktop & Mobile **/
+  .footer-block--newsletter {
+    padding-top: var(--piaolsen-spacing__footer--top);
+    padding-bottom: var(--piaolsen-spacing__footer--bottom);    
+  }
+  
+  .piaolsen-section-footer__vignette--right {
+    position: absolute;
+  }
+  
+  /* Mobile **/
+  @media screen and (max-width: 749px) {  
+    .piaolsen-section-footer__vignette--top, .piaolsen-section-footer__vignette--right {
+      right: {{ vignette_width | divided_by: vignette_mobile_factor | plus: 10 | times: -1 }}px;
+      top: {{ vignette_height | divided_by: vignette_mobile_factor | divided_by: 2 | minus: 8 | times: -1 }}px;
+    }
+
+    .piaolsen-section-footer__vignette--top img, .piaolsen-section-footer__vignette--right img {
+      width: {{ vignette_width | divided_by: vignette_mobile_factor }}px;
+      height: {{ vignette_height | divided_by: vignette_mobile_factor }}px;
+    }
+  }
+  
+  /* Desktop **/
+  @media screen and (min-width: 750px) {
+    .piaolsen-section-footer__vignette--top, .piaolsen-section-footer__vignette--right {
+      right: {{ vignette_width | plus: 25 | times: -1 }}px;
+      top: {{ vignette_height | divided_by: 2 | plus: 5 | times: -1 }}px;
+    }
+
+    .piaolsen-section-footer__vignette--top img, .piaolsen-section-footer__vignette--right img {
+      width: {{ vignette_width }}px;
+      height: {{ vignette_height }}px;
+    }
+  }
+{%- endstyle -%}
+
+<footer class="footer">
+    <div class="page-width"><div class="piaolsen-footer">
+      <div  
+        class="footer-block--newsletter{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+        {% if settings.animations_reveal_on_scroll %}
+          data-cascade
+        {% endif %}
+      >
+        <div class="footer-block__newsletter">
+          {%- if section.settings.vignette != blank and section.settings.vignette_position == 'top' -%}
+            <div class="piaolsen-section-footer__vignette--{{ section.settings.vignette_position }}">
+              {{ section.settings.vignette | image_url: width: vignette_width | image_tag: fetchpriority: 'high' }}
+            </div>
+          {%- endif -%}
+
+          {%- if section.settings.text != blank -%}
+            <h2 class="footer-block__heading inline-richtext">{{ section.settings.text }}</h2>
+          {%- endif -%}
+          {%- form 'customer', id: 'ContactFooter', class: 'footer__newsletter newsletter-form' -%}
+            <input type="hidden" name="contact[tags]" value="newsletter">
+            <div class="newsletter-form__field-wrapper">
+              <div class="field">
+                <input
+                  id="NewsletterForm--{{ section.id }}"
+                  type="email"
+                  name="contact[email]"
+                  class="field__input"
+                  value="{{ form.email }}"
+                  aria-required="true"
+                  autocorrect="off"
+                  autocapitalize="off"
+                  autocomplete="email"
+                  {% if form.errors %}
+                    autofocus
+                    aria-invalid="true"
+                    aria-describedby="ContactFooter-error"
+                  {% elsif form.posted_successfully? %}
+                    aria-describedby="ContactFooter-success"
+                  {% endif %}
+                  placeholder="{{ 'newsletter.label' | t }}"
+                  required
+                >
+                <label class="field__label" for="NewsletterForm--{{ section.id }}">{{ section.settings.placeholder }}</label>
+                <button
+                  type="submit"
+                  class="newsletter-form__button field__button"
+                  name="commit"
+                  id="Subscribe"
+                  aria-label="{{ 'newsletter.button_label' | t }}"
+                >
+                  {% render 'icon-arrow' %}
+                </button>
+
+                {%- if section.settings.vignette != blank and section.settings.vignette_position == 'right' -%}
+                  <div class="piaolsen-section-footer__vignette--{{ section.settings.vignette_position }}">
+                    {{
+                      section.settings.vignette
+                      | image_url: width: vignette_width
+                      | image_tag: fetchpriority: 'high'
+                    }}
+                  </div>
+                {%- endif -%}
+              </div>
+
+              {%- if form.errors -%}
+                <small class="newsletter-form__message form__message" id="ContactFooter-error">
+                  {%- render 'icon-error' -%}
+                  {{- form.errors.translated_fields.email | capitalize }}
+                  {{ form.errors.messages.email -}}
+                </small>
+              {%- endif -%}
+            </div>
+            {%- if form.posted_successfully? -%}
+              <h3
+                class="newsletter-form__message newsletter-form__message--success form__message"
+                id="ContactFooter-success"
+                tabindex="-1"
+                autofocus
+              >
+                {% render 'icon-success' -%}
+                {{- 'newsletter.success' | t }}
+              </h3>
+            {%- endif -%}
+          {%- endform -%}
+        </div>
+      </div>
+  </div></div>
+</footer>
+
+{% schema %}
+{
+  "name": "Pia · Tilmeld",
+  "class": "section-footer",
+  "disabled_on": {
+    "groups": ["header"]
+  },
+  "settings": [
+    {
+      "type": "header",
+      "content": "Emailtilmelding",
+      "info": "t:sections.footer.settings.header__1.info"
+    },
+    {
+      "type": "image_picker",
+      "id": "vignette",
+      "label": "Vignette"
+    },
+    {
+      "type": "select",
+      "id": "vignette_position",
+      "label": "Placering af vignette",
+      "options": [
+        {
+          "value": "top",
+          "label": "Over overskrift"
+        },
+        {
+          "value": "right",
+          "label": "Ved siden af mailfelt"
+        }
+      ],
+      "default": "top"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "text",
+      "default": "Tilmeld dig nyhedsbrevet?",
+      "label": "Tekst"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "placeholder",
+      "default": "@-adresse",
+      "label": "Hjælpetekst"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Pia · Tilmeld"
+    }
+  ]
+}
+{% endschema %}
